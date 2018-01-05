@@ -442,6 +442,412 @@ class Project extends Teamwork {
         })
     }
 
+    /**
+     * Add a Person to a project
+     * 
+     * @param  {Number}
+     * @param  {Number}
+     * @return {Promise}
+     */
+    addPeople(project_id, person_id) {
+        if (!project_id || !person_id) {
+            return this.handleError('No project id or person id provided')
+        }
+
+        return this.query({
+            method: 'POST',
+            path: `/projects/${project_id}/people/${person_id}.json`
+        })
+    }
+
+    /**
+     * Add / Remove multiple people from a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    people(project_id, people_object = {}) {
+        if (!project_id || !Object.keys(people_object).length) {
+            return this.handleError('No project id or people request object provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}/people.json`
+        }, people_object)
+    }
+
+    /**
+     * Remove a Person from a project
+     * 
+     * @param  {Number}
+     * @param  {Number}
+     * @return {Promise}
+     */
+    removePeople(project_id, person_id) {
+        if (!project_id || !person_id) {
+            return this.handleError('No project id or person id provided')
+        }
+
+        return this.query({
+            method: 'DELETE',
+            path: `/projects/${project_id}/people/${person_id}.json`
+        })
+    }
+
+    /**
+     * Get a Persons project permissions
+     * 
+     * @param  {Number}
+     * @param  {Number}
+     * @return {Promise}
+     */
+    getPermissions(project_id, person_id) {
+        if (!project_id || !person_id) {
+            return this.handleError('No project id or person id provided')
+        }
+
+        return this.query({
+            path: `/projects/${project_id}/people/${person_id}.json`
+        })
+    }
+
+    /**
+     * Update a Persons project permissions
+     * 
+     * @param  {Number}
+     * @param  {Number}
+     * @return {Promise}
+     */
+    updatePermissions(project_id, person_id, permissons_object = {}) {
+        if (!project_id || !person_id || !Object.keys(permissons_object).length) {
+            return this.handleError('No project id or person id or permissions request object provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}/people/${person_id}.json`
+        }, permissons_object)
+    }
+
+    /**
+     * Create project
+     * 
+     * @param  {Object}
+     * @return {Promise}
+     */
+    create(project_object = {}) {
+        if (!Object.keys(project_object).length) {
+            return this.handleError('No project request object provided')
+        }
+
+        return this.query({
+            method: 'POST',
+            path: `/projects.json`
+        }, project_object)
+    }
+
+    /**
+     * Update a project
+     * 
+     * @param  {Object}
+     * @return {Promise}
+     */
+    update(project_id, project_object = {}) {
+        if (!project_id || !Object.keys(project_object).length) {
+            return this.handleError('No project id or project request object provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}.json`
+        }, project_object)
+    }
+
+    /**
+     * Delete a Project
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    delete(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            method: 'DELETE',
+            path: `/projects/${project_id}.json`
+        })
+    }
+
+    /**
+     * Get Projects or a Project
+     * 
+     * @param  {Object}
+     * @param  {Number}
+     * @return {Promise}
+     */
+    get(options = {}, project_id) {
+        path = !project_id ? 
+            this.params('/projects.json', options) : 
+            this.params(`/projects/${project_id}.json`, options)
+
+        return this.query({
+            path
+        })
+    }
+
+    /**
+     * Get Starred projects
+     * 
+     * @return {Promise}
+     */
+    getStarred() {
+        return this.query({
+            path: `/projects/starred.json`
+        })
+    }
+
+    /**
+     * Star a project
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    star(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}/star.json`
+        })
+    }
+
+    /**
+     * Unstar a project
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    unStar(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}/unstar.json`
+        })
+    }
+
+    /**
+     * Get a box
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    box(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: `/projects/{project_id}/box.json`
+        })
+    }
+
+    /**
+     * Set a box
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    setBox(project_id, box_object = {}) {
+        if (!project_id || !Object.keys(box_object).length) {
+            return this.handleError('No project id or box request object provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}/box.json`
+        }, box_object)
+    }
+
+    /**
+     * Get google drive box
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    googleDrive(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: `/projects/${project_id}/googleDrive.json`
+        })
+    }
+
+    /**
+     * Set a google drive box
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    setGoogleDrive(project_id, google_drive_object = {}) {
+        if (!project_id || !Object.keys(google_drive_object).length) {
+            return this.handleError('No project id or google drive request object provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}/googleDrive.json`
+        }, google_drive_object)
+    }
+
+    /**
+     * Get rates from a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getRates(project_id, options = {}) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: this.params(`/projects/${project_id}/rates.json`, options)
+        })
+    }
+
+    /**
+     * Set rates for a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    setRates(project_id, rates_object = {}) {
+        if (!project_id || !Object.keys(rates_object).length) {
+            return this.handleError('No project id or rates request object provided')
+        }
+
+        return this.query({
+            method: 'POST',
+            path: `/projects/${project_id}/rates.json`
+        }, rates_object)
+    }
+
+    /**
+     * Enable disable features
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    features(project_id, features_object = {}) {
+        if (!project_id || !Object.keys(features_object).length) {
+            return this.handleError('No project id or features request object provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}.json`
+        }, features_object)
+    }
+
+    /**
+     * Get Roles on a project
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    getRoles(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: `/projects/${project_id}/roles.json`
+        })
+    }
+
+    /**
+     * Get Email Addresses from a project
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    getEmailAddress(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: `/projects/${project_id}/emailaddress.json`
+        })
+    }
+
+    /**
+     * Set Email Address for a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    setEmailAddress(project_id, email_object = {}) {
+        if (!project_id || !Object.keys(email_object).length) {
+            return this.handleError('No project id or email request object provided')
+        }
+
+        return this.query({
+            method: 'PUT',
+            path: `/projects/${project_id}/emailaddress.json`
+        }, email_object)
+    }
+
+    /**
+     * Get Links from a project
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    getLinks(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: `/projects/${project_id}/links.json`
+        })
+    }
+
+    /**
+     * Get Risks from a project
+     * 
+     * @param  {Number}
+     * @param  {Number}
+     * @return {Promise}
+     */
+    getRisks(project_id) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: `/projects/{project_id}/risks.json`
+        })
+    }
+
 }
 
 module.exports = Project

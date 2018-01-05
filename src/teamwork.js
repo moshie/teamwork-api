@@ -43,6 +43,17 @@ class Teamwork {
         })
     }
 
+    /** 
+     * Search
+     * 
+     * @return {Promise}
+     */
+    search(options) {
+        return this.query({
+            path: this.params(`/search.json`, options)
+        })
+    }
+
     /**
      * Convert options to query string params
      * 

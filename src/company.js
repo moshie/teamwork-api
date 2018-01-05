@@ -89,6 +89,23 @@ class Company extends Teamwork {
         })
     }
 
+    /**
+     * Get Projects from a company
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getProjects(company_id) {
+        if (!company_id) {
+            return this.handleError('No company id provided')
+        }
+
+        return this.query({
+            path: `/companies/${company_id}/projects.json`
+        })
+    }
+
 }
 
 module.exports = Company

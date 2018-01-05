@@ -11,7 +11,7 @@ class Expense extends Teamwork {
      * @param  {String}
      * @return {Promise}
      */
-    get(options = {}, expense_id = '') {
+    get(options = {}, expense_id) {
         path = !expense_id ? 
             this.params('/expenses.json', options) : 
             this.params(`/expenses/${expense_id}.json`, options)

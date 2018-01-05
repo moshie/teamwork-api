@@ -29,7 +29,10 @@ function teamwork (api_key = '', domain = '') {
         milestone: require('./milestone'),
         notebook: require('./notebook'),
         people: require('./people'),
-        status: require('./status')
+        status: require('./status'),
+        roles: require('./role'),
+        links: require('./link'),
+        risks: require('./risk'),
     }
 
     return new Proxy({}, {
