@@ -193,55 +193,55 @@ GET /people/{user_id}/status.json                               - tw.status.get(
 GET /people/status.json                                         - tw.people.status() - ✓
 
 # Permissions
-POST /projects/{id}/people/{id}.json                            - tw.projects.addPeople(project_id, person_id)
-PUT /projects/{id}/people.json                                  - tw.projects.people(project_id, people_object)
-DELETE /projects/{id}/people/{id}.json                          - tw.projects.removePeople(project_id, person_id)
-GET /projects/{id}/people/{id}.json                             - tw.projects.getPermissions(project_id, person_id)
-PUT /projects/{id}/people/{id}.json                             - tw.projects.updatePermissions(project_id, person_id, permissons_object)
+POST /projects/{id}/people/{id}.json                            - tw.projects.addPeople(project_id, person_id) - ✓
+PUT /projects/{id}/people.json                                  - tw.projects.people(project_id, people_object) - ✓
+DELETE /projects/{id}/people/{id}.json                          - tw.projects.removePeople(project_id, person_id) - ✓
+GET /projects/{id}/people/{id}.json                             - tw.projects.getPermissions(project_id, person_id) - ✓
+PUT /projects/{id}/people/{id}.json                             - tw.projects.updatePermissions(project_id, person_id, permissons_object) - ✓
 
 # Projects
-POST /projects.json                                             - tw.projects.create(project_object)
-PUT /projects/{project_id}.json                                 - tw.projects.update(project_id, project_object)
-DELETE /projects/{id}.json                                      - tw.projects.delete(project_id)
-GET /projects.json                                              - tw.projects.get(options)
-GET /projects/{project_id}.json                                 - tw.projects.get(options, project_id)
-GET /companies/{id}/projects.json                               - tw.companies.getProjects(company_id)
-GET /projects/starred.json                                      - tw.projects.getStarred()
-PUT /projects/{project_id}/star.json                            - tw.projects.star(project_id)
-PUT /projects/{project_id}/unstar.json                          - tw.projects.unStar(project_id)
-GET /projects/{id}/box.json                                     - tw.projects.box(project_id)
-PUT /projects/{id}/box.json                                     - tw.projects.setBox(project_id, box_object)
-GET /projects/{id}/googleDrive.json                             - tw.projects.googleDrive(project_id)
-PUT /projects/{id}/googleDrive.json                             - tw.projects.setGoogleDrive(project_id, google_drive_object)
-GET /projects/{project_id}/rates.json                           - tw.projects.getRates(project_id, options)
-POST /projects/{project_id}/rates.json                          - tw.projects.setRates(project_id, rates_object)
-PUT /projects/{project_id}.json                                 - tw.projects.features(project_id, features_object)
+POST /projects.json                                             - tw.projects.create(project_object) - ✓
+PUT /projects/{project_id}.json                                 - tw.projects.update(project_id, project_object) - ✓
+DELETE /projects/{id}.json                                      - tw.projects.delete(project_id) - ✓
+GET /projects.json                                              - tw.projects.get(options) - ✓
+GET /projects/{project_id}.json                                 - tw.projects.get(options, project_id) - ✓
+GET /companies/{id}/projects.json                               - tw.companies.getProjects(company_id) - ✓
+GET /projects/starred.json                                      - tw.projects.getStarred() - ✓
+PUT /projects/{project_id}/star.json                            - tw.projects.star(project_id) - ✓
+PUT /projects/{project_id}/unstar.json                          - tw.projects.unStar(project_id) - ✓
+GET /projects/{id}/box.json                                     - tw.projects.box(project_id) - ✓
+PUT /projects/{id}/box.json                                     - tw.projects.setBox(project_id, box_object) - ✓
+GET /projects/{id}/googleDrive.json                             - tw.projects.googleDrive(project_id) - ✓
+PUT /projects/{id}/googleDrive.json                             - tw.projects.setGoogleDrive(project_id, google_drive_object) - ✓
+GET /projects/{project_id}/rates.json                           - tw.projects.getRates(project_id, options) - ✓
+POST /projects/{project_id}/rates.json                          - tw.projects.setRates(project_id, rates_object) - ✓
+PUT /projects/{project_id}.json                                 - tw.projects.features(project_id, features_object) - ✓
 
 # Project Roles
-GET /projects/{id}/roles.json                                   - tw.projects.getRoles(project_id)
-POST /projects/{id}/roles.json                                  - tw.roles.create(project_id, role_object)
-PUT /roles/{id}.json                                            - tw.roles.update(role_id, role_object)
-DELETE /roles/{id}.json                                         - tw.roles.delete(role_id)
-GET /roles/{role_id}.json                                       - tw.roles.get(role_id)
+GET /projects/{id}/roles.json                                   - tw.projects.getRoles(project_id) - ✓
+POST /projects/{id}/roles.json                                  - tw.roles.create(project_id, role_object) - ✓
+PUT /roles/{id}.json                                            - tw.roles.update(role_id, role_object) - ✓
+DELETE /roles/{id}.json                                         - tw.roles.delete(role_id) - ✓
+GET /roles/{role_id}.json                                       - tw.roles.get(role_id) - ✓
 
 # Project Email Address
-GET /projects/{id}/emailaddress.json                            - tw.projects.getEmailAddress(project_id)
-PUT /projects/{id}/emailaddress.json                            - tw.project.setEmailAddress(project_id)
+GET /projects/{id}/emailaddress.json                            - tw.projects.getEmailAddress(project_id) - ✓
+PUT /projects/{id}/emailaddress.json                            - tw.project.setEmailAddress(project_id, email_object) - ✓
 
 # Links
-GET /links.json                                                 - tw.links.get()
-GET /projects/{project_id}/links.json                           - tw.projects.getLinks(project_id)
-GET /links/{link_id}.json                                       - tw.links.get(link_id)
-POST /projects/{project_id}/links.json                          - tw.links.create(project_id, link_object)
-PUT /links/{link_id}.json                                       - tw.links.update(link_id, link_object)
-DELETE /links/{link_id}.json                                    - tw.links.delete(link_id)
+GET /links.json                                                 - tw.links.get() - ✓
+GET /projects/{project_id}/links.json                           - tw.projects.getLinks(project_id) - ✓
+GET /links/{link_id}.json                                       - tw.links.get(link_id) - ✓
+POST /projects/{project_id}/links.json                          - tw.links.create(project_id, link_object) - ✓
+PUT /links/{link_id}.json                                       - tw.links.update(link_id, link_object) - ✓
+DELETE /links/{link_id}.json                                    - tw.links.delete(link_id) - ✓
 
 # Risks
-GET /projects/{project_id}/risks.json                           - tw.risks.get(risk_id, project_id)
-GET /risks/{risk_id}.json                                       - tw.risks.get(risk_id)
+GET /projects/{project_id}/risks.json                           - tw.projects.getRisks(risk_id, project_id) - ✓
+GET /risks/{risk_id}.json                                       - tw.risks.get(risk_id) - ✓
 
 # Search
-GET /search.json                                                - tw.search(options)
+GET /search.json                                                - tw.search(options) - ✓
 
 # Time Tracking
 GET /time_entries.json                                          - tw.time.get(options)
