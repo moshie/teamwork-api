@@ -8,10 +8,10 @@ class Invoice extends Teamwork {
      * Get invoices or invoice
      * 
      * @param  {Object}
-     * @param  {String}
+     * @param  {Number}
      * @return {Promise}
      */
-    get(options = {}, invoice_id = '') {
+    get(options = {}, invoice_id) {
         const path = !invoice_id ? 
             this.params('/invoices.json', options) : 
             this.params(`/invoices/${invoice_id}.json`, options)

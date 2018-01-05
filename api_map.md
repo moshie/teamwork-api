@@ -244,83 +244,84 @@ GET /risks/{risk_id}.json                                       - tw.risks.get(r
 GET /search.json                                                - tw.search(options) - ✓
 
 # Time Tracking
-GET /time_entries.json                                          - tw.time.get(options)
-GET /projects/{project_id}/time_entries.json                    - tw.projects.getTime(project_id, options)
-GET /todo_items/{todo_item_id}/time_entries.json                - tw.time.todos(todo_id)
-POST /projects/{project_id}/time_entries.json                   - tw.projects.createTime(project_id, time_object)
 POST /tasks/{taskid}/time_entries.json                          - tw.tasks.createTime(task_id, time_object)
-GET /time_entries/{id}.json                                     - tw.time.get(options, time_id)
-PUT /time_entries/{id}.json                                     - tw.time.update(time_id, time_object, options)
-DELETE /time_entries/{id}.json                                  - tw.time.delete(time_id)
-
-GET /time/total.json                                            - tw.time.total(options)
-GET /projects/{id}/time/total.json                              - tw.projects.totalTime(options, project_id)
 GET /tasklists/{id}/time/total.json                             - tw.tasklists.totalTime(tasklist_id, options)
 GET /tasks/{id}/time/total.json                                 - tw.tasks.totalTime(task_id, options)
-
-GET /projects/time/total.json                                   - tw.projects.totalTime(options)
 PUT tasks/{task_id}/estimatedtime.json                          - tw.tasks.estimatedTime(task_id)
-GET to /people/{person_id}/loggedtime.json                      - tw.people.loggedTime(person_id, options)
+
+GET /time_entries.json                                          - tw.time.get(options) - ✓
+GET /time_entries/{id}.json                                     - tw.time.get(options, time_id) - ✓
+PUT /time_entries/{id}.json                                     - tw.time.update(time_id, time_object, options) - ✓
+DELETE /time_entries/{id}.json                                  - tw.time.delete(time_id) - ✓
+
+GET /projects/{project_id}/time_entries.json                    - tw.projects.getTime(project_id, options) - ✓
+GET /todo_items/{todo_item_id}/time_entries.json                - tw.time.todos(todo_id) - ✓
+POST /projects/{project_id}/time_entries.json                   - tw.projects.createTime(project_id, time_object) - ✓
+
+GET /time/total.json                                            - tw.time.total(options) - ✓
+GET /projects/{id}/time/total.json                              - tw.projects.totalTime(options, project_id) - ✓
+GET /projects/time/total.json                                   - tw.projects.totalTime(options) - ✓
+GET to /people/{person_id}/loggedtime.json                      - tw.people.loggedTime(person_id, options) - ✓
 
 # Task lists
-GET /projects/{project_id}/tasklists.json                       - tw.tasklists.get(tasklist_id, project_id, options)
-GET /tasklists/{id}.json                                        - tw.tasklists.get(tasklist_id, project_id, options)
-PUT /tasklists/{id}.json                                        - tw.tasklists.update(tasklist_id, tasklist_object)
-POST /projects/{project_id}/tasklists.json                      - tw.projects.createTasklist(project_id, tasklist_object, options)
-DELETE /tasklists/{id}.json                                     - tw.tasklists.delete(tasklist_id)
-PUT /projects/{project_id}/tasklists/reorder.json               - tw.tasklists.update(project_id, tasklist_object)
-PUT /tasklist/{tasklist_id}/copy.json                           - tw.tasklist.copy(tasklist_id, tasklist_object)
-PUT to /tasklist/{tasklist_id}/move.json                        - tw.tasklist.move(tasklist_id, tasklist_object)
-GET /tasklists/templates.json                                   - tw.tasklist.templates()
+GET /projects/{project_id}/tasklists.json                       - tw.projects.getTasklists(project_id, options) - ✓
+
+PUT /projects/{project_id}/tasklists/reorder.json               - tw.tasklist.reorder(project_id, tasklist_object) - ✓
+POST /projects/{project_id}/tasklists.json                      - tw.tasklist.create(project_id, tasklist_object, options) - ✓
+GET /tasklists/{id}.json                                        - tw.tasklist.get(tasklist_id) - ✓
+PUT /tasklists/{id}.json                                        - tw.tasklist.update(tasklist_id, tasklist_object) - ✓
+DELETE /tasklists/{id}.json                                     - tw.tasklist.delete(tasklist_id) - ✓
+PUT /tasklist/{tasklist_id}/copy.json                           - tw.tasklist.copy(tasklist_id, tasklist_object) - ✓
+PUT to /tasklist/{tasklist_id}/move.json                        - tw.tasklist.move(tasklist_id, tasklist_object) - ✓
+GET /tasklists/templates.json                                   - tw.tasklist.templates() - ✓
 
 # Tasks
-GET /tasks.json                                                 - tw.tasks.get(options, task_id)
-GET /projects/{id}/tasks.json                                   - tw.projects.getTasks(project_id, options)
-GET /tasklists/{id}/tasks.json                                  - tw.tasklist.getTasks(tasklist_id, options)
-GET /tasks/{id}.json                                            - tw.tasks.get(options, task_id)
-GET /tasks/{id}/dependencies.json                               - tw.tasks.dependencies(task_id)
-PUT /tasks/{id}/complete.json                                   - tw.tasks.complete(task_id)
-PUT /tasks/{id}/uncomplete.json                                 - tw.tasks.incomplete(task_id)
-POST /tasklists/{id}/tasks.json                                 - tw.tasks.create(task_object, options)
-POST /tasks/{id}.json                                           - tw.tasks.create(task_id, task_object, options) // sub task
-PUT /tasks/{id}.json                                            - tw.tasks.update(task_id, task_object)
-DELETE /tasks/{id}.json                                         - tw.tasks.delete(task_id)
-PUT /tasklists/{id}/tasks/reorder.json                          - tw.tasks.reorder(task_id, task_object)
-GET /completedtasks.json                                        - tw.tasks.completed(options)
-PUT /tasks/{task_id}.json                                       - tw.tasks.completedDate(task_id, task_object)
-GET /tasks/{task_id}/followers.json                             - tw.tasks.getFollowers(task_id)
-PUT /tasks/{task_id}.json                                       - tw.tasks.setFollowers(task_id, task_object)
-PUT /tasks/{task_id}.json                                       - tw.tasks.removeFollowers(task_id)
-POST /tasklists/{task_list_id}/quickadd.json                    - tw.tasklist.add(task_list_id, tasks_object)
+GET /tasks.json                                                 - tw.tasks.get(options, task_id) - ✓
+GET /tasks/{id}.json                                            - tw.tasks.get(options, task_id) - ✓
+PUT /tasks/{id}.json                                            - tw.tasks.update(task_id, task_object) - ✓
+DELETE /tasks/{id}.json                                         - tw.tasks.delete(task_id) - ✓
+POST /tasklists/{id}/tasks.json                                 - tw.tasks.create(tasklist_id, task_object, options) - ✓
+POST /tasks/{id}.json                                           - tw.tasks.subtask(task_id, task_object, options) - ✓
+PUT /tasks/{id}/complete.json                                   - tw.tasks.complete(task_id) - ✓
+PUT /tasks/{id}/uncomplete.json                                 - tw.tasks.incomplete(task_id) - ✓
+GET /tasks/{id}/dependencies.json                               - tw.tasks.dependencies(task_id) - ✓
+PUT /tasklists/{id}/tasks/reorder.json                          - tw.tasks.reorder(tasklist_id, task_object) - ✓
+GET /completedtasks.json                                        - tw.tasks.completed(options) - ✓
+PUT /tasks/{task_id}.json                                       - tw.tasks.completedDate(task_id, task_object) - ✓
+GET /tasks/{task_id}/followers.json                             - tw.tasks.getFollowers(task_id) - ✓
+PUT /tasks/{task_id}.json                                       - tw.tasks.setFollowers(task_id, task_object) - ✓
+PUT /tasks/{task_id}.json                                       - tw.tasks.removeFollowers(task_id, tasks_object) - ✓
+POST /tasklists/{task_list_id}/quickadd.json                    - tw.tasklist.quickadd(task_list_id, tasks_object) - ✓
+GET /projects/{id}/tasks.json                                   - tw.projects.getTasks(project_id, options) - ✓
+GET /tasklists/{id}/tasks.json                                  - tw.tasklist.getTasks(tasklist_id, options) - ✓
 
 # Task reminders
-GET /tasks/:id/reminders.json                                   - tw.tasks.getReminders(task_id)
-POST /tasks/:id/reminders.json                                  - tw.tasks.setReminder(task_id, reminder_object)
-PUT /tasks/:id/reminders/:id.json                               - tw.tasks.updateReminder(task_id, reminder_object)
-PUT /taskreminders/:id.json                                     - tw.reminders.update(task_id, reminder_object)
-DELETE /tasks/:id/reminders/:id.json                            - tw.tasks.deleteReminder(task_id)
-DELETE /taskreminders/:id.json                                  - tw.reminders.delete(task_id)
+GET /tasks/:id/reminders.json                                   - tw.taskReminder.get(task_id) - ✓
+POST /tasks/:id/reminders.json                                  - tw.taskReminder.create(task_id, reminder_object) - ✓
+PUT /tasks/:id/reminders/:id.json                               - tw.tasks.update(reminder_object = {}, reminder_id, task_id) - ✓
+DELETE /tasks/:id/reminders/:id.json                            - tw.tasks.deleteReminder(reminder_id, task_id) - ✓
 
 # Tags
 resources = [projects, tasklists, tasks, milestones, messages, timelogs, files, users, companys, notebooks, links]
-GET /tags.json                                                  - tw.tags.get()
-GET /tags/{tag_id}.json                                         - tw.tags.get(tag_id)
-POST /tags.json                                                 - tw.tags.create(tag_object)
-PUT /tags/{tag_id}.json                                         - tw.tags.update(tag_id, tag_object)
-DELETE /tags/{tag_id}.json                                      - tw.tags.delete(tag_id)
 GET /{resource}/{id}/tags.json                                  - tw.{resources}.tags(resource_id, options)
 
+GET /tags.json                                                  - tw.tags.get() - ✓
+GET /tags/{tag_id}.json                                         - tw.tags.get(tag_id) - ✓
+POST /tags.json                                                 - tw.tags.create(tag_object) - ✓
+PUT /tags/{tag_id}.json                                         - tw.tags.update(tag_id, tag_object) - ✓
+DELETE /tags/{tag_id}.json                                      - tw.tags.delete(tag_id) - ✓
+
 # Webhooks
-GET /webhooks/events.json                                       - tw.webhooks.getEvents()
-GET /webhooks.json                                              - tw.webhooks.get()
-GET /webhooks/:id.json                                          - tw.webooks.get(webhook_id)
-PUT /webhooks/:id.json                                          - tw.webooks.update(webhook_id, webhook_object)
-PUT /webhooks/:id/resume.json                                   - tw.webooks.resume(webhook_id)
-PUT /webhooks/:id/pause.json                                    - tw.webooks.pause(webhook_id)
-DELETE /webhooks/:id.json                                       - tw.webooks.delete(webhook_id)
-POST /webhooks.json                                             - tw.webhook.create(webhook_id)
-PUT /webhooks/enable.json                                       - tw.webhook.enable()
-PUT /webhooks/disable.json                                      - tw.webhook.disable()
+GET /webhooks/events.json                                       - tw.webhooks.getEvents() - ✓
+GET /webhooks.json                                              - tw.webhooks.get() - ✓
+GET /webhooks/:id.json                                          - tw.webooks.get(webhook_id) - ✓
+PUT /webhooks/:id.json                                          - tw.webooks.update(webhook_id, webhook_object) - ✓
+PUT /webhooks/:id/resume.json                                   - tw.webooks.resume(webhook_id) - ✓
+PUT /webhooks/:id/pause.json                                    - tw.webooks.pause(webhook_id) - ✓
+DELETE /webhooks/:id.json                                       - tw.webooks.delete(webhook_id) - ✓
+POST /webhooks.json                                             - tw.webhook.create(webhook_object) - ✓
+PUT /webhooks/enable.json                                       - tw.webhook.enable() - ✓
+PUT /webhooks/disable.json                                      - tw.webhook.disable() - ✓
 
 # Workload
-GET /workload.json                                              - tw.workload.get(options)
+GET /workload.json                                              - tw.workload.get(options) - ✓

@@ -60,10 +60,10 @@ class Expense extends Teamwork {
     /**
      * Delete an expense
      * 
-     * @param  {String}
+     * @param  {Number}
      * @return {Promise}
      */
-    delete(expense_id = '') {
+    delete(expense_id) {
         if (!expense_id) {
             return this.handleError('No expense id provided')
         }

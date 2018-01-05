@@ -136,6 +136,24 @@ class People extends Teamwork {
             path: `/people/status.json`
         })
     }
+
+    /**
+     * Get Logged time from a person
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    loggedTime(person_id, options = {}) {
+        if (!person_id) {
+            return this.handleError('No person id provided')
+        }
+
+        return this.query({
+            path: this.params(`/people/${person_id}/loggedtime.json`, options)
+        })
+    }
+
 }
 
 module.exports = People

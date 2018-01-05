@@ -13,9 +13,9 @@ function teamwork (api_key = '', domain = '') {
         teamwork: require('./teamwork'),
         activity: require('./activity'),
         project: require('./project'),
-        invoices: require('./invoice'),
-        expenses: require('./expense'),
-        boards: require('./board'),
+        invoice: require('./invoice'),
+        expense: require('./expense'),
+        board: require('./board'),
         messageCategory: require('./categories/message'),
         fileCategory: require('./categories/file'),
         notebookCategory: require('./categories/notebook'),
@@ -33,6 +33,11 @@ function teamwork (api_key = '', domain = '') {
         roles: require('./role'),
         links: require('./link'),
         risks: require('./risk'),
+        time: require('./time'),
+        tasklist: require('./task-list'),
+        taskReminder: require('./task-reminder'),
+        tag: require('./tag'),
+        webhook: require('./webhook'),
     }
 
     return new Proxy({}, {

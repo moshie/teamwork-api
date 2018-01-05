@@ -347,8 +347,8 @@ class Project extends Teamwork {
         }
 
         const path = archived ? 
-            `/projects/{project_id}/cat/{category_id}/posts/archive.json` :
-            `/projects/{project_id}/cat/{category_id}/posts.json`
+            `/projects/${project_id}/cat/${category_id}/posts/archive.json` :
+            `/projects/${project_id}/cat/${category_id}/posts.json`
 
         return this.query({
             path
@@ -656,7 +656,7 @@ class Project extends Teamwork {
         }
 
         return this.query({
-            path: `/projects/{project_id}/box.json`
+            path: `/projects/${project_id}/box.json`
         })
     }
 
@@ -835,7 +835,6 @@ class Project extends Teamwork {
      * Get Risks from a project
      * 
      * @param  {Number}
-     * @param  {Number}
      * @return {Promise}
      */
     getRisks(project_id) {
@@ -844,7 +843,93 @@ class Project extends Teamwork {
         }
 
         return this.query({
-            path: `/projects/{project_id}/risks.json`
+            path: `/projects/${project_id}/risks.json`
+        })
+    }
+
+    /**
+     * Get Time from a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTime(project_id, options = {}) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: this.params(`/projects/${project_id}/time_entries.json`, options)
+        })
+    }
+
+    /**
+     * Create a time entry on a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    createTime(project_id, time_object = {}) {
+        if (!project_id || !Object.keys(time_object).length) {
+            return this.handleError('No project id or Time request object provided')
+        }
+
+        return this.query({
+            method: 'POST',
+            path: `/projects/${project_id}/time_entries.json`
+        }, time_object)
+    }
+
+    /**
+     * Get total time from a project or all projects
+     * 
+     * @param  {Object}
+     * @param  {Number}
+     * @return {Promise}
+     */
+    getRates(options = {}, project_id) {
+        const path = !project_id ?
+            this.params(`/projects/time/total.json`, options) : 
+            this.params(`/projects/${project_id}/time/total.json`, options)
+
+        return this.query({
+            path
+        })
+    }
+
+    /**
+     * Get Task lists from a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTasklists(project_id, options = {}) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: this.params(`/projects/${project_id}/tasklists.json`, options)
+        })
+    }
+
+    /**
+     * Get Tasks from a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTasks(project_id, options = {}) {
+        if (!project_id) {
+            return this.handleError('No project id provided')
+        }
+
+        return this.query({
+            path: this.params(`/projects/${project_id}/tasks.json`, options)
         })
     }
 
