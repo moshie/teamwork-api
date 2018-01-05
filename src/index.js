@@ -38,6 +38,7 @@ function teamwork (api_key = '', domain = '') {
         taskReminder: require('./task-reminder'),
         tag: require('./tag'),
         webhook: require('./webhook'),
+        workload: require('./workload')
     }
 
     return new Proxy({}, {

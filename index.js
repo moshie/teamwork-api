@@ -3,6 +3,6 @@ process.env.TW_SUB = 'wpunite'
 
 const tw = require('./src')()
 
-tw.invoices.get()
+tw.workload.get()
     .then((result) => console.log(result.data))
     .catch((error) => console.error(error))
