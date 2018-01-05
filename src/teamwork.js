@@ -88,7 +88,7 @@ class Teamwork {
             'Content-Type': 'application/json'
         }
 
-        if (!Object.keys(postData).length) {
+        if (Object.keys(postData).length) {
             var stringData = JSON.stringify(postData)
             headers['Content-Length'] = Buffer.byteLength(stringData)
         }
@@ -124,9 +124,7 @@ class Teamwork {
                 reject(error)
             })
 
-            if (!Object.keys(postData).length) {
-                request.write(stringData)
-            }
+            request.write(JSON.stringify(postData))
 
             request.end()
 

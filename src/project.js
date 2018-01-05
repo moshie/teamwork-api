@@ -590,7 +590,7 @@ class Project extends Teamwork {
      * @return {Promise}
      */
     get(options = {}, project_id) {
-        path = !project_id ? 
+        const path = !project_id ? 
             this.params('/projects.json', options) : 
             this.params(`/projects/${project_id}.json`, options)
 
