@@ -10,10 +10,10 @@ class Activity extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    latest(activity_object = {}) {
+    latest(body = {}) {
         return this.query({
             uri: '/latestActivity.json',
-            body: activity_object
+            body
         })
     }
 
