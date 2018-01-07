@@ -11,13 +11,10 @@ class Notebook extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    get(options = {}, notebook_id) {
-        const path = !milestone_id ?
-            this.params(`/notebooks.json`, options) :
-            this.params(`/notebooks/${notebook_id}.json`, options)
-
+    get(qs = {}, notebook_id) {
         return this.query({
-            path
+            uri: !notebook_id ? `/notebooks.json` : `/notebooks/${notebook_id}.json`
+            qs
         })
     }
 
@@ -28,15 +25,16 @@ class Notebook extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(notebook_id, notebook_object = {}) {
-        if (!notebook_id || !Object.keys(notebook_object).length) {
-            return this.handleError('No notebook id or Notebook request object provided')
+    update(notebook_id, body = {}) {
+        if (!notebook_id) {
+            return this.handleError('No Notebook id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/notebooks/${notebook_id}.json`
-        }, notebook_object)
+            uri: `/notebooks/${notebook_id}.json`,
+            body
+        })
     }
 
     /**
@@ -47,12 +45,12 @@ class Notebook extends Teamwork {
      */
     lock(notebook_id) {
         if (!notebook_id) {
-            return this.handleError('No notebook id provided')
+            return this.handleError('No Notebook id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/notebooks/${notebook_id}/lock.json`
+            uri: `/notebooks/${notebook_id}/lock.json`
         })
     }
 
@@ -64,12 +62,12 @@ class Notebook extends Teamwork {
      */
     unlock(notebook_id) {
         if (!notebook_id) {
-            return this.handleError('No notebook id provided')
+            return this.handleError('No Notebook id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/notebooks/${notebook_id}/unlock.json`
+            uri: `/notebooks/${notebook_id}/unlock.json`
         })
     }
 
@@ -81,12 +79,12 @@ class Notebook extends Teamwork {
      */
     delete(notebook_id) {
         if (!notebook_id) {
-            return this.handleError('No notebook id provided')
+            return this.handleError('No Notebook id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/notebooks/${notebook_id}.json`
+            uri: `/notebooks/${notebook_id}.json`
         })
     }
 
@@ -97,15 +95,16 @@ class Notebook extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    copy(notebook_id, notebook_object = {}) {
-        if (!notebook_id || !Object.keys(notebook_object).length) {
-            return this.handleError('No notebook id or Notebook request object provided')
+    copy(notebook_id, body = {}) {
+        if (!notebook_id) {
+            return this.handleError('No Notebook id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/notebooks/${notebook_id}/copy.json`
-        }, notebook_object)
+            uri: `/notebooks/${notebook_id}/copy.json`,
+            body
+        })
     }
 
     /**
@@ -115,15 +114,16 @@ class Notebook extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    move(notebook_id, notebook_object = {}) {
-        if (!notebook_id || !Object.keys(notebook_object).length) {
-            return this.handleError('No notebook id or Notebook request object provided')
+    move(notebook_id, body = {}) {
+        if (!notebook_id) {
+            return this.handleError('No Notebook id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/notebook/${notebook_id}/move.json`
-        }, notebook_object)
+            uri: `/notebook/${notebook_id}/move.json`,
+            body
+        })
     }
 
 }

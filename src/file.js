@@ -12,11 +12,11 @@ class File extends Teamwork {
      */
     get(file_id) {
         if (!file_id) {
-            return this.handleError('No activity id provided')
+            return this.handleError('No File id')
         }
 
         return this.query({
-            path: `/files/${file_id}.json`
+            uri: `/files/${file_id}.json`
         })
     }
 
@@ -27,15 +27,16 @@ class File extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    version(file_id, file_object = {}) {
-        if (!file_id || !Object.keys(file_object).length) {
-            return this.handleError('No file id or File request object provided')
+    version(file_id, body = {}) {
+        if (!file_id) {
+            return this.handleError('No File id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/files/${file_id}.json`
-        }, file_object)
+            uri: `/files/${file_id}.json`,
+            body
+        })
     }
 
     /**
@@ -46,12 +47,12 @@ class File extends Teamwork {
      */
     delete(file_id) {
         if (!file_id) {
-            return this.handleError('No activity id provided')
+            return this.handleError('No File id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/files/${id}.json`
+            uri: `/files/${id}.json`
         })
     }
 
@@ -62,13 +63,14 @@ class File extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    link(file_id, options = {}) {
+    link(file_id, qs = {}) {
         if (!file_id) {
-            return this.handleError('No activity id provided')
+            return this.handleError('No File id')
         }
 
         return this.query({
-            path: this.params(`/files/${file_id}/sharedlink.json`, options)
+            uri: `/files/${file_id}/sharedlink.json`,
+            qs
         })
     }
 
@@ -79,15 +81,16 @@ class File extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    copy(file_id, file_object = {}) {
-        if (!file_id || !Object.keys(file_object).length) {
-            return this.handleError('No file id or File request object provided')
+    copy(file_id, body = {}) {
+        if (!file_id) {
+            return this.handleError('No File id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/files/${file_id}/copy.json`
-        }, file_object)
+            uri: `/files/${file_id}/copy.json`,
+            body
+        })
     }
 
     /**
@@ -97,15 +100,16 @@ class File extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    move(file_id, file_object = {}) {
-        if (!file_id || !Object.keys(file_object).length) {
-            return this.handleError('No file id or File request object provided')
+    move(file_id, body = {}) {
+        if (!file_id) {
+            return this.handleError('No File id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/files/${file_id}/move.json`
-        }, file_object)
+            uri: `/files/${file_id}/move.json`,
+            body
+        })
     }
 
     /**
@@ -115,7 +119,7 @@ class File extends Teamwork {
     upload(file_path = '') {
         // TODO?
         return this.query({
-            path: '/pendingfiles.json'
+            uri: '/pendingfiles.json'
         }, file_path)
     }
 }

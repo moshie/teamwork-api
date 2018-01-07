@@ -11,13 +11,10 @@ class People extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    get(options = {}, person_id) {
-        const path = !person_id ?
-            this.params(`/people.json`, options) :
-            this.params(`/people/${person_id}.json`, options)
-
+    get(qs = {}, person_id) {
         return this.query({
-            path
+            uri: !person_id ? `/people.json` : `/people/${person_id}.json`,
+            qs
         })
     }
 
@@ -28,15 +25,12 @@ class People extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(person_object = {}) {
-        if (!Object.keys(person_object).length) {
-            return this.handleError('No person request object provided')
-        }
-
+    create(body = {}) {
         return this.query({
             method: 'POST',
-            path: '/people.json'
-        }, person_object)
+            uri: '/people.json',
+            body
+        })
     }
 
     /**
@@ -46,15 +40,16 @@ class People extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(person_id, person_object = {}) {
-        if (!person_id || !Object.keys(person_object).length) {
-            return this.handleError('No person id or person request object provided')
+    update(person_id, body = {}) {
+        if (!person_id) {
+            return this.handleError('No Person id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/people/${person_id}.json`
-        }, person_object)
+            uri: `/people/${person_id}.json`,
+            body
+        })
     }
 
     /**
@@ -65,12 +60,12 @@ class People extends Teamwork {
      */
     delete(person_id) {
         if (!person_id) {
-            return this.handleError('No person id provided')
+            return this.handleError('No Person id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/people/${person_id}.json`
+            uri: `/people/${person_id}.json`
         })
     }
 
@@ -81,7 +76,7 @@ class People extends Teamwork {
      */
     me() {
         return this.query({
-            path: '/me.json'
+            uri: '/me.json'
         })
     }
 
@@ -91,9 +86,10 @@ class People extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    stats(options = {}) {
+    stats(qs = {}) {
         return this.query({
-            path: this.params('/stats.json', options)
+            uri: '/stats.json',
+            qs
         })
     }
 
@@ -104,7 +100,7 @@ class People extends Teamwork {
      */
     apiKeys() {
         return this.query({
-            path: '/people/APIKeys.json'
+            uri: '/people/APIKeys.json'
         })
     }
 
@@ -115,15 +111,16 @@ class People extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    unassignAll(person_id, person_object = {}) {
-        if (!person_id || !Object.keys(person_object).length) {
-            return this.handleError('No person id or person request object provided')
+    unassignAll(person_id, body = {}) {
+        if (!person_id) {
+            return this.handleError('No Person id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/people/${person_id}.json`
-        }, person_object)
+            uri: `/people/${person_id}.json`,
+            body
+        })
     }
 
     /**
@@ -133,7 +130,7 @@ class People extends Teamwork {
      */
     status() {
         return this.query({
-            path: `/people/status.json`
+            uri: `/people/status.json`
         })
     }
 
@@ -144,13 +141,14 @@ class People extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    loggedTime(person_id, options = {}) {
+    loggedTime(person_id, qs = {}) {
         if (!person_id) {
-            return this.handleError('No person id provided')
+            return this.handleError('No Person id')
         }
 
         return this.query({
-            path: this.params(`/people/${person_id}/loggedtime.json`, options)
+            uri: `/people/${person_id}/loggedtime.json`,
+            qs
         })
     }
 

@@ -1,9 +1,6 @@
 "use strict"
 
-const https = require('https')
-const qs = require('querystring')
-
-const isJson = require('./is-json')
+var request = require('request-promise-native');
 
 class Teamwork {
 
@@ -27,7 +24,7 @@ class Teamwork {
      */
     account() {
         return this.query({
-            path: '/account.json'
+            uri: '/account.json'
         })
     }
 
@@ -38,31 +35,22 @@ class Teamwork {
      */
     authenticate() {
         return this.query({
-            path: '/authenticate.json',
-            hostname: this.europe ? 'authenticate.teamwork.com' : 'authenticate.eu.teamwork.com'
+            uri: '/authenticate.json',
+            baseUrl: 'https://' + this.europe ? 'authenticate.teamwork.com' : 'authenticate.eu.teamwork.com'
         })
     }
 
     /** 
      * Search
-     * 
+     *
+     * @param {Object}
      * @return {Promise}
      */
-    search(options) {
+    search(qs = {}) {
         return this.query({
-            path: this.params(`/search.json`, options)
+            uri: `/search.json`,
+            qs
         })
-    }
-
-    /**
-     * Convert options to query string params
-     * 
-     * @param  {String}
-     * @param  {Object}
-     * @return {String}
-     */
-    params(path = '/', queryParams = {}) {
-        return `${path}${qs.stringify(queryParams)}`
     }
 
     /**
@@ -82,53 +70,20 @@ class Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    query(options = {}, postData = {}) {
-
-        const headers = {
-            'Content-Type': 'application/json'
-        }
-
-        if (Object.keys(postData).length) {
-            var stringData = JSON.stringify(postData)
-            headers['Content-Length'] = Buffer.byteLength(stringData)
-        }
+    query(options = {}) {
 
         options = Object.assign({
-            hostname: `${this.domain}.teamwork.com`,
-            path: '/',
-            auth: this.api_key,
-            headers
+            method: 'GET',
+            baseUrl: `https://${this.domain}.teamwork.com`,
+            uri: '/',
+            json: true,
+            auth: {
+                user: this.api_key,
+                pass: 'xx'
+            }
         }, options)
 
-        return new Promise((resolve, reject) => {
-            const request = https.request(options, (response) => {
-                var data = ''
-    
-                response.setEncoding('utf8')
-    
-                response.on('data', (chunk) => {
-                    data += chunk
-                })
-    
-                response.on('end', () => {
-                    resolve({
-                        headers: response.headers,
-                        status_code: response.statusCode,
-                        data: isJson(data)
-                    })
-                })
-    
-            })
-
-            request.on('error', (error) => {
-                reject(error)
-            })
-
-            request.write(JSON.stringify(postData))
-
-            request.end()
-
-        })
+        return request(options)
     }
 
 }

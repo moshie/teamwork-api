@@ -13,11 +13,11 @@ class Risk extends Teamwork {
      */
     get(risk_id) {
         if (!risk_id) {
-            return this.handleError('No risk id provided')
+            return this.handleError('No Risk id')
         }
 
         return this.query({
-            path: `/risks/${risk_id}.json`
+            uri: `/risks/${risk_id}.json`
         })
     }
 

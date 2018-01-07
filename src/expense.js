@@ -11,13 +11,10 @@ class Expense extends Teamwork {
      * @param  {String}
      * @return {Promise}
      */
-    get(options = {}, expense_id) {
-        path = !expense_id ? 
-            this.params('/expenses.json', options) : 
-            this.params(`/expenses/${expense_id}.json`, options)
-
+    get(qs = {}, expense_id) {
         return this.query({
-            path
+            uri: !expense_id ? '/expenses.json' : `/expenses/${expense_id}.json`,
+            qs
         })
     }
 
@@ -27,15 +24,12 @@ class Expense extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(expense_object = {}) {
-        if (!Object.keys(expense_object).length) {
-            return this.handleError('Expense request object is required')
-        }
-
+    create(body = {}) {
         return this.query({
             method: 'POST',
-            path: '/expenses.json'
-        }, expense_object)
+            uri: '/expenses.json',
+            body
+        })
     }
 
     /**
@@ -46,15 +40,17 @@ class Expense extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(expense_id, expense_object = {}, options = {}) {
-        if (!expense_id || !Object.keys(expense_object).length) {
-            return this.handleError('No expense id or Expense request object provided')
+    update(expense_id, body = {}, qs = {}) {
+        if (!expense_id) {
+            return this.handleError('No Expense id')
         }
 
         return this.query({
             method: 'PUT',
-            path: this.params(`/expenses/${expense_id}.json`, options)
-        }, expense_object)
+            uri: `/expenses/${expense_id}.json`,
+            qs,
+            body
+        })
     }
 
     /**
@@ -65,12 +61,12 @@ class Expense extends Teamwork {
      */
     delete(expense_id) {
         if (!expense_id) {
-            return this.handleError('No expense id provided')
+            return this.handleError('No Expense id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/expenses/${expense_id}.json`
+            uri: `/expenses/${expense_id}.json`
         })
     }
 

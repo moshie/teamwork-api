@@ -11,13 +11,10 @@ class Milestone extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    get(options = {}, milestone_id) {
-        const path = !milestone_id ?
-            this.params(`/milestones.json`, options) :
-            this.params(`/milestones/${milestone_id}.json`, options)
-
+    get(qs = {}, milestone_id) {
         return this.query({
-            path
+            uri: !milestone_id ? `/milestones.json` : `/milestones/${milestone_id}.json`,
+            qs
         })
     }
 
@@ -29,12 +26,12 @@ class Milestone extends Teamwork {
      */
     complete(milestone_id) {
         if (!milestone_id) {
-            return this.handleError('No milestone id provided')
+            return this.handleError('No Milestone id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/milestones/${milestone_id}/complete.json`
+            uri: `/milestones/${milestone_id}/complete.json`
         })
     }
 
@@ -46,12 +43,12 @@ class Milestone extends Teamwork {
      */
     incomplete(milestone_id) {
         if (!milestone_id) {
-            return this.handleError('No milestone id provided')
+            return this.handleError('No Milestone id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/milestones/${milestone_id}/uncomplete.json`
+            uri: `/milestones/${milestone_id}/uncomplete.json`
         })
     }
 
@@ -62,15 +59,16 @@ class Milestone extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(milestone_id, milestone_object = {}) {
-        if (!milestone_id || !Object.keys(milestone_object).length) {
-            return this.handleError('No project id or Milestone request object provided')
+    update(milestone_id, body = {}) {
+        if (!milestone_id) {
+            return this.handleError('No Milestone id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/milestones/${milestone_id}.json`
-        }, milestone_object)
+            uri: `/milestones/${milestone_id}.json`,
+            body
+        })
     }
 
     /**
@@ -81,12 +79,12 @@ class Milestone extends Teamwork {
      */
     delete(milestone_id) {
         if (!milestone_id) {
-            return this.handleError('No milestone id provided')
+            return this.handleError('No Milestone id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/milestones/${milestone_id}.json`
+            uri: `/milestones/${milestone_id}.json`
         })
     }
 

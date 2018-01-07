@@ -12,11 +12,11 @@ class Message extends Teamwork {
      */
     get(message_id) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
-            path: `/posts/${message_id}.json`
+            uri: `/posts/${message_id}.json`
         })
     }
 
@@ -27,15 +27,16 @@ class Message extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(message_id, message_object = {}) {
-        if (!message_id || !Object.keys(message_object).length) {
-            return this.handleError('No message id or message request object provided')
+    update(message_id, body = {}) {
+        if (!message_id) {
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/posts/${message_id}.json`
-        }, message_object)
+            uri: `/posts/${message_id}.json`,
+            body
+        })
     }
 
     /**
@@ -46,12 +47,12 @@ class Message extends Teamwork {
      */
     archive(message_id) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/messages/${message_id}/archive.json`
+            uri: `/messages/${message_id}/archive.json`
         })
     }
 
@@ -63,12 +64,12 @@ class Message extends Teamwork {
      */
     unArchive(message_id) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/messages/${message_id}/unarchive.json`
+            uri: `/messages/${message_id}/unarchive.json`
         })
     }
 
@@ -80,12 +81,12 @@ class Message extends Teamwork {
      */
     delete(message_id) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/posts/${message_id}.json`
+            uri: `/posts/${message_id}.json`
         })
     }
 
@@ -97,12 +98,12 @@ class Message extends Teamwork {
      */
     read(message_id) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/messages/${message_id}/markread.json`
+            uri: `/messages/${message_id}/markread.json`
         })
     }
 
@@ -113,15 +114,16 @@ class Message extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createReply(message_id, message_object = {}) {
-        if (!message_id || !Object.keys(message_object).length) {
-            return this.handleError('No message id or message request object provided')
+    createReply(message_id, body = {}) {
+        if (!message_id) {
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/messages/${message_id}/messageReplies.json`
-        }, message_object)
+            uri: `/messages/${message_id}/messageReplies.json`,
+            body
+        })
     }
 
     /**
@@ -132,11 +134,11 @@ class Message extends Teamwork {
      */
     getReply(message_id) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
-            path: `/messageReplies/${message_id}.json`
+            uri: `/messageReplies/${message_id}.json`
         })
     }
 
@@ -149,11 +151,11 @@ class Message extends Teamwork {
      */
     getReplies(message_id, options = {}) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
-            path: `/messages/${message_id}/replies.json`
+            uri: `/messages/${message_id}/replies.json`
         })
     }
 
@@ -164,15 +166,16 @@ class Message extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    updateReply(message_id, message_object = {}) {
-        if (!message_id || !Object.keys(message_object).length) {
-            return this.handleError('No message id or message request object provided')
+    updateReply(message_id, body = {}) {
+        if (!message_id) {
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/messageReplies/${message_id}.json`
-        }, message_object)
+            uri: `/messageReplies/${message_id}.json`,
+            body
+        })
     }
 
     /**
@@ -183,12 +186,12 @@ class Message extends Teamwork {
      */
     deleteReply(message_id) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/messageReplies/${message_id}.json`
+            uri: `/messageReplies/${message_id}.json`
         })
     }
 
@@ -200,12 +203,12 @@ class Message extends Teamwork {
      */
     readReply(message_id) {
         if (!message_id) {
-            return this.handleError('No message id provided')
+            return this.handleError('No Message id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/messageReplies/${message_id}/markread.json`
+            uri: `/messageReplies/${message_id}/markread.json`
         })
     }
 

@@ -10,15 +10,12 @@ class Company extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(company_object = {}) {
-        if (!Object.keys(company_object).length) {
-            this.handleError('No company object provided')
-        }
-
+    create(body = {}) {
         return this.query({
             method: 'POST',
-            path: '/companies.json'
-        }, company_object)
+            uri: '/companies.json',
+            body
+        })
     }
 
     /**
@@ -28,15 +25,16 @@ class Company extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(company_id, company_object = {}) {
-        if (!company_id || !Object.keys(company_object).length) {
-            return this.handleError('No Company id or company request object provided')
+    update(company_id, body = {}) {
+        if (!company_id) {
+            return this.handleError('No Company id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/companies/${company_id}.json`
-        }, company_object)
+            uri: `/companies/${company_id}.json`,
+            body
+        })
     }
 
     /**
@@ -47,28 +45,24 @@ class Company extends Teamwork {
      */
     delete(company_id) {
         if (!company_id) {
-            return this.handleError('No company id provided')
+            return this.handleError('No Company id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/companies/${company_id}.json`
+            uri: `/companies/${company_id}.json`
         })
     }
 
     /**
      * Get Companies or a Company
      * 
-     * @param  {String}
+     * @param  {Number}
      * @return {Promise}
      */
-    get(company_id = '') {
-        path = !company_id ? 
-            '/companies.json' : 
-            `/companies/${company_id}.json`
-
+    get(company_id) {
         return this.query({
-            path
+            uri: !company_id ? '/companies.json' : `/companies/${company_id}.json`
         })
     }
 
@@ -81,11 +75,11 @@ class Company extends Teamwork {
      */
     getPeople(company_id) {
         if (!company_id) {
-            return this.handleError('No company id provided')
+            return this.handleError('No Company id')
         }
 
         return this.query({
-            path: `/companies/${company_id}/people.json`
+            uri: `/companies/${company_id}/people.json`
         })
     }
 
@@ -98,11 +92,11 @@ class Company extends Teamwork {
      */
     getProjects(company_id) {
         if (!company_id) {
-            return this.handleError('No company id provided')
+            return this.handleError('No Company id')
         }
 
         return this.query({
-            path: `/companies/${company_id}/projects.json`
+            uri: `/companies/${company_id}/projects.json`
         })
     }
 

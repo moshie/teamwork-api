@@ -5,38 +5,40 @@ const Teamwork = require('./teamwork')
 class Board extends Teamwork {
 
     /**
-     * Get Columns on a project
+     * List Columns
      * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
      */
-    getColumns(project_id, options = {}) {
+    getColumns(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/boards/columns.json`, options)
+            uri: `/projects/${project_id}/boards/columns.json`,
+            qs
         })
     }
 
     /**
-     * Create a column on a project
+     * Create a new Column
      * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
      */
-    createColumn(project_id, column_object = {}) {
-        if (!project_id || !Object.keys(column_object).length) {
-            return this.handleError('No Project id or column request object provided')
+    createColumn(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/boards/columns.json`
-        }, column_object)
+            uri: `/projects/${project_id}/boards/columns.json`,
+            body
+        })
     }
 
     /**
@@ -47,100 +49,104 @@ class Board extends Teamwork {
      */
     deleteColumn(column_id) {
         if (!column_id) {
-            return this.handleError('No column id provided')
+            return this.handleError('No Column id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/boards/columns/${column_id}.json`
+            uri: `/boards/columns/${column_id}.json`
         })
     }
 
     /**
-     * Add Task to a Column
+     * Add a Task from the Backlog to a Column
      * 
      * @param {Number}
      * @param {Object}
      * @return {Promise}
      */
-    addTask(column_id, task_object = {}) {
-        if (!column_id || !Object.keys(task_object).length) {
-            return this.handleError('No column id or task request object provided')
+    addTaskToColumn(column_id, body = {}) {
+        if (!column_id) {
+            return this.handleError('No Column id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/boards/columns/${column_id}/cards.json`
-        }, task_object)
-    }
-
-    /**
-     * Get Tasks / Cards from a Column
-     * 
-     * @param  {Number}
-     * @param  {Object}
-     * @return {Promise}
-     */
-    getCards(column_id, options = {}) {
-        if (!column_id) {
-            return this.handleError('No column id provided')
-        }
-
-        return this.query({
-            path: this.params(`/boards/columns/${column_id}/cards.json`, options)
+            uri: `/boards/columns/${column_id}/cards.json`,
+            body
         })
     }
 
     /**
-     * Move Task / Card between columns
+     * List Cards in a Column
      * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
      */
-    moveCard(card_id, move_object = {}) {
-        if (!card_id || !Object.keys(move_object).length) {
-            return this.handleError('No card id or move request object provided')
+    getCards(column_id, qs = {}) {
+        if (!column_id) {
+            return this.handleError('No Column id')
         }
 
         return this.query({
-            method: 'PUT',
-            path: `/boards/columns/cards/${card_id}/move.json`
-        }, move_object)
+            uri: `/boards/columns/${column_id}/cards.json`,
+            qs
+        })  
     }
 
     /**
-     * Update Task / Card
+     * Move a Card
      * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
      */
-    updateCard(card_id, card_object = {}) {
-        if (!card_id || !Object.keys(card_object).length) {
-            return this.handleError('No card id or card request object provided')
+    moveCard(card_id, body = {}) {
+        if (!card_id) {
+            return this.handleError('No Card id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/boards/columns/cards/${card_id}.json`
-        }, card_object)
+            uri: `/boards/columns/cards/${card_id}/move.json`,
+            body
+        })
     }
 
     /**
-     * Delete Task / Card
+     * Edit a Card
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateCard(card_id, body = {}) {
+        if (!card_id) {
+            return this.handleError('No Card id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/boards/columns/cards/${card_id}.json`,
+            body
+        })
+    }
+
+    /**
+     * Remove a Card
      * 
      * @param  {Number}
      * @return {Promise}
      */
     deleteCard(card_id) {
         if (!card_id) {
-            return this.handleError('No card id provided')
+            return this.handleError('No Card id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/boards/columns/cards/${card_id}.json`
+            uri: `/boards/columns/cards/${card_id}.json`
         })
     }
 

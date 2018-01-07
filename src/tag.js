@@ -11,13 +11,12 @@ class Tag extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    get(options = {}, tag_id) {
-        const path = !expense_id ? 
-            '/tags.json' : 
-            `/tags/${tag_id}.json`
-
+    get(qs = {}, tag_id) {
         return this.query({
-            path
+            uri: !expense_id ? 
+                '/tags.json' : 
+                `/tags/${tag_id}.json`,
+            qs
         })
     }
 
@@ -27,15 +26,12 @@ class Tag extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(tag_object = {}) {
-        if (!Object.keys(tag_object).length) {
-            return this.handleError('Tag request object is required')
-        }
-
+    create(body = {}) {
         return this.query({
             method: 'POST',
-            path: '/tags.json'
-        }, tag_object)
+            uri: '/tags.json',
+            body
+        })
     }
 
     /**
@@ -46,15 +42,16 @@ class Tag extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(tag_id, tag_object = {}) {
-        if (!tag_id || !Object.keys(tag_object).length) {
-            return this.handleError('No tag id or tag request object provided')
+    update(tag_id, body = {}) {
+        if (!tag_id) {
+            return this.handleError('No Tag id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tags/${tag_id}.json`
-        }, tag_object)
+            uri: `/tags/${tag_id}.json`,
+            body
+        })
     }
 
     /**
@@ -65,12 +62,12 @@ class Tag extends Teamwork {
      */
     delete(tag_id) {
         if (!tag_id) {
-            return this.handleError('No tag id provided')
+            return this.handleError('No Tag id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/tags/${tag_id}.json`
+            uri: `/tags/${tag_id}.json`
         })
     }
 

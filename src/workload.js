@@ -10,9 +10,10 @@ class Workload extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    get(options = {}) {
+    get(qs = {}) {
         return this.query({
-            path: this.params(`/workload.json`, options)
+            uri: `/workload.json`,
+            qs
         })
     }
 

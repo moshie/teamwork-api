@@ -12,11 +12,11 @@ class Link extends Teamwork {
      */
     get(category_id) {
         if (!category_id) {
-            return this.handleError('No category id provided')
+            return this.handleError('No Category id')
         }
 
         return this.query({
-            path: `/linkCategories/${category_id}.json`
+            uri: `/linkCategories/${category_id}.json`
         })
     }
 
@@ -27,15 +27,16 @@ class Link extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(category_id, category_object = {}) {
-        if (!category_id || !Object.keys(category_object).length) {
-            return this.handleError('No category id or category request object provided')
+    update(category_id, body = {}) {
+        if (!category_id) {
+            return this.handleError('No Category id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/linkCategories/${category_id}.json`
-        }, category_object)
+            uri: `/linkCategories/${category_id}.json`,
+            body
+        })
     }
 
     /**
@@ -46,12 +47,12 @@ class Link extends Teamwork {
      */
     delete(category_id) {
         if (!category_id) {
-            return this.handleError('No category id provided')
+            return this.handleError('No Category id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/linkCategories/${category_id}.json`
+            uri: `/linkCategories/${category_id}.json`
         })
     }
 

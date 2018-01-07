@@ -11,13 +11,12 @@ class Time extends Teamwork {
      * @param  {String}
      * @return {Promise}
      */
-    get(options = {}, time_id) {
-        path = !time_id ? 
-            this.params('/time_entries.json', options) : 
-            this.params(`/time_entries/${time_id}.json`, options)
-
+    get(qs = {}, time_id) {
         return this.query({
-            path
+            uri: !time_id ? 
+                '/time_entries.json' : 
+                `/time_entries/${time_id}.json`,
+            qs
         })
     }
 
@@ -29,15 +28,17 @@ class Time extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(time_id, time_object = {}, options = {}) {
-        if (!time_id || !Object.keys(time_object).length) {
-            return this.handleError('No time id or Time request object provided')
+    update(time_id, body = {}, qs = {}) {
+        if (!time_id) {
+            return this.handleError('No Time id')
         }
 
         return this.query({
             method: 'PUT',
-            path: this.params(`/time_entries/${time_id}.json`, options)
-        }, time_object)
+            uri: `/time_entries/${time_id}.json`,
+            qs,
+            body
+        })
     }
 
     /**
@@ -48,12 +49,12 @@ class Time extends Teamwork {
      */
     delete(time_id) {
         if (!time_id) {
-            return this.handleError('No time id provided')
+            return this.handleError('No Time id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/time_entries/${time_id}.json`
+            uri: `/time_entries/${time_id}.json`
         })
     }
 
@@ -65,11 +66,11 @@ class Time extends Teamwork {
      */
     todos(todo_id) {
         if (!todo_id) {
-            return this.handleError('No time id provided')
+            return this.handleError('No Time id')
         }
 
         return this.query({
-            path: `/todo_items/${todo_id}/time_entries.json`
+            uri: `/todo_items/${todo_id}/time_entries.json`
         })
     }
 
@@ -78,9 +79,10 @@ class Time extends Teamwork {
      * 
      * @return {Promise}
      */
-    total(options = {}) {
+    total(qs = {}) {
         return this.query({
-            path: `/time/total.json`
+            uri: `/time/total.json`,
+            qs
         })
     }
 

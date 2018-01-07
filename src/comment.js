@@ -5,18 +5,18 @@ const Teamwork = require('./teamwork')
 class Comment extends Teamwork {
 
     /**
-     * Get a Comment
+     * Retrieving a Specific Comment
      * 
      * @param  {Number}
      * @return {Promise}
      */
     get(comment_id) {
         if (!comment_id) {
-            return this.handleError('No comment id provided')
+            return this.handleError('No Comment id')
         }
 
         return this.query({
-            path: `/comments/${comment_id}.json`
+            uri: `/comments/${comment_id}.json`
         })
     }
 
@@ -27,15 +27,16 @@ class Comment extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(comment_id, comment_object = {}) {
-        if (!comment_id || !Object.keys(comment_object).length) {
-            return this.handleError('No comment id or Comment request object provided')
+    update(comment_id, body = {}) {
+        if (!comment_id) {
+            return this.handleError('No Comment id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/comments/${comment_id}.json`
-        }, comment_object)
+            uri: `/comments/${comment_id}.json`,
+            body
+        })
     }
 
     /**
@@ -46,12 +47,12 @@ class Comment extends Teamwork {
      */
     delete(comment_id) {
         if (!comment_id) {
-            return this.handleError('No comment id provided')
+            return this.handleError('No Comment id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/comments/${comment_id}.json`
+            uri: `/comments/${comment_id}.json`
         })
     }
 
@@ -63,12 +64,12 @@ class Comment extends Teamwork {
      */
     read(comment_id) {
         if (!comment_id) {
-            return this.handleError('No comment id provided')
+            return this.handleError('No Comment id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/comments/${comment_id}/markread.json`
+            uri: `/comments/${comment_id}/markread.json`
         })
     }
 

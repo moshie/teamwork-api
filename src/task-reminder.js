@@ -12,11 +12,11 @@ class TaskReminder extends Teamwork {
      */
     get(task_id) {
         if (!task_id) {
-            return this.handleError('No task id provided')
+            return this.handleError('No Task id')
         }
 
         return this.query({
-            path: `/tasks/${task_id}/reminders.json`
+            uri: `/tasks/${task_id}/reminders.json`
         })
     }
 
@@ -27,15 +27,16 @@ class TaskReminder extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(task_id, reminder_object = {}) {
-        if (!task_id || !Object.keys(reminder_object).length) {
-            return this.handleError('No task id or reminder request object provided')
+    create(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/tasks/${task_id}/reminders.json`
-        }, reminder_object)
+            uri: `/tasks/${task_id}/reminders.json`,
+            body
+        })
     }
 
     /**
@@ -46,15 +47,14 @@ class TaskReminder extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(reminder_object = {}, reminder_id, task_id) {
-        const path = !reminder_id ? 
-            `/taskreminders/${reminder_id}.json` :
-            `/tasks/${task_id}/reminders/${reminder_id}.json`
-
+    update(body = {}, reminder_id, task_id) {
         return this.query({
             method: 'PUT',
-            path
-        }, reminder_object)
+            uri: !task_id ? 
+                `/taskreminders/${reminder_id}.json` :
+                `/tasks/${task_id}/reminders/${reminder_id}.json`,
+            body
+        })
     }
 
     /**
@@ -65,13 +65,11 @@ class TaskReminder extends Teamwork {
      * @return {Promise}
      */
     delete(reminder_id, task_id) {
-        const path = !reminder_id ? 
-            `/taskreminders/${reminder_id}.json` :
-            `/tasks/${task_id}/reminders/${reminder_id}.json`
-
         return this.query({
             method: 'DELETE',
-            path
+            uri: !task_id ? 
+                `/taskreminders/${reminder_id}.json` :
+                `/tasks/${task_id}/reminders/${reminder_id}.json`
         })
     }
 

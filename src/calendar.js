@@ -10,9 +10,10 @@ class Calendar extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getEvents(options = {}) {
+    getEvents(qs = {}) {
         return this.query({
-            path: this.params('/calendarevents.json', options)
+            uri: '/calendarevents.json',
+            qs
         })
     }
 
@@ -24,47 +25,45 @@ class Calendar extends Teamwork {
      */
     getEvent(event_id) {
         if (!event_id) {
-            return this.handleError('No event id provided')
+            return this.handleError('No Event id')
         }
 
         return this.query({
-            path: `/calendarevents/${event_id}.json`
+            uri: `/calendarevents/${event_id}.json`
         })
     }
 
     /**
-     * Create Event
+     * Create Event / Recurring Event
      * 
      * @param  {Object}
      * @return {Promise}
      */
-    createEvent(event_object = {}) {
-        if (!Object.keys(event_object).length) {
-            this.handleError('No event object provided')
-        }
-
+    createEvent(body = {}) {
         return this.query({
             method: 'POST',
-            path: '/calendarevents.json'
-        }, event_object)
+            uri: '/calendarevents.json',
+            body
+        })
     }
 
     /**
-     * Update an Event
+     * Edit an event
      * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
      */
-    updateEvent(event_id, event_object = {}) {
-        if (!event_id || !Object.keys(event_object).length) {
-            return this.handleError('No Event id or event request object provided')
+    updateEvent(event_id, body = {}) {
+        if (!event_id) {
+            return this.handleError('No Event id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/calendarevents/${event_id}.json`
-        }, event_object)
+            uri: `/calendarevents/${event_id}.json`,
+            body
+        })
     }
 
     /**
@@ -75,12 +74,12 @@ class Calendar extends Teamwork {
      */
     deleteEvent(event_id) {
         if (!event_id) {
-            return this.handleError('No event id provided')
+            return this.handleError('No Event id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/calendarevents/${event_id}.json`
+            uri: `/calendarevents/${event_id}.json`
         })
     }
     
@@ -91,7 +90,7 @@ class Calendar extends Teamwork {
      */
     getEventTypes() {
         return this.query({
-            path: `/calendareventtypes.json`
+            uri: `/calendareventtypes.json`
         })
     }
 
@@ -101,15 +100,12 @@ class Calendar extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createEventType(event_type_object = {}) {
-        if (!Object.keys(event_type_object).length) {
-            this.handleError('No event type object provided')
-        }
-
+    createEventType(body = {}) {
         return this.query({
             method: 'POST',
-            path: '/eventtypes.json'
-        }, event_type_object)
+            uri: '/eventtypes.json',
+            body
+        })
     }
 
     /**
@@ -120,12 +116,12 @@ class Calendar extends Teamwork {
      */
     deleteEventType(event_type_id) {
         if (!event_type_id) {
-            return this.handleError('No event type id provided')
+            return this.handleError('No Event Type id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/eventtypes/${event_type_id}.json`
+            uri: `/eventtypes/${event_type_id}.json`
         })
     }
 
@@ -136,15 +132,16 @@ class Calendar extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    updateEventType(event_type_id, event_type_object = {}) {
-        if (!event_type_id || !Object.keys(event_type_object).length) {
-            return this.handleError('No Event type id or event type request object provided')
+    updateEventType(event_type_id, body = {}) {
+        if (!event_type_id) {
+            return this.handleError('No Event Type id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/eventtypes/${event_type_id}.json`
-        }, event_type_object)
+            uri: `/eventtypes/${event_type_id}.json`,
+            body
+        })
     }
 
 }

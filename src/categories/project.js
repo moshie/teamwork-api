@@ -11,12 +11,10 @@ class Project extends Teamwork {
      * @return {Promise}
      */
     get(category_id) {
-        const path = !category_id ? 
-            `/projectCategories.json` : 
-            `/projectCategories/${category_id}.json`
-
         return this.query({
-            path
+            uri: !category_id ? 
+                `/projectCategories.json` : 
+                `/projectCategories/${category_id}.json`
         })
     }
 
@@ -27,15 +25,12 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(category_object = {}) {
-        if (!Object.keys(category_object).length) {
-            return this.handleError('No category request object provided')
-        }
-
+    create(body = {}) {
         return this.query({
             method: 'POST',
-            path: '/projectcategories.json'
-        }, category_object)
+            uri: '/projectcategories.json',
+            body
+        })
     }
 
     /**
@@ -45,15 +40,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(category_id, category_object = {}) {
-        if (!category_id || !Object.keys(category_object).length) {
-            return this.handleError('No category id or category request object provided')
+    update(category_id, body = {}) {
+        if (!category_id) {
+            return this.handleError('No Category id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projectCategories/${category_id}.json`
-        }, category_object)
+            uri: `/projectCategories/${category_id}.json`,
+            body
+        })
     }
 
     /**
@@ -64,12 +60,12 @@ class Project extends Teamwork {
      */
     delete(category_id) {
         if (!category_id) {
-            return this.handleError('No category id provided')
+            return this.handleError('No Category id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/projectCategories/${category_id}.json`
+            uri: `/projectCategories/${category_id}.json`
         })
     }
 

@@ -11,13 +11,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getActivity(project_id, options = {}) {
+    getActivity(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/latestActivity.json`, options)
+            uri: `/projects/${project_id}/latestActivity.json`,
+            qs
         })
     }
 
@@ -28,13 +29,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getInvoices(project_id, options = {}) {
+    getInvoices(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/invoices.json`, options)
+            uri: `/projects/${project_id}/invoices.json`,
+            qs
         })
     }
 
@@ -45,15 +47,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createInvoice(project_id, invoice_object = {}) {
-        if (!project_id || !Object.keys(invoice_object).length) {
-            return this.handleError('No project id or Invoice request object provided')
+    createInvoice(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/invoices.json`
-        }, invoice_object)
+            uri: `/projects/${project_id}/invoices.json`,
+            body
+        })
     }
 
     /**
@@ -64,11 +67,11 @@ class Project extends Teamwork {
      */
     getExpenses(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/expenses.json`
+            uri: `/projects/${project_id}/expenses.json`
         })
     }
 
@@ -79,15 +82,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createExpense(project_id, expense_object = {}) {
-        if (!project_id || !Object.keys(invoice_object).length) {
-            return this.handleError('No project id or Expense request object provided')
+    createExpense(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/invoices.json`
-        }, invoice_object)
+            uri: `/projects/${project_id}/invoices.json`,
+            body
+        })
     }
 
     /**
@@ -98,11 +102,11 @@ class Project extends Teamwork {
      */
     getMessageCategories(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/messageCategories.json`
+            uri: `/projects/${project_id}/messageCategories.json`
         })
     }
 
@@ -113,15 +117,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createMessageCategory(project_id, category_object = {}) {
-        if (!project_id || !Object.keys(category_object).length) {
-            return this.handleError('No project id or Category request object provided')
+    createMessageCategory(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/messageCategories.json`
-        }, category_object)
+            uri: `/projects/${project_id}/messageCategories.json`,
+            body
+        })
     }
 
     /**
@@ -132,11 +137,11 @@ class Project extends Teamwork {
      */
     getFileCategories(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/messageCategories.json`
+            uri: `/projects/${project_id}/messageCategories.json`
         })
     }
 
@@ -147,15 +152,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createFileCategory(project_id, category_object = {}) {
-        if (!project_id || !Object.keys(category_object).length) {
-            return this.handleError('No project id or Category request object provided')
+    createFileCategory(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/fileCategories.json`
-        }, category_object)
+            uri: `/projects/${project_id}/fileCategories.json`,
+            body
+        })
     }
 
     /**
@@ -166,11 +172,11 @@ class Project extends Teamwork {
      */
     getNotebookCategories(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/notebookCategories.json`
+            uri: `/projects/${project_id}/notebookCategories.json`
         })
     }
 
@@ -181,15 +187,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createNotebookCategory(project_id, category_object = {}) {
-        if (!project_id || !Object.keys(category_object).length) {
-            return this.handleError('No project id or Category request object provided')
+    createNotebookCategory(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/notebookCategories.json`
-        }, category_object)
+            uri: `/projects/${project_id}/notebookCategories.json`,
+            body
+        })
     }
 
     /**
@@ -200,11 +207,11 @@ class Project extends Teamwork {
      */
     getLinkCategories(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/linkCategories.json`
+            uri: `/projects/${project_id}/linkCategories.json`
         })
     }
 
@@ -215,15 +222,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createLinkCategory(project_id, category_object = {}) {
-        if (!project_id || !Object.keys(category_object).length) {
-            return this.handleError('No project id or Category request object provided')
+    createLinkCategory(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/linkCategories.json`
-        }, category_object)
+            uri: `/projects/${project_id}/linkCategories.json`,
+            body
+        })
     }
     
     /**
@@ -234,11 +242,11 @@ class Project extends Teamwork {
      */
     getCompanies(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/companies.json`
+            uri: `/projects/${project_id}/companies.json`
         })
     }
 
@@ -250,11 +258,11 @@ class Project extends Teamwork {
      */
     getFiles(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id provided')
         }
 
         return this.query({
-            path: `/projects/${project_id}/files.json`
+            uri: `/projects/${project_id}/files.json`
         })
     }
 
@@ -265,15 +273,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createFile(project_id, file_object = {}) {
-        if (!project_id || !Object.keys(file_object).length) {
-            return this.handleError('No project id or File request object provided')
+    createFile(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/files.json`
-        }, file_object)
+            uri: `/projects/${project_id}/files.json`,
+            body
+        })
     }
 
     /**
@@ -283,15 +292,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    logo(project_id, file_object = {}) {
-        if (!project_id || !Object.keys(file_object).length) {
-            return this.handleError('No project id or File request object provided')
+    logo(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}.json`
-        }, file_object)
+            uri: `/projects/${project_id}.json`,
+            body
+        })
     }
 
     /**
@@ -301,15 +311,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createMessage(project_id, message_object = {}) {
-        if (!project_id || !Object.keys(message_object).length) {
-            return this.handleError('No project id or Message request object provided')
+    createMessage(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/posts.json`
-        }, message_object)
+            uri: `/projects/${project_id}/posts.json`,
+            body
+        })
     }
 
     /**
@@ -321,15 +332,13 @@ class Project extends Teamwork {
      */
     getMessages(project_id, archived = false) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
-        const path = archived ?
-            `/projects/${project_id}/posts/archive.json` : 
-            `/projects/${project_id}/posts.json`
-
         return this.query({
-            path
+            uri: archived ? 
+                `/projects/${project_id}/posts/archive.json` : 
+                `/projects/${project_id}/posts.json`
         })
     }
 
@@ -342,16 +351,14 @@ class Project extends Teamwork {
      * @return {Promise}
      */
     getCategoryMessages(project_id, category_id, archived = false) {
-        if (!project_id || !category_id) {
-            return this.handleError('No project id or category id provided')
+        if (!project_id && !category_id) {
+            return this.handleError('No Project id or Category id provided')
         }
 
-        const path = archived ? 
-            `/projects/${project_id}/cat/${category_id}/posts/archive.json` :
-            `/projects/${project_id}/cat/${category_id}/posts.json`
-
         return this.query({
-            path
+            uri: archived ? 
+                `/projects/${project_id}/cat/${category_id}/posts/archive.json` :
+                `/projects/${project_id}/cat/${category_id}/posts.json`
         })
     }
 
@@ -362,13 +369,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getMilestones(project_id, options = {}) {
+    getMilestones(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/milestones.json`, options)
+            uri: `/projects/${project_id}/milestones.json`,
+            qs
         })
     }
 
@@ -379,15 +387,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createMilestone(project_id, milestone_object = {}) {
-        if (!project_id || !Object.keys(milestone_object).length) {
-            return this.handleError('No project id or Milestone request object provided')
+    createMilestone(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/milestones.json`
-        }, milestone_object)
+            uri: `/projects/${project_id}/milestones.json`,
+            body
+        })
     }
 
     /**
@@ -397,13 +406,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getNotebooks(project_id, options = {}) {
+    getNotebooks(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/notebooks.json`, options)
+            uri: `/projects/${project_id}/notebooks.json`,
+            qs
         })
     }
 
@@ -414,15 +424,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createNotebook(project_id, notebook_object = {}) {
-        if (!project_id || !Object.keys(notebook_object).length) {
-            return this.handleError('No project id or Notebook request object provided')
+    createNotebook(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/notebooks.json`
-        }, notebook_object)
+            uri: `/projects/${project_id}/notebooks.json`,
+            body
+        })
     }
 
     /**
@@ -434,11 +445,11 @@ class Project extends Teamwork {
      */
     getPeople(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/people.json`
+            uri: `/projects/${project_id}/people.json`
         })
     }
 
@@ -450,13 +461,13 @@ class Project extends Teamwork {
      * @return {Promise}
      */
     addPeople(project_id, person_id) {
-        if (!project_id || !person_id) {
-            return this.handleError('No project id or person id provided')
+        if (!project_id && !person_id) {
+            return this.handleError('No Project id or Person id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/people/${person_id}.json`
+            uri: `/projects/${project_id}/people/${person_id}.json`
         })
     }
 
@@ -467,15 +478,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    people(project_id, people_object = {}) {
-        if (!project_id || !Object.keys(people_object).length) {
-            return this.handleError('No project id or people request object provided')
+    people(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}/people.json`
-        }, people_object)
+            uri: `/projects/${project_id}/people.json`,
+            body
+        })
     }
 
     /**
@@ -486,13 +498,13 @@ class Project extends Teamwork {
      * @return {Promise}
      */
     removePeople(project_id, person_id) {
-        if (!project_id || !person_id) {
-            return this.handleError('No project id or person id provided')
+        if (!project_id && !person_id) {
+            return this.handleError('No Project id or Person id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/projects/${project_id}/people/${person_id}.json`
+            uri: `/projects/${project_id}/people/${person_id}.json`
         })
     }
 
@@ -504,12 +516,12 @@ class Project extends Teamwork {
      * @return {Promise}
      */
     getPermissions(project_id, person_id) {
-        if (!project_id || !person_id) {
-            return this.handleError('No project id or person id provided')
+        if (!project_id && !person_id) {
+            return this.handleError('No Project id or Person id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/people/${person_id}.json`
+            uri: `/projects/${project_id}/people/${person_id}.json`
         })
     }
 
@@ -520,15 +532,16 @@ class Project extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    updatePermissions(project_id, person_id, permissons_object = {}) {
-        if (!project_id || !person_id || !Object.keys(permissons_object).length) {
-            return this.handleError('No project id or person id or permissions request object provided')
+    updatePermissions(project_id, person_id, body = {}) {
+        if (!project_id && !person_id) {
+            return this.handleError('No Project id or Person id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}/people/${person_id}.json`
-        }, permissons_object)
+            uri: `/projects/${project_id}/people/${person_id}.json`,
+            body
+        })
     }
 
     /**
@@ -537,15 +550,12 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(project_object = {}) {
-        if (!Object.keys(project_object).length) {
-            return this.handleError('No project request object provided')
-        }
-
+    create(body = {}) {
         return this.query({
             method: 'POST',
-            path: `/projects.json`
-        }, project_object)
+            uri: `/projects.json`,
+            body
+        })
     }
 
     /**
@@ -554,15 +564,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(project_id, project_object = {}) {
-        if (!project_id || !Object.keys(project_object).length) {
-            return this.handleError('No project id or project request object provided')
+    update(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}.json`
-        }, project_object)
+            uri: `/projects/${project_id}.json`,
+            body
+        })
     }
 
     /**
@@ -573,12 +584,12 @@ class Project extends Teamwork {
      */
     delete(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/projects/${project_id}.json`
+            uri: `/projects/${project_id}.json`
         })
     }
 
@@ -589,13 +600,12 @@ class Project extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    get(options = {}, project_id) {
-        const path = !project_id ? 
-            this.params('/projects.json', options) : 
-            this.params(`/projects/${project_id}.json`, options)
-
+    get(qs = {}, project_id) {
         return this.query({
-            path
+            uri: !project_id ? 
+                '/projects.json' : 
+                `/projects/${project_id}.json`,
+            qs
         })
     }
 
@@ -606,7 +616,7 @@ class Project extends Teamwork {
      */
     getStarred() {
         return this.query({
-            path: `/projects/starred.json`
+            uri: `/projects/starred.json`
         })
     }
 
@@ -618,12 +628,12 @@ class Project extends Teamwork {
      */
     star(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}/star.json`
+            uri: `/projects/${project_id}/star.json`
         })
     }
 
@@ -635,12 +645,12 @@ class Project extends Teamwork {
      */
     unStar(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}/unstar.json`
+            uri: `/projects/${project_id}/unstar.json`
         })
     }
 
@@ -652,11 +662,11 @@ class Project extends Teamwork {
      */
     box(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/box.json`
+            uri: `/projects/${project_id}/box.json`
         })
     }
 
@@ -667,15 +677,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    setBox(project_id, box_object = {}) {
-        if (!project_id || !Object.keys(box_object).length) {
-            return this.handleError('No project id or box request object provided')
+    setBox(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}/box.json`
-        }, box_object)
+            uri: `/projects/${project_id}/box.json`,
+            body
+        })
     }
 
     /**
@@ -686,11 +697,11 @@ class Project extends Teamwork {
      */
     googleDrive(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/googleDrive.json`
+            uri: `/projects/${project_id}/googleDrive.json`
         })
     }
 
@@ -701,15 +712,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    setGoogleDrive(project_id, google_drive_object = {}) {
-        if (!project_id || !Object.keys(google_drive_object).length) {
-            return this.handleError('No project id or google drive request object provided')
+    setGoogleDrive(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}/googleDrive.json`
-        }, google_drive_object)
+            uri: `/projects/${project_id}/googleDrive.json`,
+            body
+        })
     }
 
     /**
@@ -719,13 +731,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getRates(project_id, options = {}) {
+    getRates(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/rates.json`, options)
+            uri: `/projects/${project_id}/rates.json`,
+            qs
         })
     }
 
@@ -736,15 +749,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    setRates(project_id, rates_object = {}) {
-        if (!project_id || !Object.keys(rates_object).length) {
-            return this.handleError('No project id or rates request object provided')
+    setRates(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/rates.json`
-        }, rates_object)
+            uri: `/projects/${project_id}/rates.json`,
+            body
+        })
     }
 
     /**
@@ -754,15 +768,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    features(project_id, features_object = {}) {
-        if (!project_id || !Object.keys(features_object).length) {
-            return this.handleError('No project id or features request object provided')
+    features(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}.json`
-        }, features_object)
+            uri: `/projects/${project_id}.json`,
+            body
+        })
     }
 
     /**
@@ -773,11 +788,11 @@ class Project extends Teamwork {
      */
     getRoles(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/roles.json`
+            uri: `/projects/${project_id}/roles.json`
         })
     }
 
@@ -789,11 +804,11 @@ class Project extends Teamwork {
      */
     getEmailAddress(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/emailaddress.json`
+            uri: `/projects/${project_id}/emailaddress.json`
         })
     }
 
@@ -804,15 +819,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    setEmailAddress(project_id, email_object = {}) {
-        if (!project_id || !Object.keys(email_object).length) {
-            return this.handleError('No project id or email request object provided')
+    setEmailAddress(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}/emailaddress.json`
-        }, email_object)
+            uri: `/projects/${project_id}/emailaddress.json`,
+            body
+        })
     }
 
     /**
@@ -823,11 +839,11 @@ class Project extends Teamwork {
      */
     getLinks(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/links.json`
+            uri: `/projects/${project_id}/links.json`
         })
     }
 
@@ -839,11 +855,11 @@ class Project extends Teamwork {
      */
     getRisks(project_id) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: `/projects/${project_id}/risks.json`
+            uri: `/projects/${project_id}/risks.json`
         })
     }
 
@@ -854,13 +870,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getTime(project_id, options = {}) {
+    getTime(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/time_entries.json`, options)
+            uri: `/projects/${project_id}/time_entries.json`,
+            qs
         })
     }
 
@@ -871,15 +888,16 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createTime(project_id, time_object = {}) {
-        if (!project_id || !Object.keys(time_object).length) {
-            return this.handleError('No project id or Time request object provided')
+    createTime(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/time_entries.json`
-        }, time_object)
+            uri: `/projects/${project_id}/time_entries.json`,
+            body
+        })
     }
 
     /**
@@ -889,13 +907,12 @@ class Project extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    getRates(options = {}, project_id) {
-        const path = !project_id ?
-            this.params(`/projects/time/total.json`, options) : 
-            this.params(`/projects/${project_id}/time/total.json`, options)
-
+    getRates(qs = {}, project_id) {
         return this.query({
-            path
+            uri: !project_id ?
+                `/projects/time/total.json` : 
+                `/projects/${project_id}/time/total.json`,
+            qs
         })
     }
 
@@ -906,13 +923,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getTasklists(project_id, options = {}) {
+    getTasklists(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/tasklists.json`, options)
+            uri: `/projects/${project_id}/tasklists.json`,
+            qs
         })
     }
 
@@ -923,13 +941,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getTasks(project_id, options = {}) {
+    getTasks(project_id, qs = {}) {
         if (!project_id) {
-            return this.handleError('No project id provided')
+            return this.handleError('No Project id')
         }
 
         return this.query({
-            path: this.params(`/projects/${project_id}/tasks.json`, options)
+            uri: `/projects/${project_id}/tasks.json`,
+            qs
         })
     }
 

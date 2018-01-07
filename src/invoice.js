@@ -11,13 +11,10 @@ class Invoice extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    get(options = {}, invoice_id) {
-        const path = !invoice_id ? 
-            this.params('/invoices.json', options) : 
-            this.params(`/invoices/${invoice_id}.json`, options)
-
+    get(qs = {}, invoice_id) {
         return this.query({
-            path
+            uri: !invoice_id ? '/invoices.json' : `/invoices/${invoice_id}.json`,
+            qs
         })
     }
 
@@ -27,15 +24,12 @@ class Invoice extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(invoice_object = {}) {
-        if (!Object.keys(invoice_object).length) {
-            return this.handleError('Invoice request object is required')
-        }
-
+    create(body = {}) {
         return this.query({
             method: 'POST',
-            path: '/invoices.json'
-        }, invoice_object)
+            uri: '/invoices.json',
+            body
+        })
     }
 
     /**
@@ -45,15 +39,16 @@ class Invoice extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(invoice_id, invoice_object = {}) {
-        if (!invoice_id || !Object.keys(invoice_object).length) {
-            return this.handleError('No invoice id or Invoice request object provided')
+    update(invoice_id) {
+        if (!invoice_id) {
+            return this.handleError('No Invoice id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/invoices/${invoice_id}.json`
-        }, invoice_object)
+            uri: `/invoices/${invoice_id}.json`,
+            body
+        })
     }
 
     /**
@@ -64,12 +59,12 @@ class Invoice extends Teamwork {
      */
     delete(invoice_id) {
         if (!invoice_id) {
-            return this.handleError('No invoice id provided')
+            return this.handleError('No Invoice id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/invoices/${invoice_id}.json`
+            uri: `/invoices/${invoice_id}.json`
         })
     }
 
@@ -81,12 +76,12 @@ class Invoice extends Teamwork {
      */
     complete(invoice_id) {
         if (!invoice_id) {
-            return this.handleError('No invoice id provided')
+            return this.handleError('No Invoice id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/invoices/${invoice_id}/complete.json`
+            uri: `/invoices/${invoice_id}/complete.json`
         })
     }
 
@@ -98,12 +93,12 @@ class Invoice extends Teamwork {
      */
     incomplete(invoice_id) {
         if (!invoice_id) {
-            return this.handleError('No invoice id provided')
+            return this.handleError('No Invoice id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/invoices/${invoice_id}/uncomplete.json`
+            uri: `/invoices/${invoice_id}/uncomplete.json`
         })
     }
 
@@ -114,7 +109,7 @@ class Invoice extends Teamwork {
      */
     currencyCodes() {
         return this.query({
-            path: '/currencycodes.json'
+            uri: '/currencycodes.json'
         })
     }
 
@@ -125,15 +120,16 @@ class Invoice extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createExpense(invoice_id, expense_object = {}) {
-        if (!invoice_id || !Object.keys(expense_object).length) {
-            return this.handleError('No invoice id or Expense request object provided')
+    createExpense(invoice_id, body = {}) {
+        if (!invoice_id) {
+            return this.handleError('No Invoice id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/invoices/${invoice_id}/lineitems.json`
-        }, expense_object)
+            uri: `/invoices/${invoice_id}/lineitems.json`,
+            body
+        })
     }
 
     /**
@@ -143,15 +139,16 @@ class Invoice extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    createTime(invoice_id, time_object = {}) {
-        if (!invoice_id || !Object.keys(time_object).length) {
-            return this.handleError('No invoice id or Time request object provided')
+    createTime(invoice_id, body = {}) {
+        if (!invoice_id) {
+            return this.handleError('No Invoice id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/invoices/${invoice_id}/lineitems.json`
-        }, time_object)
+            uri: `/invoices/${invoice_id}/lineitems.json`,
+            body
+        })
     }
 
 }

@@ -1,5 +1,5 @@
-// const tw = require('./src')()
+const tw = require('./src')()
 
-// tw.project.create()
-//     .then((result) => console.log(result))
-//     .catch((error) => console.error(error))
+tw.board.getColumns()
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error))

@@ -11,13 +11,12 @@ class Task extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    get(options = {}, task_id) {
-        const path = !task_id ? 
-            this.params('/tasks.json', options) : 
-            this.params(`/tasks/${task_id}.json`, options)
-
+    get(qs = {}, task_id) {
         return this.query({
-            path
+            uri: !task_id ? 
+                '/tasks.json' : 
+                `/tasks/${task_id}.json`,
+            qs
         })
     }
 
@@ -28,15 +27,17 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(tasklist_id, task_object = {}, options = {}) {
-        if (!tasklist_id || !Object.keys(task_object).length) {
-            return this.handleError('No task list id or task request object provided')
+    create(tasklist_id, body = {}, qs = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
         }
 
         return this.query({
             method: 'POST',
-            path: this.params(`/tasklists/${tasklist_id}/tasks.json`, options)
-        }, task_object)
+            uri: `/tasklists/${tasklist_id}/tasks.json`,
+            qs,
+            body
+        })
     }
 
     /**
@@ -46,15 +47,16 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(task_id, task_object = {}) {
-        if (!task_id || !Object.keys(task_object).length) {
-            return this.handleError('No task list id or task request object provided')
+    update(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task List id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasks/${task_id}.json`
-        }, tasklist_object)
+            uri: `/tasks/${task_id}.json`,
+            body
+        })
     }
 
     /**
@@ -65,12 +67,12 @@ class Task extends Teamwork {
      */
     delete(task_id) {
         if (!task_id) {
-            return this.handleError('No task id provided')
+            return this.handleError('No Task id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/tasks/${task_id}.json`
+            uri: `/tasks/${task_id}.json`
         })
     }
 
@@ -81,15 +83,17 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    subtask(task_id, task_object = {}, options = {}) {
-        if (!task_id || !Object.keys(task_object).length) {
-            return this.handleError('No task id or task request object provided')
+    subtask(task_id, body = {}, qs = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
         }
 
         return this.query({
             method: 'POST',
-            path: this.params(`/tasks/${task_id}.json`, options)
-        }, task_object)
+            uri: `/tasks/${task_id}.json`,
+            body,
+            qs
+        })
     }
 
     /**
@@ -101,12 +105,12 @@ class Task extends Teamwork {
      */
     complete(task_id) {
         if (!task_id) {
-            return this.handleError('No task id provided')
+            return this.handleError('No Task id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasks/${task_id}/complete.json`
+            uri: `/tasks/${task_id}/complete.json`
         })
     }
 
@@ -119,12 +123,12 @@ class Task extends Teamwork {
      */
     incomplete(task_id) {
         if (!task_id) {
-            return this.handleError('No task id provided')
+            return this.handleError('No Task id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasks/${task_id}/uncomplete.json`
+            uri: `/tasks/${task_id}/uncomplete.json`
         })
     }
 
@@ -134,9 +138,10 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    completed(options = {}) {
+    completed(qs = {}) {
         return this.query({
-            path: this.params(`/completedtasks.json`, options)
+            uri: `/completedtasks.json`,
+            qs
         })
     }
 
@@ -147,15 +152,16 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    completedDate(task_id, task_object = {}) {
-        if (!task_id || !Object.keys(task_object).length) {
-            return this.handleError('No task id or task request object provided')
+    completedDate(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasks/${task_id}.json`
-        }, task_object)
+            uri: `/tasks/${task_id}.json`,
+            body
+        })
     }
 
     /**
@@ -166,11 +172,11 @@ class Task extends Teamwork {
      */
     dependencies(task_id) {
         if (!task_id) {
-            return this.handleError('No task id provided')
+            return this.handleError('No Task id')
         }
 
         return this.query({
-            path: `/tasks/${task_id}/dependencies.json`
+            uri: `/tasks/${task_id}/dependencies.json`
         })
     }
 
@@ -181,15 +187,16 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    reorder(tasklist_id, task_object = {}) {
-        if (!tasklist_id || !Object.keys(task_object).length) {
-            return this.handleError('No task list id or task request object provided')
+    reorder(tasklist_id, body = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasklists/${tasklist_id}/tasks/reorder.json`
-        }, task_object)
+            uri: `/tasklists/${tasklist_id}/tasks/reorder.json`,
+            body
+        })
     }
 
     /**
@@ -200,11 +207,11 @@ class Task extends Teamwork {
      */
     followers(task_id) {
         if (!task_id) {
-            return this.handleError('No task id provided')
+            return this.handleError('No Task id')
         }
 
         return this.query({
-            path: `/tasks/${task_id}/followers.json`
+            uri: `/tasks/${task_id}/followers.json`
         })
     }
 
@@ -215,15 +222,16 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    setFollowers(task_id, task_object = {}) {
-        if (!task_id || !Object.keys(task_object).length) {
-            return this.handleError('No task id or task request object provided')
+    setFollowers(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasks/${task_id}.json`
-        }, task_object)
+            uri: `/tasks/${task_id}.json`,
+            body
+        })
     }
 
     /**
@@ -233,15 +241,16 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    removeFollowers(task_id, task_object = {}) {
-        if (!task_id || !Object.keys(task_object).length) {
-            return this.handleError('No task id or task request object provided')
+    removeFollowers(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasks/${task_id}.json`
-        }, task_object)
+            uri: `/tasks/${task_id}.json`,
+            body
+        })
     }
 
     /**
@@ -251,15 +260,16 @@ class Task extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    quickadd(tasklist_id, task_object = {}) {
-        if (!tasklist_id || !Object.keys(task_object).length) {
-            return this.handleError('No task list id or task request object provided')
+    quickadd(tasklist_id, body = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasklists/${tasklist_id}/quickadd.json`
-        }, task_object)
+            uri: `/tasklists/${tasklist_id}/quickadd.json`,
+            body
+        })
     }
 
 }

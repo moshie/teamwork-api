@@ -11,12 +11,8 @@ class Link extends Teamwork {
      * @return {Promise}
      */
     get(link_id) {
-        path = !link_id ? 
-            '/links.json' : 
-            `/links/${link_id}.json`
-
         return this.query({
-            path
+            uri: !link_id ? '/links.json' : `/links/${link_id}.json`
         })
     }
 
@@ -27,15 +23,16 @@ class Link extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(project_id, link_object = {}) {
-        if (!project_id || !Object.keys(link_object).length) {
-            return this.handleError('No project id or link request object provided')
+    create(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/links.json`
-        }, link_object)
+            uri: `/projects/${project_id}/links.json`,
+            body
+        })
     }
 
     /**
@@ -45,15 +42,16 @@ class Link extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(link_id, link_object = {}) {
-        if (!link_id || !Object.keys(link_object).length) {
-            return this.handleError('No link id or link request object provided')
+    update(link_id, body = {}) {
+        if (!link_id) {
+            return this.handleError('No Link id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/links/${link_id}.json`
-        }, link_object)
+            uri: `/links/${link_id}.json`,
+            body
+        })
     }
 
     /**
@@ -64,12 +62,12 @@ class Link extends Teamwork {
      */
     delete(link_id) {
         if (!link_id) {
-            return this.handleError('No link id provided')
+            return this.handleError('No Link id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/links/${link_id}.json`
+            uri: `/links/${link_id}.json`
         })
     }
 

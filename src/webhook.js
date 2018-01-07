@@ -11,7 +11,7 @@ class Webhook extends Teamwork {
      */
     getEvents() {
         return this.query({
-            path: `/webhooks/events.json`
+            uri: `/webhooks/events.json`
         })
     }
 
@@ -22,12 +22,10 @@ class Webhook extends Teamwork {
      * @return {Promise}
      */
     get(webhook_id) {
-        const path = !webhook_id ? 
-            '/webhooks.json' : 
-            `/webhooks/${webhook_id}.json`
-
         return this.query({
-            path
+            uri: !webhook_id ? 
+                '/webhooks.json' : 
+                `/webhooks/${webhook_id}.json`
         })
     }
 
@@ -37,15 +35,12 @@ class Webhook extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(webhook_object = {}) {
-        if (!Object.keys(webhook_object).length) {
-            return this.handleError('No webhook request object provided')
-        }
-
+    create(body = {}) {
         return this.query({
             method: 'POST',
-            path: `/webhooks.json`
-        }, webhook_object)
+            uri: `/webhooks.json`,
+            body
+        })
     }
 
     /**
@@ -56,15 +51,16 @@ class Webhook extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(webhook_id, webhook_object = {}) {
-        if (!webhook_id || !Object.keys(webhook_object).length) {
-            return this.handleError('No webhook id or webhook request object provided')
+    update(webhook_id, body = {}) {
+        if (!webhook_id) {
+            return this.handleError('No Webhook id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/webhooks/${webhook_id}.json`
-        }, webhook_object)
+            uri: `/webhooks/${webhook_id}.json`,
+            body
+        })
     }
 
     /**
@@ -75,12 +71,12 @@ class Webhook extends Teamwork {
      */
     resume(webhook_id) {
         if (!webhook_id) {
-            return this.handleError('No webhook id provided')
+            return this.handleError('No Webhook id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/webhooks/${webhook_id}/resume.json`
+            uri: `/webhooks/${webhook_id}/resume.json`
         })
     }
 
@@ -92,12 +88,12 @@ class Webhook extends Teamwork {
      */
     resume(webhook_id) {
         if (!webhook_id) {
-            return this.handleError('No webhook id provided')
+            return this.handleError('No Webhook id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/webhooks/${webhook_id}/pause.json`
+            uri: `/webhooks/${webhook_id}/pause.json`
         })
     }
 
@@ -109,12 +105,12 @@ class Webhook extends Teamwork {
      */
     delete(webhook_id) {
         if (!webhook_id) {
-            return this.handleError('No webhook id provided')
+            return this.handleError('No Webhook id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/webhooks/${webhook_id}.json`
+            uri: `/webhooks/${webhook_id}.json`
         })
     }
 
@@ -127,7 +123,7 @@ class Webhook extends Teamwork {
     enable() {
         return this.query({
             method: 'PUT',
-            path: `/webhooks/enable.json`
+            uri: `/webhooks/enable.json`
         })
     }
 
@@ -140,7 +136,7 @@ class Webhook extends Teamwork {
     disable() {
         return this.query({
             method: 'PUT',
-            path: `/webhooks/disable.json`
+            uri: `/webhooks/disable.json`
         })
     }
 

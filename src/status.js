@@ -12,12 +12,10 @@ class Status extends Teamwork {
      * @return {Promise}
      */
     get(user_id) {
-        path = !user_id ? 
-            `/me/status.json` : 
-            `/people/${user_id}/status.json`
-
         return this.query({
-            path
+            uri: !user_id ? 
+                `/me/status.json` : 
+                `/people/${user_id}/status.json`
         })
     }
 
@@ -27,15 +25,16 @@ class Status extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(person_id, status_object = {}) {
-        if (!person_id || !Object.keys(status_object).length) {
-            return this.handleError('No status id or status request object provided')
+    create(person_id, body = {}) {
+        if (!person_id) {
+            return this.handleError('No Status id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/people/${person_id}/status.json`
-        }, status_object)
+            uri: `/people/${person_id}/status.json`,
+            body
+        })
     }
 
     /**
@@ -45,41 +44,42 @@ class Status extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    updateMe(status_id, status_object = {}) {
-        if (!status_id || !Object.keys(status_object).length) {
-            return this.handleError('No status id or status request object provided')
+    updateMe(status_id, body = {}) {
+        if (!status_id) {
+            return this.handleError('No Status id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/me/status/${status_id}.json`
-        }, status_object)
+            uri: `/me/status/${status_id}.json`,
+            body
+        })
     }
 
     /**
      * Update a status
      * 
      * @param  {Number}
-     * @param  {Object}
+     * @param  {Object|Number|String}
      * @param  {Object}
      * @return {Promise}
      */
-    update(status_id, person_id = null, status_object = {}) {
+    update(status_id, person_id = '', body = {}) {
         if (!status_id) {
-            return this.handleError('No status id provided')
+            return this.handleError('No Status id')
         }
 
-        if (typeof person_id == 'object') {
-            status_object = person_id
-            path = `/people/status/${status_id}.json`
-        } else {
-            path = `/people/${person_id}/status/${status_id}.json`
+        if (typeof person_id === 'object') {
+            body = person_id
         }
 
         return this.query({
             method: 'PUT',
-            path
-        }, status_object)
+            uri: typeof person_id === 'object' ?
+                `/people/status/${status_id}.json` :
+                `/people/${person_id}/status/${status_id}.json`,
+            body
+        })
     }
 
     /**
@@ -91,12 +91,12 @@ class Status extends Teamwork {
      */
     deleteMe(status_id) {
         if (!status_id) {
-            return this.handleError('No status id provided')
+            return this.handleError('No Status id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/me/status/${status_id}.json`
+            uri: `/me/status/${status_id}.json`
         })
     }
 
@@ -108,18 +108,16 @@ class Status extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    delete(status_id, person_id = null) {
+    delete(status_id, person_id) {
         if (!status_id) {
-            return this.handleError('No status id provided')
+            return this.handleError('No Status id')
         }
-
-        const path = !person_id ? 
-            `/people/status/${status_id}.json` :
-            `/people/${person_id}/status/${status_id}.json`
 
         return this.query({
             method: 'DELETE',
-            path
+            uri: !person_id ? 
+                `/people/status/${status_id}.json` :
+                `/people/${person_id}/status/${status_id}.json`
         })
     }
 

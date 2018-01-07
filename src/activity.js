@@ -5,31 +5,32 @@ const Teamwork = require('./teamwork')
 class Activity extends Teamwork {
 
     /**
-     * Get latest activity
+     * Latest Activity across all projects
      * 
      * @param  {Object}
      * @return {Promise}
      */
-    latest(options = {}) {
+    latest(activity_object = {}) {
         return this.query({
-            path: this.params('/latestActivity.json', options)
+            uri: '/latestActivity.json',
+            body: activity_object
         })
     }
 
     /**
-     * Delete activity
+     * Delete an activity entry
      * 
      * @param  {Number}
      * @return {Promise}
      */
     delete(activity_id) {
         if (!activity_id) {
-            return this.handleError('No activity id provided')
+            return this.handleError('No activity id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/activity/${activity_id}.json`
+            uri: `/activity/${activity_id}.json`
         })
     }
 

@@ -12,11 +12,11 @@ class TaskList extends Teamwork {
      */
     get(tasklist_id) {
         if (!tasklist_id) {
-            return this.handleError('No task list id provided')
+            return this.handleError('No Task List id')
         }
 
         return this.query({
-            path: `/tasklists/${tasklist_id}.json`
+            uri: `/tasklists/${tasklist_id}.json`
         })
     }
 
@@ -27,15 +27,17 @@ class TaskList extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(project_id, tasklist_object = {}, options = {}) {
-        if (!project_id || !Object.keys(tasklist_object).length) {
-            return this.handleError('No project id or task list request object provided')
+    create(project_id, body = {}, qs = {}) {
+        if (!project_id) {
+            return this.handleError('No project id')
         }
 
         return this.query({
             method: 'POST',
-            path: this.params(`/projects/${project_id}/tasklists/reorder.json`, options)
-        }, tasklist_object)
+            uri: `/projects/${project_id}/tasklists/reorder.json`,
+            qs,
+            body
+        })
     }
 
     /**
@@ -45,15 +47,16 @@ class TaskList extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(tasklist_id, tasklist_object = {}) {
-        if (!tasklist_id || !Object.keys(tasklist_object).length) {
-            return this.handleError('No task list id or task list request object provided')
+    update(tasklist_id, body = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasklists/${tasklist_id}.json`
-        }, tasklist_object)
+            uri: `/tasklists/${tasklist_id}.json`,
+            body
+        })
     }
 
     /**
@@ -64,12 +67,12 @@ class TaskList extends Teamwork {
      */
     delete(tasklist_id) {
         if (!tasklist_id) {
-            return this.handleError('No task list id provided')
+            return this.handleError('No Task List id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/tasklists/${tasklist_id}.json`
+            uri: `/tasklists/${tasklist_id}.json`
         })
     }
 
@@ -80,15 +83,16 @@ class TaskList extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    copy(tasklist_id, tasklist_object = {}) {
-        if (!tasklist_id || !Object.keys(tasklist_object).length) {
-            return this.handleError('No tasklist id or tasklist request object provided')
+    copy(tasklist_id, body = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasklist/${tasklist_id}/copy.json`
-        }, tasklist_object)
+            uri: `/tasklist/${tasklist_id}/copy.json`,
+            body
+        })
     }
 
     /**
@@ -98,15 +102,16 @@ class TaskList extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    move(tasklist_id, tasklist_object = {}) {
-        if (!tasklist_id || !Object.keys(tasklist_object).length) {
-            return this.handleError('No task list id or task list request object provided')
+    move(tasklist_id, body = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/tasklist/${tasklist_id}/move.json`
-        }, tasklist_object)
+            uri: `/tasklist/${tasklist_id}/move.json`,
+            body
+        })
     }
 
     /**
@@ -116,15 +121,16 @@ class TaskList extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    reorder(project_id, tasklist_object = {}) {
-        if (!project_id || !Object.keys(tasklist_object).length) {
-            return this.handleError('No project id or task list request object provided')
+    reorder(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/projects/${project_id}/tasklists/reorder.json`
-        }, tasklist_object)
+            uri: `/projects/${project_id}/tasklists/reorder.json`,
+            body
+        })
     }
 
     /**
@@ -134,7 +140,7 @@ class TaskList extends Teamwork {
      */
     templates() {
         return this.query({
-            path: `/tasklists/templates.json`
+            uri: `/tasklists/templates.json`
         })
     }
 
@@ -145,13 +151,14 @@ class TaskList extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getTasks(tasklist_id, options = {}) {
+    getTasks(tasklist_id, qs = {}) {
         if (!tasklist_id) {
-            return this.handleError('No task list id provided')
+            return this.handleError('No Task List id')
         }
 
         return this.query({
-            path: this.params(`/tasklists/${tasklist_id}/tasks.json`, options)
+            uri: `/tasklists/${tasklist_id}/tasks.json`,
+            qs
         })
     }
 

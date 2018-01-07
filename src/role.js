@@ -12,11 +12,11 @@ class Role extends Teamwork {
      */
     get(role_id) {
         if (!role_id) {
-            return this.handleError('No role id provided')
+            return this.handleError('No Role id')
         }
 
         return this.query({
-            path: `/roles/${role_id}.json`
+            uri: `/roles/${role_id}.json`
         })
     }
 
@@ -27,15 +27,16 @@ class Role extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(project_id, role_object = {}) {
-        if (!project_id || !Object.keys(role_object).length) {
-            return this.handleError('No project id or role request object provided')
+    create(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
         }
 
         return this.query({
             method: 'POST',
-            path: `/projects/${project_id}/roles.json`
-        }, role_object)
+            uri: `/projects/${project_id}/roles.json`,
+            body
+        })
     }
 
     /**
@@ -45,15 +46,16 @@ class Role extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(role_id, role_object = {}) {
-        if (!role_id || !Object.keys(role_object).length) {
-            return this.handleError('No role id or role request object provided')
+    update(role_id, body = {}) {
+        if (!role_id) {
+            return this.handleError('No Role id')
         }
 
         return this.query({
             method: 'PUT',
-            path: `/roles/${role_id}.json`
-        }, role_object)
+            uri: `/roles/${role_id}.json`,
+            body
+        })
     }
 
     /**
@@ -64,12 +66,12 @@ class Role extends Teamwork {
      */
     delete(role_id) {
         if (!role_id) {
-            return this.handleError('No role id provided')
+            return this.handleError('No Role id')
         }
 
         return this.query({
             method: 'DELETE',
-            path: `/roles/${role_id}.json`
+            uri: `/roles/${role_id}.json`
         })
     }
 
