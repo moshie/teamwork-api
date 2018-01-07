@@ -1,5 +1,5 @@
-const tw = require('./src')()
+const tw = require('./test/helpers')
 
-tw.board.getColumns()
+tw.account()
     .then((result) => console.log(result))
     .catch((error) => console.error(error))

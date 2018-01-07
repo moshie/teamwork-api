@@ -1,6 +1,6 @@
 "use strict"
 
-var request = require('request-promise-native');
+var request = require('request-promise-native')
 
 class Teamwork {
 
@@ -36,7 +36,7 @@ class Teamwork {
     authenticate() {
         return this.query({
             uri: '/authenticate.json',
-            baseUrl: 'https://' + this.europe ? 'authenticate.teamwork.com' : 'authenticate.eu.teamwork.com'
+            baseUrl: 'https://' + (this.europe ? 'authenticate.teamwork.com' : 'authenticate.eu.teamwork.com')
         })
     }
 

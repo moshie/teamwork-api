@@ -13,7 +13,9 @@ class Notebook extends Teamwork {
      */
     get(qs = {}, notebook_id) {
         return this.query({
-            uri: !notebook_id ? `/notebooks.json` : `/notebooks/${notebook_id}.json`
+            uri: !notebook_id ? 
+                `/notebooks.json` : 
+                `/notebooks/${notebook_id}.json`,
             qs
         })
     }
