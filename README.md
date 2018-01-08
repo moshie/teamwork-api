@@ -1,6 +1,6 @@
-# Teamwork Api Wrapper
+# Teamwork Api
 
-A node wrapper around teamwork projects api making it easier to perform api requests.
+A wrapper around teamwork api making it easier to perform requests.
 
 ## Installation
 

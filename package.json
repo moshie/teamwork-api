@@ -1,7 +1,7 @@
 {
   "name": "teamwork-api",
   "version": "1.0.0",
-  "description": "A node wrapper around teamwork projects api making it easier to perform api requests.",
+  "description": "A wrapper around teamwork api making it easier to perform requests.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
