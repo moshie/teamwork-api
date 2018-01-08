@@ -1900,33 +1900,156 @@ tw.projects.getTasks(project_id, options)
 tw.tasklist.getTasks(tasklist_id, options)
 ```
 
-# Task reminders
-GET /tasks/:id/reminders.json                                   - tw.taskReminder.get(task_id) - ✓
-POST /tasks/:id/reminders.json                                  - tw.taskReminder.create(task_id, reminder_object) - ✓
-PUT /tasks/:id/reminders/:id.json                               - tw.tasks.update(reminder_object = {}, reminder_id, task_id) - ✓
-DELETE /tasks/:id/reminders/:id.json                            - tw.tasks.deleteReminder(reminder_id, task_id) - ✓
+### Task reminders
 
-# Tags
+[**GET /tasks/:id/reminders.json**](https://developer.teamwork.com/taskreminders#get_all_reminders)
+
+```
+tw.taskReminder.get(task_id)
+```
+
+[**POST /tasks/:id/reminders.json**](https://developer.teamwork.com/taskreminders#create_a_reminder)
+
+```
+tw.taskReminder.create(task_id, {
+	"reminder": {
+		// --
+	}
+})
+```
+
+[**PUT /tasks/:id/reminders/:id.json**](https://developer.teamwork.com/taskreminders#update_an_existin)
+
+```
+tw.tasks.update({
+	"reminder": {
+		// --
+	}
+}, reminder_id, task_id)
+```
+
+[**DELETE /tasks/:id/reminders/:id.json**](https://developer.teamwork.com/taskreminders#delete_an_existin)
+
+```
+tw.tasks.deleteReminder(reminder_id, task_id)
+```
+
+### Tags
 resources = [projects, tasklists, tasks, milestones, messages, timelogs, files, users, companys, notebooks, links]
 GET /{resource}/{id}/tags.json                                  - tw.{resources}.tags(resource_id, options)
 
-GET /tags.json                                                  - tw.tags.get() - ✓
-GET /tags/{tag_id}.json                                         - tw.tags.get(tag_id) - ✓
-POST /tags.json                                                 - tw.tags.create(tag_object) - ✓
-PUT /tags/{tag_id}.json                                         - tw.tags.update(tag_id, tag_object) - ✓
-DELETE /tags/{tag_id}.json                                      - tw.tags.delete(tag_id) - ✓
+[**GET /tags.json**](https://developer.teamwork.com/tags#list_all_tags)
 
-# Webhooks
-GET /webhooks/events.json                                       - tw.webhooks.getEvents() - ✓
-GET /webhooks.json                                              - tw.webhooks.get() - ✓
-GET /webhooks/:id.json                                          - tw.webooks.get(webhook_id) - ✓
-PUT /webhooks/:id.json                                          - tw.webooks.update(webhook_id, webhook_object) - ✓
-PUT /webhooks/:id/resume.json                                   - tw.webooks.resume(webhook_id) - ✓
-PUT /webhooks/:id/pause.json                                    - tw.webooks.pause(webhook_id) - ✓
-DELETE /webhooks/:id.json                                       - tw.webooks.delete(webhook_id) - ✓
-POST /webhooks.json                                             - tw.webhook.create(webhook_object) - ✓
-PUT /webhooks/enable.json                                       - tw.webhook.enable() - ✓
-PUT /webhooks/disable.json                                      - tw.webhook.disable() - ✓
+```
+tw.tags.get()
+```
 
-# Workload
-GET /workload.json                                              - tw.workload.get(options) - ✓
+[**GET /tags/{tag_id}.json**](https://developer.teamwork.com/tags#get_a_single_tag)
+
+```
+tw.tags.get(tag_id)
+```
+
+[**POST /tags.json**](https://developer.teamwork.com/tags#create_a_single_t)
+
+```
+tw.tags.create({
+	"tag": {
+		// --
+	}
+})
+```
+
+[**PUT /tags/{tag_id}.json**](https://developer.teamwork.com/tags#update_a_single_t)
+
+```
+tw.tags.update(tag_id, {
+	"tag": {
+		// --
+	}
+})
+```
+
+[**DELETE /tags/{tag_id}.json**](https://developer.teamwork.com/tags#delete_a_single_t)
+
+```
+tw.tags.delete(tag_id)
+```
+
+### Webhooks
+
+[**GET /webhooks/events.json**](https://developer.teamwork.com/webhooksapi#get_a_list_of_all)
+
+```
+tw.webhooks.getEvents()
+```
+
+[**GET /webhooks.json**](https://developer.teamwork.com/webhooksapi#get_all_webhooks_)
+
+```
+tw.webhooks.get()
+```
+
+[**GET /webhooks/:id.json**](https://developer.teamwork.com/webhooksapi#get_details_of_a_)
+
+```
+tw.webooks.get(webhook_id)
+```
+
+[**PUT /webhooks/:id.json**](https://developer.teamwork.com/webhooksapi#update_a_specific)
+
+```
+tw.webooks.update(webhook_id, {
+	"webhook": {
+		// --
+	}
+})
+```
+
+[**PUT /webhooks/:id/resume.json**](https://developer.teamwork.com/webhooksapi#resume_a_specific)
+
+```
+tw.webooks.resume(webhook_id)
+```
+
+[**PUT /webhooks/:id/pause.json**](https://developer.teamwork.com/webhooksapi#pause_a_specific_)
+
+```
+tw.webooks.pause(webhook_id)
+```
+
+[**DELETE /webhooks/:id.json**](https://developer.teamwork.com/webhooksapi#delete_a_specific)
+
+```
+tw.webooks.delete(webhook_id)
+```
+
+[**POST /webhooks.json**](https://developer.teamwork.com/webhooksapi#create_a_new_webh)
+
+```
+tw.webhook.create({
+	"webhook": {
+		// --
+	}
+})
+```
+
+[**PUT /webhooks/enable.json**](https://developer.teamwork.com/webhooksapi#enable_webhooks_o)
+
+```
+tw.webhook.enable()
+```
+
+[**PUT /webhooks/disable.json**](https://developer.teamwork.com/webhooksapi#disable_webhooks_)
+
+```
+tw.webhook.disable()
+```
+
+### Workload
+
+[**GET /workload.json**](https://developer.teamwork.com/workload)
+
+```
+tw.workload.get(options)
+```
