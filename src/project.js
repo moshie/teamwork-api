@@ -11,14 +11,14 @@ class Project extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getActivity(project_id, qs = {}) {
+    getActivity(project_id, body = {}) {
         if (!project_id) {
             return this.handleError('No Project id')
         }
 
         return this.query({
             uri: `/projects/${project_id}/latestActivity.json`,
-            qs
+            body
         })
     }
 

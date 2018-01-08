@@ -16,7 +16,7 @@ tw.activity.latest({
 [**GET /projects/{project_id}/latestActivity.json**](https://developer.teamwork.com/activity#list_latest_activ)
 
 ```
-tw.project.getActivity(project_id, {
+tw.projects.getActivity(project_id, {
 	maxItems: 60
 })
 ```
