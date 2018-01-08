@@ -27,7 +27,7 @@ class TaskList extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    create(project_id, body = {}, qs = {}) {
+    create(project_id, body = {}) {
         if (!project_id) {
             return this.handleError('No project id')
         }
@@ -35,7 +35,6 @@ class TaskList extends Teamwork {
         return this.query({
             method: 'POST',
             uri: `/projects/${project_id}/tasklists/reorder.json`,
-            qs,
             body
         })
     }

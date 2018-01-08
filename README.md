@@ -1237,101 +1237,668 @@ tw.projects.updatePermissions(project_id, person_id, {
 })
 ```
 
-# Projects
-POST /projects.json                                             - tw.projects.create(project_object) - ✓
-PUT /projects/{project_id}.json                                 - tw.projects.update(project_id, project_object) - ✓
-DELETE /projects/{id}.json                                      - tw.projects.delete(project_id) - ✓
-GET /projects.json                                              - tw.projects.get(options) - ✓
-GET /projects/{project_id}.json                                 - tw.projects.get(options, project_id) - ✓
-GET /companies/{id}/projects.json                               - tw.companies.getProjects(company_id) - ✓
-GET /projects/starred.json                                      - tw.projects.getStarred() - ✓
-PUT /projects/{project_id}/star.json                            - tw.projects.star(project_id) - ✓
-PUT /projects/{project_id}/unstar.json                          - tw.projects.unStar(project_id) - ✓
-GET /projects/{id}/box.json                                     - tw.projects.box(project_id) - ✓
-PUT /projects/{id}/box.json                                     - tw.projects.setBox(project_id, box_object) - ✓
-GET /projects/{id}/googleDrive.json                             - tw.projects.googleDrive(project_id) - ✓
-PUT /projects/{id}/googleDrive.json                             - tw.projects.setGoogleDrive(project_id, google_drive_object) - ✓
-GET /projects/{project_id}/rates.json                           - tw.projects.getRates(project_id, options) - ✓
-POST /projects/{project_id}/rates.json                          - tw.projects.setRates(project_id, rates_object) - ✓
-PUT /projects/{project_id}.json                                 - tw.projects.features(project_id, features_object) - ✓
+### Projects
+[**POST /projects.json**](https://developer.teamwork.com/projectsapi#create_project)
 
-# Project Roles
-GET /projects/{id}/roles.json                                   - tw.projects.getRoles(project_id) - ✓
-POST /projects/{id}/roles.json                                  - tw.roles.create(project_id, role_object) - ✓
-PUT /roles/{id}.json                                            - tw.roles.update(role_id, role_object) - ✓
-DELETE /roles/{id}.json                                         - tw.roles.delete(role_id) - ✓
-GET /roles/{role_id}.json                                       - tw.roles.get(role_id) - ✓
+```
+tw.projects.create({
+	"project": {
 
-# Project Email Address
-GET /projects/{id}/emailaddress.json                            - tw.projects.getEmailAddress(project_id) - ✓
-PUT /projects/{id}/emailaddress.json                            - tw.project.setEmailAddress(project_id, email_object) - ✓
+	}
+})
+```
 
-# Links
-GET /links.json                                                 - tw.links.get() - ✓
-GET /projects/{project_id}/links.json                           - tw.projects.getLinks(project_id) - ✓
-GET /links/{link_id}.json                                       - tw.links.get(link_id) - ✓
-POST /projects/{project_id}/links.json                          - tw.links.create(project_id, link_object) - ✓
-PUT /links/{link_id}.json                                       - tw.links.update(link_id, link_object) - ✓
-DELETE /links/{link_id}.json                                    - tw.links.delete(link_id) - ✓
+[**PUT /projects/{project_id}.json**](https://developer.teamwork.com/projectsapi#update_project)
 
-# Risks
-GET /projects/{project_id}/risks.json                           - tw.projects.getRisks(risk_id, project_id) - ✓
-GET /risks/{risk_id}.json                                       - tw.risks.get(risk_id) - ✓
+```
+tw.projects.update(project_id, {
+	"project": {
+		// --
+	}
+})
+```
 
-# Search
-GET /search.json                                                - tw.search(options) - ✓
+[**DELETE /projects/{id}.json**](https://developer.teamwork.com/projectsapi#delete_project)
 
-# Time Tracking
-POST /tasks/{taskid}/time_entries.json                          - tw.tasks.createTime(task_id, time_object)
-GET /tasklists/{id}/time/total.json                             - tw.tasklists.totalTime(tasklist_id, options)
-GET /tasks/{id}/time/total.json                                 - tw.tasks.totalTime(task_id, options)
-PUT tasks/{task_id}/estimatedtime.json                          - tw.tasks.estimatedTime(task_id)
+```
+tw.projects.delete(project_id)
+```
 
-GET /time_entries.json                                          - tw.time.get(options) - ✓
-GET /time_entries/{id}.json                                     - tw.time.get(options, time_id) - ✓
-PUT /time_entries/{id}.json                                     - tw.time.update(time_id, time_object, options) - ✓
-DELETE /time_entries/{id}.json                                  - tw.time.delete(time_id) - ✓
+[**GET /projects.json**](https://developer.teamwork.com/projectsapi#retrieve_all_proj)
 
-GET /projects/{project_id}/time_entries.json                    - tw.projects.getTime(project_id, options) - ✓
-GET /todo_items/{todo_item_id}/time_entries.json                - tw.time.todos(todo_id) - ✓
-POST /projects/{project_id}/time_entries.json                   - tw.projects.createTime(project_id, time_object) - ✓
+```
+tw.projects.get({
+	status: 'ALL'
+})
+```
 
-GET /time/total.json                                            - tw.time.total(options) - ✓
-GET /projects/{id}/time/total.json                              - tw.projects.totalTime(options, project_id) - ✓
-GET /projects/time/total.json                                   - tw.projects.totalTime(options) - ✓
-GET to /people/{person_id}/loggedtime.json                      - tw.people.loggedTime(person_id, options) - ✓
+[**GET /projects/{project_id}.json**](https://developer.teamwork.com/projectsapi#retrieve_a_single)
 
-# Task lists
-GET /projects/{project_id}/tasklists.json                       - tw.projects.getTasklists(project_id, options) - ✓
+```
+tw.projects.get({}, project_id)
+```
 
-PUT /projects/{project_id}/tasklists/reorder.json               - tw.tasklist.reorder(project_id, tasklist_object) - ✓
-POST /projects/{project_id}/tasklists.json                      - tw.tasklist.create(project_id, tasklist_object, options) - ✓
-GET /tasklists/{id}.json                                        - tw.tasklist.get(tasklist_id) - ✓
-PUT /tasklists/{id}.json                                        - tw.tasklist.update(tasklist_id, tasklist_object) - ✓
-DELETE /tasklists/{id}.json                                     - tw.tasklist.delete(tasklist_id) - ✓
-PUT /tasklist/{tasklist_id}/copy.json                           - tw.tasklist.copy(tasklist_id, tasklist_object) - ✓
-PUT to /tasklist/{tasklist_id}/move.json                        - tw.tasklist.move(tasklist_id, tasklist_object) - ✓
-GET /tasklists/templates.json                                   - tw.tasklist.templates() - ✓
+[**GET /companies/{id}/projects.json**](https://developer.teamwork.com/projectsapi#retrieve_projects)
 
-# Tasks
-GET /tasks.json                                                 - tw.tasks.get(options, task_id) - ✓
-GET /tasks/{id}.json                                            - tw.tasks.get(options, task_id) - ✓
-PUT /tasks/{id}.json                                            - tw.tasks.update(task_id, task_object) - ✓
-DELETE /tasks/{id}.json                                         - tw.tasks.delete(task_id) - ✓
-POST /tasklists/{id}/tasks.json                                 - tw.tasks.create(tasklist_id, task_object, options) - ✓
-POST /tasks/{id}.json                                           - tw.tasks.subtask(task_id, task_object, options) - ✓
-PUT /tasks/{id}/complete.json                                   - tw.tasks.complete(task_id) - ✓
-PUT /tasks/{id}/uncomplete.json                                 - tw.tasks.incomplete(task_id) - ✓
-GET /tasks/{id}/dependencies.json                               - tw.tasks.dependencies(task_id) - ✓
-PUT /tasklists/{id}/tasks/reorder.json                          - tw.tasks.reorder(tasklist_id, task_object) - ✓
-GET /completedtasks.json                                        - tw.tasks.completed(options) - ✓
-PUT /tasks/{task_id}.json                                       - tw.tasks.completedDate(task_id, task_object) - ✓
-GET /tasks/{task_id}/followers.json                             - tw.tasks.getFollowers(task_id) - ✓
-PUT /tasks/{task_id}.json                                       - tw.tasks.setFollowers(task_id, task_object) - ✓
-PUT /tasks/{task_id}.json                                       - tw.tasks.removeFollowers(task_id, tasks_object) - ✓
-POST /tasklists/{task_list_id}/quickadd.json                    - tw.tasklist.quickadd(task_list_id, tasks_object) - ✓
-GET /projects/{id}/tasks.json                                   - tw.projects.getTasks(project_id, options) - ✓
-GET /tasklists/{id}/tasks.json                                  - tw.tasklist.getTasks(tasklist_id, options) - ✓
+```
+tw.companies.getProjects(company_id)
+```
+
+[**GET /projects/starred.json**](https://developer.teamwork.com/projectsapi#retrieve_your_sta)
+
+```
+tw.projects.getStarred()
+```
+
+[**PUT /projects/{project_id}/star.json**](https://developer.teamwork.com/projectsapi#star_a_project)
+
+```
+tw.projects.star(project_id)
+```
+
+[**PUT /projects/{project_id}/unstar.json**](https://developer.teamwork.com/projectsapi#unstar_a_project)
+
+```
+tw.projects.unStar(project_id)
+```
+
+[**GET /projects/{id}/box.json**](https://developer.teamwork.com/projectsapi#read_project_box_)
+
+```
+tw.projects.box(project_id)
+```
+
+[**PUT /projects/{id}/box.json**](https://developer.teamwork.com/projectsapi#set_project_box_f)
+
+```
+tw.projects.setBox(project_id, {
+	"box": {
+		// --
+	}
+})
+```
+
+[**GET /projects/{id}/googleDrive.json**](https://developer.teamwork.com/projectsapi#read_project_goog)
+
+```
+tw.projects.googleDrive(project_id)
+```
+
+[**PUT /projects/{id}/googleDrive.json**](https://developer.teamwork.com/projectsapi#set_project_googl)
+
+```
+tw.projects.setGoogleDrive(project_id, {
+	"google-drive": {
+		// --
+	}
+})
+```
+
+[**GET /projects/{project_id}/rates.json**](https://developer.teamwork.com/projectsapi#get_project_rates)
+
+```
+tw.projects.getRates(project_id, {
+	page: 1,
+	pageSize: 2
+})
+```
+
+[**POST /projects/{project_id}/rates.json**](https://developer.teamwork.com/projectsapi#set_project_rates)
+
+```
+tw.projects.setRates(project_id, {
+	"rates": {
+		// --
+	}
+})
+```
+
+[**PUT /projects/{project_id}.json**](https://developer.teamwork.com/projectsapi#enable_and_disabl)
+
+```
+tw.projects.features(project_id, {
+	"project": {
+		// --
+	}
+})
+```
+
+### Project Roles
+
+[**GET /projects/{id}/roles.json**](https://developer.teamwork.com/projectroles#list_roles_on_a_p)
+
+```
+tw.projects.getRoles(project_id)
+```
+
+[**POST /projects/{id}/roles.json**](https://developer.teamwork.com/projectroles#add_a_role_to_a_p)
+
+```
+tw.roles.create(project_id, {
+	"role": {
+		// --
+	}
+})
+```
+
+[**PUT /roles/{id}.json**](https://developer.teamwork.com/projectroles#update_a_role_on_)
+
+```
+tw.roles.update(role_id, {
+	"role": {
+		// --
+	}
+})
+```
+
+[**DELETE /roles/{id}.json**](https://developer.teamwork.com/projectroles#delete_a_role)
+
+```
+tw.roles.delete(role_id)
+```
+
+[**GET /roles/{role_id}.json**](https://developer.teamwork.com/projectroles#get_an_individual)
+
+```
+tw.roles.get(role_id)
+```
+
+### Project Email Address
+
+[**GET /projects/{id}/emailaddress.json**](https://developer.teamwork.com/projectemailaddresses#get_project_email)
+
+```
+tw.projects.getEmailAddress(project_id)
+```
+
+[**PUT /projects/{id}/emailaddress.json**](https://developer.teamwork.com/projectemailaddresses#update_project_em)
+
+```
+tw.project.setEmailAddress(project_id, {
+	"emailaddress": {
+		// --
+	}
+})
+```
+
+### Links
+
+[**GET /links.json**](https://developer.teamwork.com/links#list_all_links)
+
+```
+tw.links.get()
+```
+
+[**GET /projects/{project_id}/links.json**](https://developer.teamwork.com/links#list_links_on_a_p)
+
+```
+tw.projects.getLinks(project_id)
+```
+
+[**GET /links/{link_id}.json**](https://developer.teamwork.com/links#get_a_single_link)
+
+```
+tw.links.get(link_id)
+```
+
+[**POST /projects/{project_id}/links.json**](https://developer.teamwork.com/links#create_a_single_l)
+
+```
+tw.links.create(project_id, {
+	"link": {
+		// --
+	}
+})
+```
+
+[**PUT /links/{link_id}.json**](https://developer.teamwork.com/links#update_a_single_l)
+
+```
+tw.links.update(link_id, {
+	"link": {
+		// --
+	}
+})
+```
+
+[**DELETE /links/{link_id}.json**](https://developer.teamwork.com/links#delete_a_single_l)
+
+```
+tw.links.delete(link_id)
+```
+
+### Risks
+[**GET /projects/{project_id}/risks.json**](https://developer.teamwork.com/risks)
+
+```
+tw.projects.getRisks(risk_id, project_id)
+```
+
+[**GET /risks/{risk_id}.json**](https://developer.teamwork.com/risks#get_the_details_o)
+
+```
+tw.risks.get(risk_id)
+```
+
+### Search
+[**GET /search.json**](https://developer.teamwork.com/searchProjects)
+
+```
+tw.search({
+	searchFor: 'projects',
+	searchTerm: 'project'
+})
+```
+
+### Time Tracking
+
+[**POST /tasks/{taskid}/time_entries.json**](https://developer.teamwork.com/timetracking#create_a_time-ent)
+
+```
+tw.tasks.createTime(task_id, {
+	"time-entry": {
+		// --
+	}
+})
+```
+
+[**GET /tasklists/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
+
+```
+tw.tasklists.totalTime(tasklist_id, {
+	userId: 0,
+	fromDate: '',
+	toDate: '',
+	fromTime: '',
+	toTime: '',
+	projectType: 'active'
+})
+```
+
+[**GET /tasks/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
+
+```
+tw.tasks.totalTime(task_id, {
+	userId: 0,
+	fromDate: '',
+	toDate: '',
+	fromTime: '',
+	toTime: '',
+	projectType: 'active'
+})
+```
+
+[**PUT tasks/{task_id}/estimatedtime.json**](https://developer.teamwork.com/timetracking#add_a_time_estima)
+
+```
+tw.tasks.estimatedTime(task_id)
+```
+
+[**GET /time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_time)
+
+```
+tw.time.get({
+	page: 1,
+	pageSize: 500,
+	fromDate: '',
+	fromTime: '',
+	toDate: '',
+	toTime: '',
+	sortBy: 'task',
+	sortOrder: 'ASC',
+	userId: 0,
+	billableType: 'billable',
+	invoicedType: 'invoiced',
+	projectStatus: 'active',
+	showDeleted: 'true',
+	tagIds: "1,2,3"
+})
+```
+
+[**GET /time_entries/{id}.json**](https://developer.teamwork.com/timetracking#retrieve_single_t)
+
+```
+tw.time.get({}, time_id)
+```
+
+[**PUT /time_entries/{id}.json**]()
+
+```
+tw.time.update(time_id, {
+	"time-entry": {
+		// --
+	}
+})
+```
+
+[**DELETE /time_entries/{id}.json**](https://developer.teamwork.com/timetracking#delete_a_time-ent)
+
+```
+tw.time.delete(time_id)
+```
+
+[**GET /projects/{project_id}/time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_time)
+
+```
+tw.projects.getTime(project_id, {
+	userId: 0,
+	fromDate: '',
+	toDate: '',
+	fromTime: '',
+	toTime: '',
+	projectType: 'active'
+})
+```
+
+[**GET /todo_items/{todo_item_id}/time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_to-d)
+
+```
+tw.time.todos(todo_id)
+```
+
+[**POST /projects/{project_id}/time_entries.json**](https://developer.teamwork.com/timetracking#create_a_time-ent)
+
+```
+tw.projects.createTime(project_id, {
+	"time-entry": {
+		// --
+	}
+})
+```
+
+[**GET /time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
+
+```
+tw.time.total({
+	userId: 0,
+	fromDate: '',
+	toDate: '',
+	fromTime: '',
+	toTime: '',
+	projectType: 'active'
+})
+```
+
+[**GET /projects/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
+
+```
+tw.projects.totalTime({
+	userId: 0,
+	fromDate: '',
+	toDate: '',
+	fromTime: '',
+	toTime: '',
+	projectType: 'active'
+}, project_id)
+```
+
+[**GET /projects/time/total.json**](https://developer.teamwork.com/timetracking#time_totals_per_p)
+
+```
+tw.projects.totalTime({
+	fromDate: '',
+	toDate: '',
+	fromTime: '',
+	toTime: '',
+	projectType: 'active',
+	page: 1,
+	pageSize: 100
+})
+```
+
+[**GET to /people/{person_id}/loggedtime.json**](https://developer.teamwork.com/timetracking#logged_time)
+
+```
+tw.people.loggedTime(person_id, {
+	m: 1,
+	y: '2001',
+	projectId: 1234,
+	page: 1,
+	pageSize: 50
+})
+```
+
+### Task lists
+
+[**GET /projects/{project_id}/tasklists.json**](https://developer.teamwork.com/tasklists#get_all_task_list)
+
+```
+tw.projects.getTasklists(project_id, {
+
+})
+```
+
+[**PUT /projects/{project_id}/tasklists/reorder.json**](https://developer.teamwork.com/tasklists#reorder_lists)
+
+```
+tw.tasklist.reorder(project_id, {
+	"todo-lists": [
+		// --
+	]
+})
+```
+
+[**POST /projects/{project_id}/tasklists.json**](https://developer.teamwork.com/tasklists#create_list)
+
+```
+tw.tasklist.create(project_id, {
+	"todo-list": {
+		// --
+	}
+})
+```
+
+[**GET /tasklists/{id}.json**](https://developer.teamwork.com/tasklists#retrieve_single_t)
+
+```
+tw.tasklist.get(tasklist_id)
+```
+
+[**PUT /tasklists/{id}.json**](https://developer.teamwork.com/tasklists#update_list)
+
+```
+tw.tasklist.update(tasklist_id, {
+	"todo-list": {
+		// --
+	}
+})
+```
+
+[**DELETE /tasklists/{id}.json**](https://developer.teamwork.com/tasklists#delete_a_task_lis)
+
+```
+tw.tasklist.delete(tasklist_id)
+```
+
+[**PUT /tasklist/{tasklist_id}/copy.json**](https://developer.teamwork.com/tasklists#copy_a_task_list,)
+
+```
+tw.tasklist.copy(tasklist_id, {
+	// --
+})
+```
+
+[**PUT to /tasklist/{tasklist_id}/move.json**](https://developer.teamwork.com/tasklists#move_a_task_list_)
+
+```
+tw.tasklist.move(tasklist_id, {
+	// --
+})
+```
+
+[**GET /tasklists/templates.json**](https://developer.teamwork.com/tasklists#template_task_lis)
+
+```
+tw.tasklist.templates()
+```
+
+### Tasks
+
+[**GET /tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
+
+```
+tw.tasks.get({
+	filter: 'anytime',
+	page: 1,
+	pageSize: 250,
+	startdate: '',
+	enddate: '',
+	updatedAfterDate: '',
+	completedAfterDate: '',
+	completedBeforeDate: '',
+	showDeleted: 'no',
+	includeCompletedTasks: false,
+	includeCompletedSubtasks: false,
+	'creator-ids': 0,
+	include: '',
+	'responsible-party-ids': '',
+	sort: 'duedate',
+	getSubTasks: 'yes',
+	nestSubTasks: 'no',
+	getFiles: false,
+	includeToday: true,
+	'ignore-start-dates': false,
+	'tag-ids': ''
+}, task_id)
+```
+
+[**GET /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#retrieve_a_task)
+
+```
+tw.tasks.get({}, task_id)
+```
+
+[**PUT /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#edit_a_task)
+
+```
+tw.tasks.update(task_id, {
+	"todo-item": {
+		// --
+	}
+})
+```
+
+[**DELETE /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#destroy_a_task)
+
+```
+tw.tasks.delete(task_id)
+```
+
+[**POST /tasklists/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#add_a_task)
+
+```
+tw.tasks.create(tasklist_id, {
+	"todo-item": {
+		// --
+	}
+}, options)
+```
+
+[**POST /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#add_a_task)
+
+```
+tw.tasks.subtask(task_id, {
+	"todo-item": {
+		// --
+	}
+}, options)
+```
+
+[**PUT /tasks/{id}/complete.json**](https://developer.teamwork.com/todolistitems#mark_a_task_compl)
+
+```
+tw.tasks.complete(task_id)
+```
+
+[**PUT /tasks/{id}/uncomplete.json**](https://developer.teamwork.com/todolistitems#mark_a_task_uncom)
+
+```
+tw.tasks.incomplete(task_id)
+```
+
+[**GET /tasks/{id}/dependencies.json**](https://developer.teamwork.com/todolistitems#retrieve_task_dep)
+
+```
+tw.tasks.dependencies(task_id)
+```
+
+[**PUT /tasklists/{id}/tasks/reorder.json**](https://developer.teamwork.com/todolistitems#reorder_the_tasks)
+
+```
+tw.tasks.reorder(tasklist_id, {
+	"todo-items": [
+		// --
+	]
+})
+```
+
+[**GET /completedtasks.json**](https://developer.teamwork.com/todolistitems#completed_tasks)
+
+```
+tw.tasks.completed({
+	page: 1,
+	pageSize: 250,
+	startdate: '',
+	enddate: '',
+	includeArchivedProjects: false
+})
+```
+
+[**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#edit_a_task)
+
+```
+tw.tasks.completedDate(task_id, {
+	"todo-item": {
+		// --
+	}
+})
+```
+
+[**GET /tasks/{task_id}/followers.json**](https://developer.teamwork.com/todolistitems#get_task_follower)
+
+```
+tw.tasks.getFollowers(task_id)
+```
+
+[**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#set_task_follower)
+
+```
+tw.tasks.setFollowers(task_id, {
+	"todo-item": {
+		// --
+	}
+})
+```
+
+[**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#remove_task_follo)
+
+```
+tw.tasks.removeFollowers(task_id, {
+	"todo-item": {
+		// --
+	}
+})
+```
+
+[**POST /tasklists/{task_list_id}/quickadd.json**](https://developer.teamwork.com/todolistitems#quickly_add_multi)
+
+```
+tw.tasklist.quickadd(task_list_id, {
+	// --
+})
+```
+
+[**GET /projects/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
+
+```
+tw.projects.getTasks(project_id, options)
+```
+
+[**GET /tasklists/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
+
+```
+tw.tasklist.getTasks(tasklist_id, options)
+```
 
 # Task reminders
 GET /tasks/:id/reminders.json                                   - tw.taskReminder.get(task_id) - ✓

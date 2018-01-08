@@ -25,10 +25,9 @@ class Time extends Teamwork {
      * 
      * @param  {Number}
      * @param  {Object}
-     * @param  {Object}
      * @return {Promise}
      */
-    update(time_id, body = {}, qs = {}) {
+    update(time_id, body = {}) {
         if (!time_id) {
             return this.handleError('No Time id')
         }
@@ -36,7 +35,6 @@ class Time extends Teamwork {
         return this.query({
             method: 'PUT',
             uri: `/time_entries/${time_id}.json`,
-            qs,
             body
         })
     }
