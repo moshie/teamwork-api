@@ -625,106 +625,617 @@ tw.calendar.updateEventType(event_type_id, {
 ```
 
 # Companies
-POST /companies.json                                    - tw.companies.create(company_object) - ✓
-PUT /companies/{company_id}.json                        - tw.companies.update(company_id, company_object) - ✓
-DELETE /companies/{id}.json                             - tw.companies.delete(company_id) - ✓
-GET /companies/{company_id}.json                        - tw.companies.get(company_id) - ✓
-GET /companies.json                                     - tw.companies.get() - ✓
-GET /projects/{project_id}/companies.json               - tw.projects.getCompanies(project_id) - ✓
+[**POST /companies.json**](https://developer.teamwork.com/companies#create_company)
+
+```
+tw.companies.create({
+	"company": {
+		// --
+	}
+})
+```
+
+[**PUT /companies/{company_id}.json**](https://developer.teamwork.com/companies#update_company)
+
+```
+tw.companies.update(company_id, {
+	"company": {
+		// --
+	}
+})
+```
+
+[**DELETE /companies/{id}.json**](https://developer.teamwork.com/companies#delete_company)
+
+```
+tw.companies.delete(company_id)
+```
+
+[**GET /companies/{company_id}.json**](https://developer.teamwork.com/companies#retrieve_a_single)
+
+```
+tw.companies.get(company_id)
+```
+
+[**GET /companies.json**](https://developer.teamwork.com/companies#retrieve_companie)
+
+```
+tw.companies.get()
+```
+
+[**GET /projects/{project_id}/companies.json**](https://developer.teamwork.com/companies#retrieving_compan)
+
+```
+tw.projects.getCompanies(project_id)
+```
 
 # Files
-POST /pendingfiles.json                                 - tw.files.upload(file_path) - TODO
-GET /tasks/{task_id}/files.json                         - tw.tasks.getFiles(task_id)
-POST /tasks/{task_id}/files.json                        - tw.tasks.createFile(task_id, file_object)
 
-GET /projects/{project_id}/files.json                   - tw.projects.getFiles(project_id) - ✓
-GET /files/{file_id}.json                               - tw.files.get(file_id) - ✓
-POST /projects/{project_id}/files.json                  - tw.projects.createFile(project_id, file_object) - ✓
-POST /files/{file_id}.json                              - tw.files.version(file_id, file_object) - ✓
-DELETE /files/{file_id}.json                            - tw.files.delete(file_id) - ✓
-GET /files/{file_id}/sharedlink.json                    - tw.files.link(file_id, options) - ✓
-PUT /files/{file_id}/copy.json                          - tw.files.copy(file_id, file_object) - ✓
-PUT /files/{file_id}/move.json                          - tw.files.move(file_id, file_object) - ✓
-PUT /projects/{project_id}.json                         - tw.projects.logo(project_id, file_object) - ✓
+[**POST /pendingfiles.json**](https://developer.teamwork.com/uploadingfiles)
 
-# Messages
-POST /projects/{project_id}/posts.json                              - tw.projects.createMessage(project_id, message_object) - ✓
-GET /posts/{id}.json                                                - tw.messages.get(message_id) - ✓
-GET /projects/{project_id}/posts.json                               - tw.projects.getMessages(project_id, archived: false) - ✓
-GET /projects/{project_id}/posts/archive.json                       - tw.projects.getMessages(project_id, archived: true) - ✓
-GET /projects/{project_id}/cat/{category_id}/posts.json             - tw.projects.getCategoryMessages(project_id, category_id, archived: false) - ✓
-GET /projects/{project_id}/cat/{category_id}/posts/archive.json     - tw.projects.getCategoryMessages(project_id, category_id, archived: true) - ✓
-PUT /posts/{id}.json                                                - tw.messages.update(message_id, message_object) - ✓
-PUT /messages/{id}/archive.json                                     - tw.messages.archive(message_id) - ✓
-PUT /messages/{id}/unarchive.json                                   - tw.messages.unArchive(message_id) - ✓
-DELETE /posts/{id}.json                                             - tw.messages.delete(message_id) - ✓
-PUT /messages/{id}/markread.json                                    - tw.messages.read(message_id) - ✓
+```
+tw.files.upload(file_path) // TBA
+```
+
+[**GET /tasks/{task_id}/files.json**](https://developer.teamwork.com/files#list_files_on_a_t)
+
+```
+tw.tasks.getFiles(task_id)
+```
+
+[**GET /projects/{project_id}/files.json**](https://developer.teamwork.com/files#list_files_on_a_p)
+
+```
+tw.projects.getFiles(project_id)
+```
+
+[**GET /files/{file_id}.json**](https://developer.teamwork.com/files#get_a_single_file)
+
+```
+tw.files.get(file_id)
+```
+
+[**POST /tasks/{task_id}/files.json**](https://developer.teamwork.com/files#add_a_file_to_a_t)
+
+```
+tw.tasks.createFile(task_id, {
+	"task": {
+		// --
+	}
+})
+```
+
+[**POST /projects/{project_id}/files.json**](https://developer.teamwork.com/files#add_a_file_to_a_p)
+
+```
+tw.projects.createFile(project_id, {
+	"file": {
+		// --
+	}
+})
+```
+
+[**POST /files/{file_id}.json**](https://developer.teamwork.com/files#add_a_new_file_ve)
+
+```
+tw.files.version(file_id, {
+	"fileversion": {
+		// --
+	}
+})
+```
+
+[**DELETE /files/{file_id}.json**](https://developer.teamwork.com/files#delete_a_file_fro)
+
+```
+tw.files.delete(file_id)
+```
+
+[**GET /files/{file_id}/sharedlink.json**](https://developer.teamwork.com/files#get_a_short_url_f)
+
+```
+tw.files.link(file_id, {
+	version: 2
+})
+```
+
+[**PUT /files/{file_id}/copy.json**](https://developer.teamwork.com/files#copy_or_move_a_fi)
+
+```
+tw.files.copy(file_id, {
+	// --
+})
+```
+
+[**PUT /files/{file_id}/move.json**](https://developer.teamwork.com/files#copy_or_move_a_fi)
+
+```
+tw.files.move(file_id, {
+	// --
+})
+```
+
+[**PUT /projects/{project_id}.json**](https://developer.teamwork.com/files#add_or_update_a_p)
+
+```
+tw.projects.logo(project_id, {
+	"project": {
+		// --
+	}
+})
+```
+
+### Messages
+
+[**POST /projects/{project_id}/posts.json**](https://developer.teamwork.com/messages#create_a_message)
+
+```
+tw.projects.createMessage(project_id, {
+	"post": {
+		// --
+	}
+})
+```
+
+[**GET /posts/{id}.json**](https://developer.teamwork.com/messages#retrieve_a_single)
+
+```
+tw.messages.get(message_id)
+```
+
+[**GET /projects/{project_id}/posts.json**](https://developer.teamwork.com/messages#retrieve_latest_m)
+
+```
+tw.projects.getMessages(project_id, false)
+```
+
+[**GET /projects/{project_id}/cat/{category_id}/posts.json**](https://developer.teamwork.com/messages#retrieve_messages)
+
+```
+tw.projects.getCategoryMessages(project_id, category_id, false)
+```
+
+[**PUT /posts/{id}.json**](https://developer.teamwork.com/messages#update_message)
+
+```
+tw.messages.update(message_id, {
+	"post": {
+		// --
+	}
+})
+```
+
+[**GET /projects/{project_id}/posts/archive.json**](https://developer.teamwork.com/messages#get_archived_mess)
+
+```
+tw.projects.getMessages(project_id, true)
+```
+
+[**GET /projects/{project_id}/cat/{category_id}/posts/archive.json**](https://developer.teamwork.com/messages#get_archived_mess)
+
+```
+tw.projects.getCategoryMessages(project_id, category_id, true)
+```
+
+[**PUT /messages/{id}/archive.json**](https://developer.teamwork.com/messages#archive_a_message)
+
+```
+tw.messages.archive(message_id)
+```
+
+[**PUT /messages/{id}/unarchive.json**](https://developer.teamwork.com/messages#un-archive_a_mess)
+
+```
+tw.messages.unArchive(message_id)
+```
+
+[**DELETE /posts/{id}.json**](https://developer.teamwork.com/messages#destroy_message)
+
+```
+tw.messages.delete(message_id)
+```
+
+[**PUT /messages/{id}/markread.json**](https://developer.teamwork.com/messages#mark_message_read)
+
+```
+tw.messages.read(message_id)
+```
 
 # Message Replys
-POST /messages/{message_id}/messageReplies.json                     - tw.messages.createReply(message_id, message_object) - ✓
-GET /messageReplies/{id}.json                                       - tw.messages.getReply(message_id) - ✓
-GET /messages/{id}/replies.json                                     - tw.messages.getReplies(message_id, options) - ✓
-PUT /messageReplies/{id}.json                                       - tw.messages.updateReply(message_id, message_object) - ✓
-DELETE /messageReplies/{id}.json                                    - tw.messages.deleteReply(message_id) - ✓
-PUT /messageReplies/{id}/markread.json                              - tw.messages.readReply(message_id) - ✓
+
+[**POST /messages/{message_id}/messageReplies.json**](https://developer.teamwork.com/messagereplies#create_a_message_)
+
+```
+tw.messages.createReply(message_id, {
+	"messagereply": {
+		// --
+	}
+})
+```
+
+[**GET /messageReplies/{id}.json**](https://developer.teamwork.com/messagereplies#retrieve_a_single)
+
+```
+tw.messages.getReply(message_id)
+```
+
+[**GET /messages/{id}/replies.json**](https://developer.teamwork.com/messagereplies#retrieve_replies_)
+
+```
+tw.messages.getReplies(message_id, {
+	page: 2,
+	pageSize: 50
+})
+```
+
+[**PUT /messageReplies/{id}.json**](https://developer.teamwork.com/messagereplies#update_message_re)
+
+```
+tw.messages.updateReply(message_id, {
+	"messagereply": {
+		// --
+	}
+})
+```
+
+[**DELETE /messageReplies/{id}.json**](https://developer.teamwork.com/messagereplies#destroy_message_r)
+
+```
+tw.messages.deleteReply(message_id)
+```
+
+[**PUT /messageReplies/{id}/markread.json**](https://developer.teamwork.com/messagereplies#mark_message_repl)
+
+```
+tw.messages.readReply(message_id)
+```
 
 # Milestones
-GET /milestones.json                                            - tw.milestones.get(options) - ✓
-GET /milestones/{milestone_id}.json                             - tw.milestones.get(options, milestone_id) - ✓
-GET /projects/{project_id}/milestones.json                      - tw.projects.getMilestones(project_id, options) - ✓
-PUT /milestones/{id}/complete.json                              - tw.milestone.complete(milestone_id) - ✓
-PUT /milestones/{id}/uncomplete.json                            - tw.milestone.incomplete(milestone_id) - ✓
-POST /projects/{project_id}/milestones.json                     - tw.projects.createMilestone(milestone_object) - ✓
-PUT /milestones/{milestone_id}.json                             - tw.milestone.update(milestone_id, milestone_object) - ✓
-DELETE /milestones/{id}.json                                    - tw.milestone.delete(milestone_id) - ✓
+
+[**GET /milestones.json**](https://developer.teamwork.com/milestones#list_all_mileston)
+
+```
+tw.milestones.get({
+	page: 1,
+	pageSize: 200
+})
+```
+
+[**GET /projects/{project_id}/milestones.json**](https://developer.teamwork.com/milestones#list_milestones_o)
+
+```
+tw.projects.getMilestones(project_id, {
+	getProgress: true
+})
+```
+
+[**GET /milestones/{milestone_id}.json**](https://developer.teamwork.com/milestones#get_a_single_mile)
+
+```
+tw.milestones.get({
+	getProgress: true
+}, milestone_id)
+```
+
+[**PUT /milestones/{id}/complete.json**](https://developer.teamwork.com/milestones#complete)
+
+```
+tw.milestone.complete(milestone_id)
+```
+
+[**PUT /milestones/{id}/uncomplete.json**](https://developer.teamwork.com/milestones#uncomplete)
+
+```
+tw.milestone.incomplete(milestone_id)
+```
+
+[**POST /projects/{project_id}/milestones.json**](https://developer.teamwork.com/milestones#create_a_single_m)
+
+```
+tw.projects.createMilestone({
+	"milestone": {
+		// --
+	}
+})
+```
+
+[**PUT /milestones/{milestone_id}.json**](https://developer.teamwork.com/milestones#update)
+
+```
+tw.milestone.update(milestone_id, {
+	"milestone": {
+		// --
+	}
+})
+```
+
+[**DELETE /milestones/{id}.json**](https://developer.teamwork.com/milestones#delete)
+
+```
+tw.milestone.delete(milestone_id)
+```
 
 # Notebooks
-GET /notebooks.json                                             - tw.notebooks.get(options) - ✓
-GET /notebooks/{notebook_id}.json                               - tw.notebooks.get(options, notebook_id) - ✓
-GET /projects/{project_id}/notebooks.json                       - tw.projects.getNotebooks(project_id, options) - ✓
-POST /projects/{project_id}/notebooks.json                      - tw.projects.createNotebook(project_id, notebook_object) - ✓
-GET /notebookCategories/{id}/notebooks.json                     - tw.notebookCategories.getNotebooks(category_id, options) - ✓
-PUT /notebooks/{notebook_id}.json                               - tw.notebooks.update(notebook_id, notebook_object) - ✓
-PUT /notebooks/{id}/lock.json                                   - tw.notebooks.lock(notebook_id) - ✓
-PUT /notebooks/{id}/unlock.json                                 - tw.notebooks.unlock(notebook_id) - ✓
-DELETE /notebooks/{id}.json                                     - tw.notebooks.delete(notebook_id) - ✓
-PUT /notebooks/{notebook_id}/copy.json                          - tw.notebooks.copy(notebook_id, notebook_object) - ✓
-PUT /notebooks/{notebook_id}/move.json                          - tw.notebooks.move(notebook_id, notebook_object) - ✓
+[**GET /notebooks.json**](https://developer.teamwork.com/notebooks#list_all_notebook)
+
+```
+tw.notebooks.get({
+	includeContent: true
+})
+```
+
+[**GET /projects/{project_id}/notebooks.json**](https://developer.teamwork.com/notebooks#list_notebooks_on)
+
+```
+tw.projects.getNotebooks(project_id, options)
+```
+
+[**GET /notebookCategories/{id}/notebooks.json**](https://developer.teamwork.com/notebooks#list_notebooks_in)
+
+```
+tw.notebookCategories.getNotebooks(category_id, options) 
+```
+
+[**GET /notebooks/{notebook_id}.json**](https://developer.teamwork.com/notebooks#get_a_single_note)
+
+```
+tw.notebooks.get({}, notebook_id)
+```
+
+[**POST /projects/{project_id}/notebooks.json**](https://developer.teamwork.com/notebooks#create_a_single_n)
+
+```
+tw.projects.createNotebook(project_id, {
+	"notebook": {
+		// --
+	}
+})
+```
+
+[**PUT /notebooks/{notebook_id}.json**](https://developer.teamwork.com/notebooks#update_a_single_n)
+
+```
+tw.notebooks.update(notebook_id, {
+	"notebook": {
+		// --
+	}
+})
+```
+
+[**PUT /notebooks/{id}/lock.json**](https://developer.teamwork.com/notebooks#lock_a_single_not)
+
+```
+tw.notebooks.lock(notebook_id)
+```
+
+[**PUT /notebooks/{id}/unlock.json**](https://developer.teamwork.com/notebooks#unlock_a_single_n)
+
+```
+tw.notebooks.unlock(notebook_id)
+```
+
+[**DELETE /notebooks/{id}.json**](https://developer.teamwork.com/notebooks#delete_a_single_n)
+
+```
+tw.notebooks.delete(notebook_id)
+```
+
+[**PUT /notebooks/{notebook_id}/copy.json**](https://developer.teamwork.com/notebooks#copy_a_notebook_t)
+
+```
+tw.notebooks.copy(notebook_id, {
+	// --
+})
+```
+
+[**PUT /notebooks/{notebook_id}/move.json**](https://developer.teamwork.com/notebooks#move_a_notebook_t)
+
+```
+tw.notebooks.move(notebook_id, {
+	// --
+})
+```
 
 # People
-GET /people.json                                                - tw.people.get(options) - ✓
-GET /people/{person_id}.json                                    - tw.people.get(options, person_id) - ✓
-PUT /people/{id}.json                                           - tw.people.update(person_id, person_object) - ✓
-POST /people.json                                               - tw.people.create() - ✓
-DELETE /people/{id}.json                                        - tw.people.delete(person_id) - ✓
-GET /me.json                                                    - tw.people.me() - ✓
-GET /stats.json                                                 - tw.people.stats(options) - ✓
-GET /projects/{project_id}/people.json                          - tw.projects.getPeople() - ✓
-GET /companies/{company_id}/people.json                         - tw.companies.getPeople() - ✓
-GET /people/APIKeys.json                                        - tw.people.apiKeys() - ✓
-PUT /people/{person_id}.json                                    - tw.people.unassignAll(person_id, person_object) - ✓
+
+[**GET /people.json**](https://developer.teamwork.com/people#get_people)
+
+```
+tw.people.get({
+	page: 2,
+	pageSize: 50
+})
+```
+
+[**GET /people/{person_id}.json**](https://developer.teamwork.com/people#retrieve_a_specif)
+
+```
+tw.people.get({}, person_id)
+```
+
+[**PUT /people/{id}.json**](https://developer.teamwork.com/people#edit_user)
+
+```
+tw.people.update(person_id, {
+	"person": {
+		// --
+	}
+})
+```
+
+[**POST /people.json**](https://developer.teamwork.com/people#add_a_new_user)
+
+```
+tw.people.create()
+```
+
+[**DELETE /people/{id}.json**](https://developer.teamwork.com/people#delete_user)
+
+```
+tw.people.delete(person_id)
+```
+
+[**GET /me.json**](https://developer.teamwork.com/people#get_current_user_)
+
+```
+tw.people.me()
+```
+
+[**GET /stats.json**](https://developer.teamwork.com/people#current_user_summ)
+
+```
+tw.people.stats({
+	getPermissions: true,
+	onlymyprojects: 1,
+	onlyMyEvents: true,
+	eventsInNext: 1
+})
+```
+
+[**GET /projects/{project_id}/people.json**](https://developer.teamwork.com/people#get_all_people_(w)
+
+```
+tw.projects.getPeople()
+```
+
+[**GET /companies/{company_id}/people.json**](https://developer.teamwork.com/people#get_people_(withi)
+tw.companies.getPeople() - ✓
+
+[**GET /people/APIKeys.json**](https://developer.teamwork.com/people#retrieve_a_api_ke)
+
+```
+tw.people.apiKeys()
+```
+
+[**PUT /people/{person_id}.json**](https://developer.teamwork.com/people#unassign_a_user_f)
+
+```
+tw.people.unassignAll(person_id, {
+	"person": {
+		// --
+	}
+})
+```
 
 # Status
-POST /people/{person_id}/status.json                            - tw.status.create(person_id, status_object) - ✓
-PUT /me/status/{status_id}.json                                 - tw.status.updateMe(status_id, status_object) - ✓
-PUT /people/status/{status_id}.json                             - tw.status.update(status_id, status_object) - ✓
-PUT /people/{person_id}/status/{status_id}.json                 - tw.status.update(status_id, person_id, status_object) - ✓
+[**POST /people/{person_id}/status.json**](https://developer.teamwork.com/people-status#create_status)
 
-DELETE /me/status/{status_id}.json                              - tw.status.deleteMe(status_id) - ✓
-DELETE /people/status/{status_id}.json                          - tw.status.delete(status_id) - ✓
-DELETE /people/{person_id}/status/{status_id}.json              - tw.status.delete(status_id, person_id) - ✓
+```
+tw.status.create(person_id, {
+	"userstatus": {
+		// --
+	}
+})
+```
 
-GET /me/status.json                                             - tw.status.get() - ✓
-GET /people/{user_id}/status.json                               - tw.status.get(user_id) - ✓
+[**PUT /me/status/{status_id}.json**](https://developer.teamwork.com/people-status#update_status)
 
-GET /people/status.json                                         - tw.people.status() - ✓
+```
+tw.status.updateMe(status_id, {
+	"userstatus": {
+		// --
+	}
+})
+```
+
+[**PUT /people/status/{status_id}.json**](https://developer.teamwork.com/people-status#update_status)
+
+```
+tw.status.update(status_id, {
+	"userstatus": {
+		// --
+	}
+})
+```
+
+[**PUT /people/{person_id}/status/{status_id}.json**](https://developer.teamwork.com/people-status#update_status)
+
+```
+tw.status.update(status_id, person_id, {
+	"userstatus": {
+		// --
+	}
+})
+```
+
+[**DELETE /me/status/{status_id}.json**](https://developer.teamwork.com/people-status#delete_status)
+
+```
+tw.status.deleteMe(status_id)
+```
+
+[**DELETE /people/status/{status_id}.json**](https://developer.teamwork.com/people-status#delete_status)
+
+```
+tw.status.delete(status_id)
+```
+
+[**DELETE /people/{person_id}/status/{status_id}.json**](https://developer.teamwork.com/people-status#delete_status)
+
+```
+tw.status.delete(status_id, person_id)
+```
+
+[**GET /me/status.json**](https://developer.teamwork.com/people-status#retrieve_a_person)
+
+```
+tw.status.get()
+```
+
+[**GET /people/{user_id}/status.json**](https://developer.teamwork.com/people-status#retrieve_a_person)
+
+```
+tw.status.get(user_id)
+```
+
+[**GET /people/status.json**](https://developer.teamwork.com/people-status#retrieve_everybod)
+
+```
+tw.people.status()
+```
 
 # Permissions
-POST /projects/{id}/people/{id}.json                            - tw.projects.addPeople(project_id, person_id) - ✓
-PUT /projects/{id}/people.json                                  - tw.projects.people(project_id, people_object) - ✓
-DELETE /projects/{id}/people/{id}.json                          - tw.projects.removePeople(project_id, person_id) - ✓
-GET /projects/{id}/people/{id}.json                             - tw.projects.getPermissions(project_id, person_id) - ✓
-PUT /projects/{id}/people/{id}.json                             - tw.projects.updatePermissions(project_id, person_id, permissons_object) - ✓
+
+[**POST /projects/{id}/people/{id}.json**](https://developer.teamwork.com/permissions#add_a_new_user_to)
+
+```
+tw.projects.addPeople(project_id, person_id)
+```
+
+[**PUT /projects/{id}/people.json**](https://developer.teamwork.com/permissions#add/remove_multip)
+
+```
+tw.projects.people(project_id, {
+	"add": {
+		// --
+	},
+	"remove": {
+		// --
+	}
+})
+```
+
+[**DELETE /projects/{id}/people/{id}.json**](https://developer.teamwork.com/permissions#remove_a_user_fro)
+
+```
+tw.projects.removePeople(project_id, person_id)
+```
+
+[**GET /projects/{id}/people/{id}.json**](https://developer.teamwork.com/permissions#get_a_users_permi)
+
+```
+tw.projects.getPermissions(project_id, person_id)
+```
+
+[**PUT /projects/{id}/people/{id}.json**](https://developer.teamwork.com/permissions#update_a_users_pe)
+
+```
+tw.projects.updatePermissions(project_id, person_id, {
+	"permissions": {
+		// --
+	}
+})
+```
 
 # Projects
 POST /projects.json                                             - tw.projects.create(project_object) - ✓
