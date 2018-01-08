@@ -7,14 +7,12 @@ class Expense extends Teamwork {
     /**
      * Get invoices or invoice
      * 
-     * @param  {Object}
-     * @param  {String}
+     * @param  {Number}
      * @return {Promise}
      */
-    get(qs = {}, expense_id) {
+    get(expense_id) {
         return this.query({
-            uri: !expense_id ? '/expenses.json' : `/expenses/${expense_id}.json`,
-            qs
+            uri: !expense_id ? '/expenses.json' : `/expenses/${expense_id}.json`
         })
     }
 
@@ -37,10 +35,9 @@ class Expense extends Teamwork {
      * 
      * @param  {Number}
      * @param  {Object}
-     * @param  {Object}
      * @return {Promise}
      */
-    update(expense_id, body = {}, qs = {}) {
+    update(expense_id, body = {}) {
         if (!expense_id) {
             return this.handleError('No Expense id')
         }
@@ -48,7 +45,6 @@ class Expense extends Teamwork {
         return this.query({
             method: 'PUT',
             uri: `/expenses/${expense_id}.json`,
-            qs,
             body
         })
     }
