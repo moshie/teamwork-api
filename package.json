@@ -1,7 +1,7 @@
 {
-  "name": "teamwork",
+  "name": "teamwork-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A node wrapper around teamwork projects api making it easier to perform api requests.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -10,8 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/moshie/teamwork-api.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "api",
+    "teamwork",
+    "projects"
+  ],
+  "author": "David Hewitt <hello@wp-unite.io> (https://way2adv.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/moshie/teamwork-api/issues"
