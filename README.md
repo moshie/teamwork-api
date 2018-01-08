@@ -4,26 +4,25 @@ A node wrapper around teamwork projects api making it easier to perform api requ
 
 ## Installation
 
-`$ npm install teamwork-api`
+```bash
+$ npm install teamwork-api
+```
 
 **Getting Started**
 
 The api key and sub-domain are required to connect to teamwork's api, provide these as environment variables like so:
 
-```
+```js
 process.env.TW_API = '1234567890'
 process.env.TW_SUB = 'subdomain'
 
 var tw = require('teamwork-api')()
-
 ```
 
 Alternativly pass them in as function arguments 
 
-
-```
+```js
 var tw = require('teamwork-api')('1234567890', 'subdomain')
-
 ```
 
 ## API Reference
