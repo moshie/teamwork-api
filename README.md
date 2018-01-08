@@ -383,7 +383,7 @@ tw.fileCategories.update(category_id, {
 tw.fileCategories.delete(category_id)
 ```
 
-# Notebook Categories
+### Notebook Categories
 
 [**POST /projects/{project_id}/notebookCategories.json**](https://developer.teamwork.com/notebookcategories#creating_categori)
 
@@ -423,7 +423,7 @@ tw.notebookCategories.update(category_id, {
 tw.notebookCategories.delete(category_id)
 ```
 
-# Link Categories
+### Link Categories
 
 [**POST /projects/{project_id}/linkCategories.json**](https://developer.teamwork.com/linkcategories#creating_categori)
 
@@ -463,7 +463,7 @@ tw.linkCategories.update(category_id, {
 tw.linkCategories.delete(category_id)
 ```
 
-# Project Categories
+### Project Categories
 
 [**POST /projectcategories.json**](https://developer.teamwork.com/projectcategories#creating_project_)
 
@@ -503,7 +503,7 @@ tw.projectCategories.update(category_id, {
 tw.projectCategories.delete(category_id)
 ```
 
-# Comments
+### Comments
 
 # TBA
 resources = `[links, milestones, files, notebooks, tasks]`
@@ -545,7 +545,7 @@ tw.comments.delete(comment_id)
 tw.comments.read(comment_id)
 ```
 
-# Calendar
+### Calendar
 
 [**GET /calendarevents.json**](https://developer.teamwork.com/events#get_events)
 
@@ -624,7 +624,7 @@ tw.calendar.updateEventType(event_type_id, {
 })
 ```
 
-# Companies
+### Companies
 [**POST /companies.json**](https://developer.teamwork.com/companies#create_company)
 
 ```
@@ -669,7 +669,7 @@ tw.companies.get()
 tw.projects.getCompanies(project_id)
 ```
 
-# Files
+### Files
 
 [**POST /pendingfiles.json**](https://developer.teamwork.com/uploadingfiles)
 
@@ -841,7 +841,7 @@ tw.messages.delete(message_id)
 tw.messages.read(message_id)
 ```
 
-# Message Replys
+### Message Replys
 
 [**POST /messages/{message_id}/messageReplies.json**](https://developer.teamwork.com/messagereplies#create_a_message_)
 
@@ -890,7 +890,7 @@ tw.messages.deleteReply(message_id)
 tw.messages.readReply(message_id)
 ```
 
-# Milestones
+### Milestones
 
 [**GET /milestones.json**](https://developer.teamwork.com/milestones#list_all_mileston)
 
@@ -955,7 +955,7 @@ tw.milestone.update(milestone_id, {
 tw.milestone.delete(milestone_id)
 ```
 
-# Notebooks
+### Notebooks
 [**GET /notebooks.json**](https://developer.teamwork.com/notebooks#list_all_notebook)
 
 ```
@@ -1036,7 +1036,7 @@ tw.notebooks.move(notebook_id, {
 })
 ```
 
-# People
+### People
 
 [**GET /people.json**](https://developer.teamwork.com/people#get_people)
 
@@ -1117,7 +1117,7 @@ tw.people.unassignAll(person_id, {
 })
 ```
 
-# Status
+### Status
 [**POST /people/{person_id}/status.json**](https://developer.teamwork.com/people-status#create_status)
 
 ```
@@ -1194,7 +1194,7 @@ tw.status.get(user_id)
 tw.people.status()
 ```
 
-# Permissions
+### Permissions
 
 [**POST /projects/{id}/people/{id}.json**](https://developer.teamwork.com/permissions#add_a_new_user_to)
 
