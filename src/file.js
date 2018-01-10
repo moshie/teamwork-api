@@ -170,6 +170,43 @@ class File extends Teamwork {
         })
     }
 
+    /**
+     * Get Tags from a File
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(file_id, qs = {}) {
+        if (!file_id) {
+            return this.handleError('No File id')
+        }
+
+        return this.query({
+            uri: `/files/${file_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a File
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(file_id, body = {}) {
+        if (!file_id) {
+            return this.handleError('No File id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/files/${file_id}/tags.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = File

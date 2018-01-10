@@ -28,7 +28,11 @@ tw.people.update(person_id, {
 [**POST /people.json**](https://developer.teamwork.com/people#add_a_new_user)
 
 ```
-tw.people.create()
+tw.people.create({
+	"person": {
+		// --
+	}
+})
 ```
 
 [**DELETE /people/{id}.json**](https://developer.teamwork.com/people#delete_user)
@@ -61,7 +65,10 @@ tw.projects.getPeople()
 ```
 
 [**GET /companies/{company_id}/people.json**](https://developer.teamwork.com/people#get_people_(withi)
-tw.companies.getPeople() - ✓
+
+```
+tw.companies.getPeople()
+```
 
 [**GET /people/APIKeys.json**](https://developer.teamwork.com/people#retrieve_a_api_ke)
 

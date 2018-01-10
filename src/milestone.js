@@ -125,6 +125,43 @@ class Milestone extends Teamwork {
         })
     }
 
+    /**
+     * Get Tags from a Milestone
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(milestone_id, qs = {}) {
+        if (!milestone_id) {
+            return this.handleError('No Milestone id')
+        }
+
+        return this.query({
+            uri: `/milestones/${milestone_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Milestone
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(milestone_id, body = {}) {
+        if (!milestone_id) {
+            return this.handleError('No Milestone id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/milestones/${milestone_id}/tags.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Milestone

@@ -86,7 +86,7 @@ class Webhook extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    resume(webhook_id) {
+    pause(webhook_id) {
         if (!webhook_id) {
             return this.handleError('No Webhook id')
         }

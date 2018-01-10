@@ -108,6 +108,43 @@ class Link extends Teamwork {
         })
     }
 
+    /**
+     * Get Tags from a Link
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(link_id, qs = {}) {
+        if (!link_id) {
+            return this.handleError('No Link id')
+        }
+
+        return this.query({
+            uri: `/links/${link_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Link
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(link_id, body = {}) {
+        if (!link_id) {
+            return this.handleError('No Link id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/links/${link_id}/tags.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Link

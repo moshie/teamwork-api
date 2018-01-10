@@ -13,7 +13,9 @@ class People extends Teamwork {
      */
     get(qs = {}, person_id) {
         return this.query({
-            uri: !person_id ? `/people.json` : `/people/${person_id}.json`,
+            uri: !person_id ? 
+                `/people.json` : 
+                `/people/${person_id}.json`,
             qs
         })
     }
@@ -149,6 +151,43 @@ class People extends Teamwork {
         return this.query({
             uri: `/people/${person_id}/loggedtime.json`,
             qs
+        })
+    }
+
+    /**
+     * Get Tags from a Person
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(person_id, qs = {}) {
+        if (!person_id) {
+            return this.handleError('No Person id')
+        }
+
+        return this.query({
+            uri: `/users/${person_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Person
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(person_id, body = {}) {
+        if (!person_id) {
+            return this.handleError('No Person id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/users/${person_id}/tags.json`,
+            body
         })
     }
 

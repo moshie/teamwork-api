@@ -205,7 +205,7 @@ class Task extends Teamwork {
      * @param  {Number}
      * @return {Promise}
      */
-    followers(task_id) {
+    getFollowers(task_id) {
         if (!task_id) {
             return this.handleError('No Task id')
         }
@@ -397,6 +397,43 @@ class Task extends Teamwork {
         return this.query({
             method: 'POST',
             uri: `/tasks/${task_id}/files.json`,
+            body
+        })
+    }
+
+    /**
+     * Get Tags from a Task
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(task_id, qs = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            uri: `/tasks/${task_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Task
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/tasks/${task_id}/tags.json`,
             body
         })
     }

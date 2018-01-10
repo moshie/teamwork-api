@@ -34,7 +34,7 @@ class TaskList extends Teamwork {
 
         return this.query({
             method: 'POST',
-            uri: `/projects/${project_id}/tasklists/reorder.json`,
+            uri: `/projects/${project_id}/tasklists.json`,
             body
         })
     }
@@ -176,6 +176,43 @@ class TaskList extends Teamwork {
         return this.query({
             uri: `/tasklists/${tasklist_id}/time/total.json`,
             qs
+        })
+    }
+
+    /**
+     * Get Tags from a Task List
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(tasklist_id, qs = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
+        }
+
+        return this.query({
+            uri: `/tasklists/${tasklist_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Task List
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(tasklist_id, body = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/tasklists/${tasklist_id}/tags.json`,
+            body
         })
     }
 

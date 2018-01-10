@@ -84,6 +84,43 @@ class Time extends Teamwork {
         })
     }
 
+    /**
+     * Get Tags from a Time log
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(time_id, qs = {}) {
+        if (!time_id) {
+            return this.handleError('No Time id')
+        }
+
+        return this.query({
+            uri: `/timelogs/${time_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Time Log
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(time_id, body = {}) {
+        if (!time_id) {
+            return this.handleError('No Time id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/timelogs/${time_id}/tags.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Time

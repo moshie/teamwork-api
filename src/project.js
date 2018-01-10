@@ -968,6 +968,43 @@ class Project extends Teamwork {
         })
     }
 
+    /**
+     * Get Tags from a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(project_id, qs = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
+        }
+
+        return this.query({
+            uri: `/projects/${project_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a project
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(project_id, body = {}) {
+        if (!project_id) {
+            return this.handleError('No Project id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/projects/${project_id}/tags.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Project

@@ -56,6 +56,23 @@ class Notebook extends Teamwork {
         })
     }
 
+    /**
+     * Get a Notebooks from a Notebook Category
+     * 
+     * @param  {Number}
+     * @return {Promise}
+     */
+    getNotebooks(category_id, qs) {
+        if (!category_id) {
+            return this.handleError('No Category id')
+        }
+
+        return this.query({
+            uri: `/notebookCategories/${category_id}/notebooks.json`
+            qs
+        })
+    }
+
 }
 
 module.exports = Notebook

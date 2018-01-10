@@ -100,6 +100,43 @@ class Company extends Teamwork {
         })
     }
 
+    /**
+     * Get Tags from a Company
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(company_id, qs = {}) {
+        if (!company_id) {
+            return this.handleError('No Company id')
+        }
+
+        return this.query({
+            uri: `/companys/${company_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Company
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(company_id, body = {}) {
+        if (!company_id) {
+            return this.handleError('No Company id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/users/${company_id}/tags.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Company

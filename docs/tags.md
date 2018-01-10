@@ -1,6 +1,20 @@
 ## Tags
-resources = [projects, tasklists, tasks, milestones, messages, timelogs, files, users, companys, notebooks, links]
-GET /{resource}/{id}/tags.json                                  - tw.{resources}.tags(resource_id, options)
+
+[**GET /{resource}/{id}/tags.json**](https://developer.teamwork.com/tags#list_all_tags_for)
+
+```
+resources = [projects, tasklists, tasks, milestones, messages, time, files, people, companies, notebooks, links]
+
+tw.{resource}.getTags(resource_id, options)
+```
+
+[**PUT /{resource}/{id}/tags.json**](https://developer.teamwork.com/tags#update_tags_on_a_)
+
+```
+resources = [projects, tasklists, tasks, milestones, messages, time, files, people, companies, notebooks, links]
+
+tw.{resource}.updateTag(resource_id, options)
+```
 
 [**GET /tags.json**](https://developer.teamwork.com/tags#list_all_tags)
 

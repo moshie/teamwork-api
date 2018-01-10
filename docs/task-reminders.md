@@ -19,7 +19,7 @@ tw.taskReminder.create(task_id, {
 [**PUT /tasks/:id/reminders/:id.json**](https://developer.teamwork.com/taskreminders#update_an_existin)
 
 ```
-tw.tasks.update({
+tw.taskReminders.update({
 	"reminder": {
 		// --
 	}

@@ -149,7 +149,7 @@ tw.tasks.removeFollowers(task_id, {
 [**POST /tasklists/{task_list_id}/quickadd.json**](https://developer.teamwork.com/todolistitems#quickly_add_multi)
 
 ```
-tw.tasklist.quickadd(task_list_id, {
+tw.tasks.quickadd(task_list_id, {
 	// --
 })
 ```

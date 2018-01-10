@@ -165,6 +165,43 @@ class Notebook extends Teamwork {
         })
     }
 
+    /**
+     * Get Tags from a Notebook
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(notebook_id, qs = {}) {
+        if (!notebook_id) {
+            return this.handleError('No Notebook id')
+        }
+
+        return this.query({
+            uri: `/notebooks/${notebook_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Notebook
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(notebook_id, body = {}) {
+        if (!notebook_id) {
+            return this.handleError('No Notebook id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/notebooks/${notebook_id}/tags.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Notebook

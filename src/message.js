@@ -212,6 +212,43 @@ class Message extends Teamwork {
         })
     }
 
+    /**
+     * Get Tags from a Message
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getTags(message_id, qs = {}) {
+        if (!message_id) {
+            return this.handleError('No Message id')
+        }
+
+        return this.query({
+            uri: `/messages/${message_id}/tags.json`,
+            qs
+        })
+    }
+
+    /**
+     * Update a Tag on a Message
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    updateTag(message_id, body = {}) {
+        if (!message_id) {
+            return this.handleError('No Message id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/messages/${message_id}/tags.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Message
