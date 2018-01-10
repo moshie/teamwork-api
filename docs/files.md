@@ -3,7 +3,7 @@
 [**POST /pendingfiles.json**](https://developer.teamwork.com/uploadingfiles)
 
 ```
-tw.files.upload(file_path) // TBA
+tw.files.upload(file_path)
 ```
 
 [**GET /tasks/{task_id}/files.json**](https://developer.teamwork.com/files#list_files_on_a_t)
