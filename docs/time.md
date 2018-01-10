@@ -39,7 +39,9 @@ tw.tasks.totalTime(task_id, {
 [**PUT tasks/{task_id}/estimatedtime.json**](https://developer.teamwork.com/timetracking#add_a_time_estima)
 
 ```
-tw.tasks.estimatedTime(task_id)
+tw.tasks.estimatedTime(task_id, {
+	// --
+})
 ```
 
 [**GET /time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_time)

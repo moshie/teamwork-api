@@ -122,6 +122,44 @@ class File extends Teamwork {
             uri: '/pendingfiles.json'
         }, file_path)
     }
+
+    /**
+     * Get Comments for a File
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getComments(file_id, qs = {}) {
+        if (!file_id) {
+            return this.handleError('No File id')
+        }
+
+        return this.query({
+            uri: `/files/${file_id}/comments.json`,
+            qs
+        })
+    }
+
+    /**
+     * Create a Comment for a File
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    createComment(file_id, body = {}) {
+        if (!file_id) {
+            return this.handleError('No File id')
+        }
+
+        return this.query({
+            method: 'POST',
+            uri: `/files/${file_id}/comments.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = File

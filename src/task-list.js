@@ -161,6 +161,24 @@ class TaskList extends Teamwork {
         })
     }
 
+    /**
+     * Get Time Totals from a task list
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    totalTime(tasklist_id, qs = {}) {
+        if (!tasklist_id) {
+            return this.handleError('No Task List id')
+        }
+
+        return this.query({
+            uri: `/tasklists/${tasklist_id}/time/total.json`,
+            qs
+        })
+    }
+
 }
 
 module.exports = TaskList

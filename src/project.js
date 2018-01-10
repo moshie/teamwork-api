@@ -901,6 +901,22 @@ class Project extends Teamwork {
     }
 
     /**
+     * Get a Time Total or Time Totals from a project
+     * 
+     * @param  {Object}
+     * @param  {Number}
+     * @return {Promise}
+     */
+    totalTime(qs = {}, project_id) {
+        return this.query({
+            uri: !project_id ?
+                `/projects/time/total.json` :
+                `/projects/${project_id}/time/total.json`,
+            qs
+        })
+    }
+
+    /**
      * Get total time from a project or all projects
      * 
      * @param  {Object}

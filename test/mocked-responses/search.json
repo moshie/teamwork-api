@@ -1,0 +1,30 @@
+{
+    "searchResult": {
+        "tasks": [
+            {
+                "taskListId": "12345",
+                "name": "Genesis planet",
+                "companyName": "Teamwork",
+                "projectName": "Teamwork Project",
+                "projectId": "1",
+                "taskEstimateMinutes": "90",
+                "taskDisplayOrder": "1",
+                "taskParentTaskId": "",
+                "lastUpdated": "2016-06-10T12:43:48Z",
+                "tags": [
+                    {
+                        "name": "My Test",
+                        "id": "377",
+                        "color": "#9b7cdb"
+                    }
+                ],
+                "taskProgress": "0",
+                "id": "54321",
+                "completed": false,
+                "taskListName": "To do today"
+            }
+        ],
+        "moreAvailable": true
+    },
+    "STATUS": "OK"
+}

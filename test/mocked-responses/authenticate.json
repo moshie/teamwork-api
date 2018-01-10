@@ -1,0 +1,27 @@
+{
+    "STATUS": "OK",
+    "account": {
+        "requirehttps": false,
+        "canaddprojects": "1",
+        "userIsMemberOfOwnerCompany": true,
+        "name": "Demo Site",
+        "userIsAdmin": true,
+        "companyname": "Demo 1 Company",
+        "canManagePeople": "1",
+        "ssl-enabled": false,
+        "firstname": "Demo",
+        "dateSeperator": "/",
+        "timeFormat": "h:mmtt",
+        "logo": "http://demo1company.teamwork.com/images/logo.jpg",
+        "avatar-url": "https://s3.amazonaws.com/TWFiles/2/users/999.avatar",
+        "startonsundays": false,
+        "id": "999",
+        "URL": "http://demo1company.teamwork.com",
+        "dateFormat": "dd/mm/yyyy",
+        "lang": "EN",
+        "companyid": "999",
+        "code": "testing",
+        "userId": "999",
+        "lastname": "User"
+    }
+}

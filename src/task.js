@@ -272,6 +272,99 @@ class Task extends Teamwork {
         })
     }
 
+    /**
+     * Create a Time-Entry (for a task/todo item)
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    createTime(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            method: 'POST',
+            uri: `/tasks/${task_id}/time_entries.json`,
+            body
+        })
+    }
+
+    /**
+     * Get Time Totals from a task
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    totalTime(task_id, qs = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            uri: `/tasks/${task_id}/time/total.json`,
+            qs
+        })
+    }
+
+    /**
+     * Add a Time estimate to a Task
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    estimatedTime(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            method: 'PUT',
+            uri: `/tasks/${task_id}/estimatedtime.json`,
+            body
+        })
+    }
+
+    /**
+     * Get Comments for a Task
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getComments(task_id, qs = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            uri: `/tasks/${task_id}/comments.json`,
+            qs
+        })
+    }
+
+    /**
+     * Create a Comment for a Task
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    createComment(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            method: 'POST',
+            uri: `/tasks/${task_id}/comments.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Task

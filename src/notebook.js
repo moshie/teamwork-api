@@ -128,6 +128,43 @@ class Notebook extends Teamwork {
         })
     }
 
+    /**
+     * Get Comments for a Notebook
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getComments(notebook_id, qs = {}) {
+        if (!notebook_id) {
+            return this.handleError('No Notebook id')
+        }
+
+        return this.query({
+            uri: `/notebooks/${notebook_id}/comments.json`,
+            qs
+        })
+    }
+
+    /**
+     * Create a Comment for a Notebook
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    createComment(notebook_id, body = {}) {
+        if (!notebook_id) {
+            return this.handleError('No Notebook id')
+        }
+
+        return this.query({
+            method: 'POST',
+            uri: `/notebooks/${notebook_id}/comments.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Notebook

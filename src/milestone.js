@@ -88,6 +88,43 @@ class Milestone extends Teamwork {
         })
     }
 
+    /**
+     * Get Comments for a Milestone
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getComments(milestone_id, qs = {}) {
+        if (!milestone_id) {
+            return this.handleError('No Milestone id')
+        }
+
+        return this.query({
+            uri: `/milestones/${milestone_id}/comments.json`,
+            qs
+        })
+    }
+
+    /**
+     * Create a Comment for a Milestone
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    createComment(milestone_id, body = {}) {
+        if (!milestone_id) {
+            return this.handleError('No Milestone id')
+        }
+
+        return this.query({
+            method: 'POST',
+            uri: `/milestones/${milestone_id}/comments.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Milestone

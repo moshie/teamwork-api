@@ -71,6 +71,43 @@ class Link extends Teamwork {
         })
     }
 
+    /**
+     * Get Comments for a Link
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getComments(link_id, qs = {}) {
+        if (!link_id) {
+            return this.handleError('No Link id')
+        }
+
+        return this.query({
+            uri: `/links/${link_id}/comments.json`,
+            qs
+        })
+    }
+
+    /**
+     * Create a Comment for a Link
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    createComment(link_id, body = {}) {
+        if (!link_id) {
+            return this.handleError('No Link id')
+        }
+
+        return this.query({
+            method: 'POST',
+            uri: `/links/${link_id}/comments.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Link

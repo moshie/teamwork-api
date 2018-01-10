@@ -39,7 +39,7 @@ tw.boards.deleteColumn(column_id)
 [**POST /boards/columns/{column_id}/cards.json**](https://developer.teamwork.com/boards#add_a_task_from_t)
 
 ```
-tw.boards.addTask(column_id, {
+tw.boards.addTaskToColumn(column_id, {
 	"card": {
 		// --
 	},

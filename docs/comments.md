@@ -1,16 +1,20 @@
 ## Comments
 
-# TBA
-resources = `[links, milestones, files, notebooks, tasks]`
+[**GET /{resource}/{resource_id}/comments.json**](https://developer.teamwork.com/comments#retreiving_recent)
 
-GET /{resource}/{resource_id}/comments.json             
+```js
+resources = [links, milestones, files, notebooks, tasks]
 
-- tw.{resource}.getComments(resource_id, options)
+tw.{resource}.getComments(resource_id, options)
+```
 
-POST /{resource}/{resource_id}/comments.json            
+[**POST /{resource}/{resource_id}/comments.json**](https://developer.teamwork.com/comments#creating_a_commen)
 
-- tw.{resource}.createComment(resource_id, comment_object)
+```
+resources = [links, milestones, files, notebooks, tasks]
 
+tw.{resource}.createComment(resource_id, comment_object)
+```
 
 [**GET /comments/{comment_id}.json**](https://developer.teamwork.com/comments#retrieving_a_spec)
 

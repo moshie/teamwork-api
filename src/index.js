@@ -35,6 +35,7 @@ function teamwork (api_key = '', domain = '') {
         risks: require('./risk'),
         time: require('./time'),
         tasklists: require('./task-list'),
+        tasks: require('./task'),
         taskReminders: require('./task-reminder'),
         tags: require('./tag'),
         webhooks: require('./webhook'),
