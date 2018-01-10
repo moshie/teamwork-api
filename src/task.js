@@ -365,6 +365,42 @@ class Task extends Teamwork {
         })
     }
 
+    /**
+     * Get Files for a Task
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    getFiles(task_id) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            uri: `/tasks/${task_id}/files.json`
+        })
+    }
+
+    /**
+     * Create a File for a Task
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    createFile(task_id, body = {}) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            method: 'POST',
+            uri: `/tasks/${task_id}/files.json`,
+            body
+        })
+    }
+
 }
 
 module.exports = Task
