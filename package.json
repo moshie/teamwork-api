@@ -2,25 +2,30 @@
   "name": "teamwork-api",
   "version": "1.0.0",
   "description": "A wrapper around teamwork api making it easier to perform requests.",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/moshie/teamwork-api.git"
-  },
   "keywords": [
     "api",
     "teamwork",
     "projects"
   ],
-  "author": "David Hewitt <hello@wp-unite.io> (https://way2adv.com)",
-  "license": "MIT",
+  "homepage": "https://github.com/moshie/teamwork-api#readme",
   "bugs": {
     "url": "https://github.com/moshie/teamwork-api/issues"
   },
-  "homepage": "https://github.com/moshie/teamwork-api#readme",
+  "license": "MIT",
+  "author": "David Hewitt <hello@wp-unite.io> (https://www.way2adv.com/)",
+  "main": "index.js",
+  "directories": {
+    "doc": "./docs",
+    "lib": "./src",
+    "test": "./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moshie/teamwork-api.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5"
