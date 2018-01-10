@@ -1,6 +1,7 @@
 "use strict"
 
 const Teamwork = require('./teamwork')
+const fs = require('fs')
 
 class File extends Teamwork {
 
@@ -113,14 +114,23 @@ class File extends Teamwork {
     }
 
     /**
+     * Upload a file
+     * 
      * @param  {String}
      * @return {Promise}
      */
-    upload(file_path = '') {
-        // TODO?
+    upload(file) {
+        if (!file) {
+            return this.handleError('No File path')
+        }
+        
         return this.query({
-            uri: '/pendingfiles.json'
-        }, file_path)
+            method: 'POST',
+            uri: '/pendingfiles.json',
+            formData: {
+                file: fs.createReadStream(file)
+            }
+        })
     }
 
     /**
