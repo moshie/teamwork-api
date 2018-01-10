@@ -1,4 +1,5 @@
 ## Companies
+
 [**POST /companies.json**](https://developer.teamwork.com/companies#create_company)
 
 ```
