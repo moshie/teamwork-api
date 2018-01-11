@@ -4,7 +4,7 @@
 
 [**GET /calendarevents.json**](https://developer.teamwork.com/events#get_events)
 
-```
+```js
 tw.calendar.getEvents({
 	startdate: '',
 	enddate: '',
@@ -18,7 +18,7 @@ tw.calendar.getEvents({
 
 [**GET /calendarevents/{id}.json**](https://developer.teamwork.com/events#get_an_event)
 
-```
+```js
 tw.calendar.getEvent(event_id)
 ```
 
@@ -26,7 +26,7 @@ tw.calendar.getEvent(event_id)
 
 [**POST /calendarevents.json**](https://developer.teamwork.com/events#create_an_event)
 
-```
+```js
 tw.calendar.createEvent({
 	"event": {
 		// --

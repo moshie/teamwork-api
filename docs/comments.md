@@ -10,7 +10,7 @@ tw.{resource}.getComments(resource_id, options)
 
 [**POST /{resource}/{resource_id}/comments.json**](https://developer.teamwork.com/comments#creating_a_commen)
 
-```
+```js
 resources = [links, milestones, files, notebooks, tasks]
 
 tw.{resource}.createComment(resource_id, comment_object)
@@ -18,13 +18,13 @@ tw.{resource}.createComment(resource_id, comment_object)
 
 [**GET /comments/{comment_id}.json**](https://developer.teamwork.com/comments#retrieving_a_spec)
 
-```
+```js
 tw.comments.get(comment_id)
 ```
 
 [**PUT /comments/{id}.json**](https://developer.teamwork.com/comments#updating_a_commen)
 
-```
+```js
 tw.comments.update(comment_id, {
 	"comment": {
 		// --
@@ -34,12 +34,12 @@ tw.comments.update(comment_id, {
 
 [**DELETE /comments/{id}.json**](https://developer.teamwork.com/comments#destroying_a_comm)
 
-```
+```js
 tw.comments.delete(comment_id)
 ```
 
 [**PUT /comments/{id}/markread.json**](https://developer.teamwork.com/comments#mark_a_comment_as)
 
-```
+```js
 tw.comments.read(comment_id)
 ```

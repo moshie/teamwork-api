@@ -4,7 +4,7 @@
 
 [**GET /account.json**](https://developer.teamwork.com/account#get_account_detai)
 
-```
+```js
 tw.account()
 ```
 
@@ -12,6 +12,6 @@ tw.account()
 
 [**GET /authenticate.json**](https://developer.teamwork.com/account#the_'authenti)
 
-```
+```js
 tw.authenticate()
 ```

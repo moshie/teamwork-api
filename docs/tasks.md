@@ -2,7 +2,7 @@
 
 [**GET /tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
 
-```
+```js
 tw.tasks.get({
 	filter: 'anytime',
 	page: 1,
@@ -30,13 +30,13 @@ tw.tasks.get({
 
 [**GET /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#retrieve_a_task)
 
-```
+```js
 tw.tasks.get({}, task_id)
 ```
 
 [**PUT /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#edit_a_task)
 
-```
+```js
 tw.tasks.update(task_id, {
 	"todo-item": {
 		// --
@@ -46,13 +46,13 @@ tw.tasks.update(task_id, {
 
 [**DELETE /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#destroy_a_task)
 
-```
+```js
 tw.tasks.delete(task_id)
 ```
 
 [**POST /tasklists/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#add_a_task)
 
-```
+```js
 tw.tasks.create(tasklist_id, {
 	"todo-item": {
 		// --
@@ -62,7 +62,7 @@ tw.tasks.create(tasklist_id, {
 
 [**POST /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#add_a_task)
 
-```
+```js
 tw.tasks.subtask(task_id, {
 	"todo-item": {
 		// --
@@ -72,25 +72,25 @@ tw.tasks.subtask(task_id, {
 
 [**PUT /tasks/{id}/complete.json**](https://developer.teamwork.com/todolistitems#mark_a_task_compl)
 
-```
+```js
 tw.tasks.complete(task_id)
 ```
 
 [**PUT /tasks/{id}/uncomplete.json**](https://developer.teamwork.com/todolistitems#mark_a_task_uncom)
 
-```
+```js
 tw.tasks.incomplete(task_id)
 ```
 
 [**GET /tasks/{id}/dependencies.json**](https://developer.teamwork.com/todolistitems#retrieve_task_dep)
 
-```
+```js
 tw.tasks.dependencies(task_id)
 ```
 
 [**PUT /tasklists/{id}/tasks/reorder.json**](https://developer.teamwork.com/todolistitems#reorder_the_tasks)
 
-```
+```js
 tw.tasks.reorder(tasklist_id, {
 	"todo-items": [
 		// --
@@ -100,7 +100,7 @@ tw.tasks.reorder(tasklist_id, {
 
 [**GET /completedtasks.json**](https://developer.teamwork.com/todolistitems#completed_tasks)
 
-```
+```js
 tw.tasks.completed({
 	page: 1,
 	pageSize: 250,
@@ -112,7 +112,7 @@ tw.tasks.completed({
 
 [**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#edit_a_task)
 
-```
+```js
 tw.tasks.completedDate(task_id, {
 	"todo-item": {
 		// --
@@ -122,13 +122,13 @@ tw.tasks.completedDate(task_id, {
 
 [**GET /tasks/{task_id}/followers.json**](https://developer.teamwork.com/todolistitems#get_task_follower)
 
-```
+```js
 tw.tasks.getFollowers(task_id)
 ```
 
 [**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#set_task_follower)
 
-```
+```js
 tw.tasks.setFollowers(task_id, {
 	"todo-item": {
 		// --
@@ -138,7 +138,7 @@ tw.tasks.setFollowers(task_id, {
 
 [**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#remove_task_follo)
 
-```
+```js
 tw.tasks.removeFollowers(task_id, {
 	"todo-item": {
 		// --
@@ -148,7 +148,7 @@ tw.tasks.removeFollowers(task_id, {
 
 [**POST /tasklists/{task_list_id}/quickadd.json**](https://developer.teamwork.com/todolistitems#quickly_add_multi)
 
-```
+```js
 tw.tasks.quickadd(task_list_id, {
 	// --
 })
@@ -156,12 +156,12 @@ tw.tasks.quickadd(task_list_id, {
 
 [**GET /projects/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
 
-```
+```js
 tw.projects.getTasks(project_id, options)
 ```
 
 [**GET /tasklists/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
 
-```
+```js
 tw.tasklist.getTasks(tasklist_id, options)
 ```

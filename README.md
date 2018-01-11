@@ -16,13 +16,13 @@ The api key and sub-domain are required to connect to teamwork's api, provide th
 process.env.TW_API = '1234567890'
 process.env.TW_SUB = 'subdomain'
 
-var tw = require('teamwork-api')()
+const tw = require('teamwork-api')()
 ```
 
 Alternativly pass them in as function arguments 
 
 ```js
-var tw = require('teamwork-api')('1234567890', 'subdomain')
+const tw = require('teamwork-api')('1234567890', 'subdomain')
 ```
 
 ## API Reference
