@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -11,7 +11,7 @@ class Webhook extends Teamwork {
      */
     getEvents() {
         return this.query({
-            uri: `/webhooks/events.json`
+            uri: '/webhooks/events.json'
         })
     }
 
@@ -38,7 +38,7 @@ class Webhook extends Teamwork {
     create(body = {}) {
         return this.query({
             method: 'POST',
-            uri: `/webhooks.json`,
+            uri: '/webhooks.json',
             body
         })
     }
@@ -123,7 +123,7 @@ class Webhook extends Teamwork {
     enable() {
         return this.query({
             method: 'PUT',
-            uri: `/webhooks/enable.json`
+            uri: '/webhooks/enable.json'
         })
     }
 
@@ -136,7 +136,7 @@ class Webhook extends Teamwork {
     disable() {
         return this.query({
             method: 'PUT',
-            uri: `/webhooks/disable.json`
+            uri: '/webhooks/disable.json'
         })
     }
 

@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 var request = require('request-promise-native')
 
@@ -48,7 +48,7 @@ class Teamwork {
      */
     search(qs = {}) {
         return this.query({
-            uri: `/search.json`,
+            uri: '/search.json',
             qs
         })
     }

@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -14,7 +14,7 @@ class Notebook extends Teamwork {
     get(qs = {}, notebook_id) {
         return this.query({
             uri: !notebook_id ? 
-                `/notebooks.json` : 
+                '/notebooks.json' : 
                 `/notebooks/${notebook_id}.json`,
             qs
         })

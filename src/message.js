@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -149,13 +149,14 @@ class Message extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    getReplies(message_id, options = {}) {
+    getReplies(message_id, qs = {}) {
         if (!message_id) {
             return this.handleError('No Message id')
         }
 
         return this.query({
-            uri: `/messages/${message_id}/replies.json`
+            uri: `/messages/${message_id}/replies.json`,
+            qs
         })
     }
 

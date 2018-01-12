@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 function teamwork (api_key = '', domain = '') {
 

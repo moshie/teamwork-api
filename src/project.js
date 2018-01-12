@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -553,7 +553,7 @@ class Project extends Teamwork {
     create(body = {}) {
         return this.query({
             method: 'POST',
-            uri: `/projects.json`,
+            uri: '/projects.json',
             body
         })
     }
@@ -616,7 +616,7 @@ class Project extends Teamwork {
      */
     getStarred() {
         return this.query({
-            uri: `/projects/starred.json`
+            uri: '/projects/starred.json'
         })
     }
 
@@ -910,23 +910,7 @@ class Project extends Teamwork {
     totalTime(qs = {}, project_id) {
         return this.query({
             uri: !project_id ?
-                `/projects/time/total.json` :
-                `/projects/${project_id}/time/total.json`,
-            qs
-        })
-    }
-
-    /**
-     * Get total time from a project or all projects
-     * 
-     * @param  {Object}
-     * @param  {Number}
-     * @return {Promise}
-     */
-    getRates(qs = {}, project_id) {
-        return this.query({
-            uri: !project_id ?
-                `/projects/time/total.json` : 
+                '/projects/time/total.json' :
                 `/projects/${project_id}/time/total.json`,
             qs
         })

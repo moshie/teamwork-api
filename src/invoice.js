@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -39,7 +39,7 @@ class Invoice extends Teamwork {
      * @param  {Object}
      * @return {Promise}
      */
-    update(invoice_id) {
+    update(invoice_id, body) {
         if (!invoice_id) {
             return this.handleError('No Invoice id')
         }

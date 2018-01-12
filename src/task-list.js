@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -139,7 +139,7 @@ class TaskList extends Teamwork {
      */
     templates() {
         return this.query({
-            uri: `/tasklists/templates.json`
+            uri: '/tasklists/templates.json'
         })
     }
 

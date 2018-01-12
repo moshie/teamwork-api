@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('../teamwork')
 
@@ -68,7 +68,7 @@ class Notebook extends Teamwork {
         }
 
         return this.query({
-            uri: `/notebookCategories/${category_id}/notebooks.json`
+            uri: `/notebookCategories/${category_id}/notebooks.json`,
             qs
         })
     }

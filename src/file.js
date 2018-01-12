@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 const fs = require('fs')
@@ -53,7 +53,7 @@ class File extends Teamwork {
 
         return this.query({
             method: 'DELETE',
-            uri: `/files/${id}.json`
+            uri: `/files/${file_id}.json`
         })
     }
 

@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -13,7 +13,7 @@ class Tag extends Teamwork {
      */
     get(qs = {}, tag_id) {
         return this.query({
-            uri: !expense_id ? 
+            uri: !tag_id ? 
                 '/tags.json' : 
                 `/tags/${tag_id}.json`,
             qs

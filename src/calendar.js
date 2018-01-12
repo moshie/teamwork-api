@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -90,7 +90,7 @@ class Calendar extends Teamwork {
      */
     getEventTypes() {
         return this.query({
-            uri: `/calendareventtypes.json`
+            uri: '/calendareventtypes.json'
         })
     }
 

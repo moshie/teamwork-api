@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Teamwork = require('./teamwork')
 
@@ -79,7 +79,7 @@ class Time extends Teamwork {
      */
     total(qs = {}) {
         return this.query({
-            uri: `/time/total.json`,
+            uri: '/time/total.json',
             qs
         })
     }
