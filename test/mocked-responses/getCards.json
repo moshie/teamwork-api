@@ -1,0 +1,65 @@
+{
+    "people": {
+        "12345": {
+            "company": {
+                "name": "My Company",
+                "id": "1234"
+            },
+            "avatarUrl": "https://path/to/person.jpg",
+            "firstName": "Joe",
+            "id": "123",
+            "lastName": "Bloggs"
+        }
+    },
+    "STATUS": "OK",
+    "column": {
+        "name": "Inbox Column",
+        "id": "1003",
+        "color": "#3D82DE"
+    },
+    "cards": [
+        {
+            "dueDate": "",
+            "canComplete": true,
+            "numComments": "0",
+            "taskListId": "123456789",
+            "displayOrder": "1",
+            "hasTickets": false,
+            "archived": false,
+            "deletedDate": "",
+            "dateUpdated": "yyyy-mm-ddThh:mm:ssZ",
+            "dateCompleted": "",
+            "private": "0",
+            "projectId": "1",
+            "status": "ACTIVE",
+            "numPredecessors": "0",
+            "numDependencies": "0",
+            "numAttachments": "0",
+            "canEdit": true,
+            "tags": [],
+            "startDate": "",
+            "id": "1002",
+            "hasLoggedTime": false,
+            "dateCreated": "yyyy-mm-ddThh:mm:ssZ",
+            "completed": false,
+            "estimatedMinutes": "0",
+            "deleted": false,
+            "taskListName": "A task list",
+            "taskStatus": "new",
+            "columnId": "101",
+            "name": "My task name",
+            "description": "",
+            "priority": "NONE",
+            "progress": "0",
+            "parentTaskId": "",
+            "numActiveSubTasks": "0",
+            "assignedPeople": [
+                "123"
+            ],
+            "taskId": "123456789",
+            "isRecurring": false,
+            "hasUnreadComments": false,
+            "archivedDate": ""
+        }
+    ]
+}

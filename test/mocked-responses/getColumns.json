@@ -1,0 +1,60 @@
+{
+    "columns": [
+        {
+            "name": "My new Column",
+            "displayOrder": "4000",
+            "sortOrder": "ASC",
+            "deletedDate": "",
+            "dateUpdated": "yyyy-mm-ddThh:mm:ssZ",
+            "settings": {
+                "avatar": true,
+                "time": true,
+                "name": true,
+                "files": true,
+                "comments": true,
+                "priority": true,
+                "progress": true,
+                "tasklist": true,
+                "private": true,
+                "reminders": true,
+                "assignee": true,
+                "dependencies": true,
+                "tags": true,
+                "estimatedtime": true,
+                "startdate": true,
+                "tickets": true,
+                "followers": true,
+                "recurring": true,
+                "subtasklabel": true,
+                "enddate": true
+            },
+            "defaultTasklist": {
+                "newTaskDefaults": {},
+                "name": "",
+                "id": "0"
+            },
+            "projectId": "12345",
+            "hasTriggers": false,
+            "sort": "manual",
+            "canEdit": true,
+            "id": "1001",
+            "dateCreated": "yyyy-mm-ddThh:mm:ssZ",
+            "color": "#1ABC9C",
+            "deleted": false,
+            "canAddCards": true
+        }
+    ],
+    "people": {
+        "123": {
+            "company": {
+                "name": "My Company",
+                "id": "1234"
+            },
+            "avatarUrl": "https://path/to/image.png",
+            "firstName": "Joe",
+            "id": "123",
+            "lastName": "Bloggs"
+        }
+    },
+    "STATUS": "OK"
+}

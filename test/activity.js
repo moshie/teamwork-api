@@ -45,7 +45,7 @@ describe('#Activity', function () {
 
     })
 
-    it('/activity/{activity_id}.json', function () {
+    it('DELETE /activity/{activity_id}.json', function () {
         nock(host)
             .delete('/activity/12345.json')
             .reply(200, latestActivityJson)
