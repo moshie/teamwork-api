@@ -42,7 +42,7 @@ function teamwork (api_key = '', domain = '') {
         workload: require('./workload')
     }
 
-    const base = new api['teamwork'](api_key, domain);
+    const base = new api['teamwork'](api_key, domain)
 
     return new Proxy(base, {
         get: (target, name) => {
