@@ -1,5 +1,7 @@
-require('dotenv').config()
+exports.api = api = '1234567890'
 
-exports.tw = require('../src')()
+exports.domain = domain = 'testing'
 
-exports.host = `https://${process.env.TW_SUB}.teamwork.com`
+exports.tw = require('../src')(api, domain)
+
+exports.host = `https://${domain}.teamwork.com`
