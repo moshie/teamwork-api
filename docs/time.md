@@ -1,5 +1,7 @@
 ## Time Tracking
 
+### Create a Time-Entry (for a task/todo item)
+
 [**POST /tasks/{taskid}/time_entries.json**](https://developer.teamwork.com/timetracking#create_a_time-ent)
 
 ```js
@@ -9,6 +11,8 @@ tw.tasks.createTime(task_id, {
 	}
 })
 ```
+
+### Time Totals on a tasklist
 
 [**GET /tasklists/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
 
@@ -23,6 +27,8 @@ tw.tasklists.totalTime(tasklist_id, {
 })
 ```
 
+### Time Totals on a task
+
 [**GET /tasks/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
 
 ```js
@@ -36,6 +42,8 @@ tw.tasks.totalTime(task_id, {
 })
 ```
 
+### Add a Time estimate to a Task
+
 [**PUT tasks/{task_id}/estimatedtime.json**](https://developer.teamwork.com/timetracking#add_a_time_estima)
 
 ```js
@@ -43,6 +51,8 @@ tw.tasks.estimatedTime(task_id, {
 	// --
 })
 ```
+
+### Retrieve All Time Entries across all projects
 
 [**GET /time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_time)
 
@@ -65,11 +75,15 @@ tw.time.get({
 })
 ```
 
+### Retrieve Single Time-Entry
+
 [**GET /time_entries/{id}.json**](https://developer.teamwork.com/timetracking#retrieve_single_t)
 
 ```js
 tw.time.get({}, time_id)
 ```
+
+### Update a Time Entry
 
 [**PUT /time_entries/{id}.json**]()
 
@@ -81,11 +95,15 @@ tw.time.update(time_id, {
 })
 ```
 
+### Delete a Time-Entry
+
 [**DELETE /time_entries/{id}.json**](https://developer.teamwork.com/timetracking#delete_a_time-ent)
 
 ```js
 tw.time.delete(time_id)
 ```
+
+### Retrieve All Time Entries for a Project
 
 [**GET /projects/{project_id}/time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_time)
 
@@ -100,11 +118,15 @@ tw.projects.getTime(project_id, {
 })
 ```
 
+### Retrieve all To-do Item Times
+
 [**GET /todo_items/{todo_item_id}/time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_to-d)
 
 ```js
 tw.time.todos(todo_id)
 ```
+
+### Create a Time-Entry
 
 [**POST /projects/{project_id}/time_entries.json**](https://developer.teamwork.com/timetracking#create_a_time-ent)
 
@@ -115,6 +137,8 @@ tw.projects.createTime(project_id, {
 	}
 })
 ```
+
+### Time Totals across account
 
 [**GET /time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
 
@@ -129,6 +153,8 @@ tw.time.total({
 })
 ```
 
+### Time Totals on a project
+
 [**GET /projects/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
 
 ```js
@@ -141,6 +167,8 @@ tw.projects.totalTime({
 	projectType: 'active'
 }, project_id)
 ```
+
+### Time Totals per Project
 
 [**GET /projects/time/total.json**](https://developer.teamwork.com/timetracking#time_totals_per_p)
 
@@ -155,6 +183,8 @@ tw.projects.totalTime({
 	pageSize: 100
 })
 ```
+
+### Logged time
 
 [**GET to /people/{person_id}/loggedtime.json**](https://developer.teamwork.com/timetracking#logged_time)
 

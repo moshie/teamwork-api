@@ -1,5 +1,7 @@
 ## Search
 
+### Search Teamwork
+
 [**GET /search.json**](https://developer.teamwork.com/searchProjects)
 
 ```js

@@ -1,5 +1,7 @@
 ## Tasks
 
+### Retrieve all tasks
+
 [**GET /tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
 
 ```js
@@ -28,11 +30,15 @@ tw.tasks.get({
 }, task_id)
 ```
 
+### Retrieve a task
+
 [**GET /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#retrieve_a_task)
 
 ```js
 tw.tasks.get({}, task_id)
 ```
+
+### Edit a task
 
 [**PUT /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#edit_a_task)
 
@@ -44,11 +50,15 @@ tw.tasks.update(task_id, {
 })
 ```
 
+### Destroy a task
+
 [**DELETE /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#destroy_a_task)
 
 ```js
 tw.tasks.delete(task_id)
 ```
+
+### Add a task
 
 [**POST /tasklists/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#add_a_task)
 
@@ -60,6 +70,8 @@ tw.tasks.create(tasklist_id, {
 }, options)
 ```
 
+### Add a subtask
+
 [**POST /tasks/{id}.json**](https://developer.teamwork.com/todolistitems#add_a_task)
 
 ```js
@@ -70,11 +82,15 @@ tw.tasks.subtask(task_id, {
 }, options)
 ```
 
+### Mark a task complete
+
 [**PUT /tasks/{id}/complete.json**](https://developer.teamwork.com/todolistitems#mark_a_task_compl)
 
 ```js
 tw.tasks.complete(task_id)
 ```
+
+### Mark a task uncomplete
 
 [**PUT /tasks/{id}/uncomplete.json**](https://developer.teamwork.com/todolistitems#mark_a_task_uncom)
 
@@ -82,11 +98,15 @@ tw.tasks.complete(task_id)
 tw.tasks.incomplete(task_id)
 ```
 
+### Retrieve Task Dependencies
+
 [**GET /tasks/{id}/dependencies.json**](https://developer.teamwork.com/todolistitems#retrieve_task_dep)
 
 ```js
 tw.tasks.dependencies(task_id)
 ```
+
+### Reorder the tasks
 
 [**PUT /tasklists/{id}/tasks/reorder.json**](https://developer.teamwork.com/todolistitems#reorder_the_tasks)
 
@@ -97,6 +117,8 @@ tw.tasks.reorder(tasklist_id, {
 	]
 })
 ```
+
+### Completed tasks
 
 [**GET /completedtasks.json**](https://developer.teamwork.com/todolistitems#completed_tasks)
 
@@ -110,6 +132,8 @@ tw.tasks.completed({
 })
 ```
 
+### Change the completed date on close tasks
+
 [**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#edit_a_task)
 
 ```js
@@ -120,11 +144,15 @@ tw.tasks.completedDate(task_id, {
 })
 ```
 
+### Get Task Followers
+
 [**GET /tasks/{task_id}/followers.json**](https://developer.teamwork.com/todolistitems#get_task_follower)
 
 ```js
 tw.tasks.getFollowers(task_id)
 ```
+
+### Set Task Followers
 
 [**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#set_task_follower)
 
@@ -136,6 +164,8 @@ tw.tasks.setFollowers(task_id, {
 })
 ```
 
+### Remove Task Followers
+
 [**PUT /tasks/{task_id}.json**](https://developer.teamwork.com/todolistitems#remove_task_follo)
 
 ```js
@@ -146,6 +176,8 @@ tw.tasks.removeFollowers(task_id, {
 })
 ```
 
+### Quickly add multiple tasks
+
 [**POST /tasklists/{task_list_id}/quickadd.json**](https://developer.teamwork.com/todolistitems#quickly_add_multi)
 
 ```js
@@ -154,11 +186,15 @@ tw.tasks.quickadd(task_list_id, {
 })
 ```
 
+### Retrieve all tasks on a project
+
 [**GET /projects/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
 
 ```js
 tw.projects.getTasks(project_id, options)
 ```
+
+### Retrieve all tasks on a task list
 
 [**GET /tasklists/{id}/tasks.json**](https://developer.teamwork.com/todolistitems#retrieve_all_task)
 

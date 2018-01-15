@@ -16,13 +16,13 @@ function teamwork (api_key = '', domain = '') {
         invoices: require('./invoice'),
         expenses: require('./expense'),
         boards: require('./board'),
-        messageCategory: require('./categories/message'),
-        fileCategory: require('./categories/file'),
-        notebookCategory: require('./categories/notebook'),
-        linkCategory: require('./categories/link'),
-        projectCategory: require('./categories/project'),
+        messageCategories: require('./categories/message'),
+        fileCategories: require('./categories/file'),
+        notebookCategories: require('./categories/notebook'),
+        linkCategories: require('./categories/link'),
+        projectCategories: require('./categories/project'),
         comments: require('./comment'),
-        calendars: require('./calendar'),
+        calendar: require('./calendar'),
         companies: require('./company'),
         files: require('./file'),
         messages: require('./message'),
@@ -34,7 +34,7 @@ function teamwork (api_key = '', domain = '') {
         links: require('./link'),
         risks: require('./risk'),
         time: require('./time'),
-        tasklists: require('./task-list'),
+        tasklist: require('./task-list'),
         tasks: require('./task'),
         taskReminders: require('./task-reminder'),
         tags: require('./tag'),
@@ -42,11 +42,13 @@ function teamwork (api_key = '', domain = '') {
         workload: require('./workload')
     }
 
-    return new Proxy({}, {
+    const base = new api['teamwork'](api_key, domain);
+
+    return new Proxy(base, {
         get: (target, name) => {
             return api[name] ? 
                 new api[name](api_key, domain) : 
-                new api['teamwork'](api_key, domain)[name]
+                base[name]
         }
     })
 }

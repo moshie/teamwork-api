@@ -1,5 +1,7 @@
 ## Milestones
 
+### List All Milestones
+
 [**GET /milestones.json**](https://developer.teamwork.com/milestones#list_all_mileston)
 
 ```js
@@ -9,6 +11,8 @@ tw.milestones.get({
 })
 ```
 
+### List Milestones on a Project
+
 [**GET /projects/{project_id}/milestones.json**](https://developer.teamwork.com/milestones#list_milestones_o)
 
 ```js
@@ -16,6 +20,8 @@ tw.projects.getMilestones(project_id, {
 	getProgress: true
 })
 ```
+
+### Get a Single Milestone
 
 [**GET /milestones/{milestone_id}.json**](https://developer.teamwork.com/milestones#get_a_single_mile)
 
@@ -25,17 +31,23 @@ tw.milestones.get({
 }, milestone_id)
 ```
 
+### Complete
+
 [**PUT /milestones/{id}/complete.json**](https://developer.teamwork.com/milestones#complete)
 
 ```js
 tw.milestone.complete(milestone_id)
 ```
 
+### Incomplete
+
 [**PUT /milestones/{id}/uncomplete.json**](https://developer.teamwork.com/milestones#uncomplete)
 
 ```js
 tw.milestone.incomplete(milestone_id)
 ```
+
+### Create a Single Milestone
 
 [**POST /projects/{project_id}/milestones.json**](https://developer.teamwork.com/milestones#create_a_single_m)
 
@@ -47,6 +59,8 @@ tw.projects.createMilestone({
 })
 ```
 
+### Update
+
 [**PUT /milestones/{milestone_id}.json**](https://developer.teamwork.com/milestones#update)
 
 ```js
@@ -56,6 +70,8 @@ tw.milestone.update(milestone_id, {
 	}
 })
 ```
+
+### Delete
 
 [**DELETE /milestones/{id}.json**](https://developer.teamwork.com/milestones#delete)
 

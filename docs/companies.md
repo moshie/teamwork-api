@@ -1,5 +1,7 @@
 ## Companies
 
+### Create Company
+
 [**POST /companies.json**](https://developer.teamwork.com/companies#create_company)
 
 ```js
@@ -9,6 +11,8 @@ tw.companies.create({
 	}
 })
 ```
+
+### Update Company
 
 [**PUT /companies/{company_id}.json**](https://developer.teamwork.com/companies#update_company)
 
@@ -20,11 +24,15 @@ tw.companies.update(company_id, {
 })
 ```
 
+### Delete Company
+
 [**DELETE /companies/{id}.json**](https://developer.teamwork.com/companies#delete_company)
 
 ```js
 tw.companies.delete(company_id)
 ```
+
+### Retrieve a Single Company
 
 [**GET /companies/{company_id}.json**](https://developer.teamwork.com/companies#retrieve_a_single)
 
@@ -32,11 +40,15 @@ tw.companies.delete(company_id)
 tw.companies.get(company_id)
 ```
 
+### Retrieve Companies
+
 [**GET /companies.json**](https://developer.teamwork.com/companies#retrieve_companie)
 
 ```js
 tw.companies.get()
 ```
+
+### Retrieving Companies within a Project
 
 [**GET /projects/{project_id}/companies.json**](https://developer.teamwork.com/companies#retrieving_compan)
 
