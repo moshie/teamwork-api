@@ -26,7 +26,7 @@
   "scripts": {
     "commit": "git-cz",
     "lint": "eslint src",
-    "test": "mocha",
+    "test": "istanbul cover _mocha -- -R spec",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
   },
@@ -42,6 +42,7 @@
     "dotenv": "^4.0.0",
     "eslint": "^4.15.0",
     "ghooks": "^2.0.2",
+    "istanbul": "^0.4.5",
     "mocha": "^4.1.0",
     "nock": "^9.1.6",
     "semantic-release": "^12.2.2",

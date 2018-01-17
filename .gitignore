@@ -15,6 +15,7 @@ yarn-error.log*
 # Task Runners & Compilers
 /.sass-cache
 /node_modules
+/coverage
 .npm
 
 # OS
