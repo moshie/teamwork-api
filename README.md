@@ -2,6 +2,10 @@
 
 A wrapper around teamwork api making it easier to perform requests.
 
+[![Travis](https://img.shields.io/travis/moshie/teamwork-api.svg?style=for-the-badge)](https://travis-ci.org/moshie/teamwork-api)
+[![Version](https://img.shields.io/npm/v/teamwork-api.svg?style=for-the-badge)](https://www.npmjs.com/package/teamwork-api)
+[![Licence](https://img.shields.io/npm/l/teamwork-api.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
 ## Installation
 
 ```bash
