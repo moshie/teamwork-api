@@ -1,0 +1,7 @@
+{
+    "eventtype": {
+        "name": "updated event type name",
+        "color": "526D45",
+        "id": "{event_type_id}"
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "event": {
+    "where": "",
+    "project-users-can-edit": false,
+    "description": "",
+    "attending-user-ids": "41858",
+    "notify-user-names": "",
+    "attending-user-names": "Michael H.",
+    "owner": {
+      "first-name": "Billy",
+      "id": "29902",
+      "last-name": "Mahony"
+    },
+    "reminders": [],
+    "notify-user-ids": "",
+    "start": "2014-05-27T00:00",
+    "repeat": {},
+    "all-day": true,
+    "id": "195637",
+    "end": "2014-06-10T23:59",
+    "show-as-busy": false,
+    "last-changed-on": "2014-04-30T11:06:18Z",
+    "privacy": {
+      "type": "company"
+    },
+    "attendees-can-edit": false,
+    "type": {
+      "name": "Holidays",
+      "id": "100002",
+      "color": "4E9075"
+    },
+    "title": "MJ Holidays"
+  },
+  "STATUS": "OK"
+}

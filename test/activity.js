@@ -42,7 +42,6 @@ describe('#Activity', function () {
             promise.should.eventually.have.property('activity').that.is.an('array'),
             promise.should.eventually.have.deep.property('activity', projectActivityJson.activity)
         ])
-
     })
 
     it('DELETE /activity/{activity_id}.json', function () {
@@ -56,6 +55,12 @@ describe('#Activity', function () {
             promise.should.eventually.be.an('object'),
             promise.should.eventually.have.property('STATUS', 'OK').that.is.a('string')
         ])
+    })
+
+    it('DELETE /activity/{activity_id}.json (ERROR)', function () {
+        let promise = tw.activity.delete()
+
+        return promise.should.be.rejectedWith('No activity id')
     })
 
 })

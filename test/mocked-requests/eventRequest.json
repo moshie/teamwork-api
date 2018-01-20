@@ -1,0 +1,30 @@
+{
+  "event" : {
+    "start" : "YYYY-MM-DDThh:mm:ss",
+    "end" : "YYYY-MM-DDThh:mm:ss",
+    "all-day" : "true/false",
+    "title" : "Some event title",
+    "description" : "Some event description (optional)",
+    "where" : "Some location (optional)",
+    "privacy" : {
+        "type" : "company",
+        "project-id" : "0"
+    },    
+    "show-as-busy":"true/false",
+    "type" : {
+      "id" : "numeric calendarEventType id"
+    },
+    "attending-user-ids":"comma separated list of user id's",
+    "notify-user-ids":"comma separated list of user id's",
+    "notify":"true",
+    "attendees-can-edit":"true/false",
+    "project-users-can-edit":"true/false",
+    "reminders" : [
+      {
+        "type":"string (one of the following sms,email,push)",
+        "period":"string (one of the following minutes,hours,days,weeks)",
+        "before":"numeric value (e.g: 15)"
+      }  
+    ]
+  }
+}

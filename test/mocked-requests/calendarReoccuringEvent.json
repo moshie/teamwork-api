@@ -1,0 +1,17 @@
+{
+   "event":{
+      "start":"yyyy-mm-ddThh:mm",
+      "end":"yyyy-mm-ddThh:mm",
+      "all-day":false,
+      "title":"My recurring event",
+      "repeat":{
+         "frequency":"monthly",
+         "month-type":"monthday",
+         "ends":true,
+         "endDate":"yyyy-mm-dd"
+      },
+      "notify":true,
+      "attendees-can-edit":false,
+      "project-users-can-edit":false
+   }
+}

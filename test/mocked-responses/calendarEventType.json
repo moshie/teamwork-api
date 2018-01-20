@@ -1,0 +1,10 @@
+{
+  "eventtypes": [
+    {
+      "name": "Birthdays",
+      "id": "100021",
+      "color": "ABAE15"
+    }
+  ],
+  "STATUS": "OK"
+}
