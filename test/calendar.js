@@ -7,25 +7,27 @@ chai.use(chaiAsPromised)
 
 chai.should()
 
-// Mocked Data
-const calendarEventsJson = require('./mocked-responses/calendarEvents')
-const calendarEventJson = require('./mocked-responses/calendarEvent')
-const calendarNewEventResponse = require('./mocked-responses/calendarNewEvent')
-const plainStatusOk = require('./mocked-responses/plainStatusOk')
-const calendarEventType = require('./mocked-responses/calendarEventType')
+// RESPONSES
+const Events = require('./mocked-responses/calendar_Events')
+const Event = require('./mocked-responses/calendar_Event')
+const EventTypes = require('./mocked-responses/calendar_EventTypes')
 
-const calendarEventsRequest = require('./mocked-requests/eventRequest')
-const calendarReoccuringEventRequest = require('./mocked-requests/calendarReoccuringEvent')
-const calendarEventUpdateRequest = require('./mocked-requests/calendarEventUpdateRequest')
-const calendarEventTypeRequest = require('./mocked-requests/calendarEventTypeRequest')
-const calendarEventTypeUpdatedRequest = require('./mocked-requests/calendarEventTypeUpdatedRequest')
+const teamwork_default = require('./mocked-responses/status-ok')
+const teamwork_id_status = require('./mocked-responses/status-ok-and-id')
+
+// REQUESTS
+const EventCreate = require('./mocked-requests/calendar_POST_event')
+const RepeatingEventCreate = require('./mocked-requests/calendar_POST_RepeatingEvent')
+const EventUpdate = require('./mocked-requests/calendar_PUT_Event')
+const EventTypeUpdate = require('./mocked-requests/calendar_PUT_EventType')
+const EventTypeCreate = require('./mocked-requests/calendar_POST_EventType')
 
 describe('#Calendar', function () {
 
     it('GET /calendarevents.json', function () {
         nock(host)
             .get('/calendarevents.json?startdate=20010101&endDate=20180101')
-            .reply(200, calendarEventsJson)
+            .reply(200, Events)
 
         let promise = tw.calendar.getEvents({
             startdate: '20010101',
@@ -36,14 +38,14 @@ describe('#Calendar', function () {
             promise.should.eventually.be.an('object'),
             promise.should.eventually.have.property('STATUS', 'OK').that.is.a('string'),
             promise.should.eventually.have.property('events').that.is.an('array'),
-            promise.should.eventually.have.deep.property('events', calendarEventsJson.events)
+            promise.should.eventually.have.deep.property('events', Events.events)
         ])
     })
 
     it('GET /calendarevents/{event_id}.json', function () {
         nock(host)
             .get('/calendarevents/12345.json')
-            .reply(200, calendarEventJson)
+            .reply(200, Event)
 
         let promise = tw.calendar.getEvent(12345)
 
@@ -51,16 +53,16 @@ describe('#Calendar', function () {
             promise.should.eventually.be.an('object'),
             promise.should.eventually.have.property('STATUS', 'OK').that.is.a('string'),
             promise.should.eventually.have.property('event').that.is.an('object'),
-            promise.should.eventually.have.deep.property('event', calendarEventJson.event)
+            promise.should.eventually.have.deep.property('event', Event.event)
         ])
     })
 
     it('POST /calendarevents.json', function () {
         nock(host)
-            .post('/calendarevents.json', calendarEventsRequest)
-            .reply(201, calendarNewEventResponse)
+            .post('/calendarevents.json', EventCreate)
+            .reply(201, teamwork_id_status)
 
-        let promise = tw.calendar.createEvent(calendarEventsRequest)
+        let promise = tw.calendar.createEvent(EventCreate)
 
         return Promise.all([
             promise.should.eventually.be.an('object'),
@@ -71,10 +73,10 @@ describe('#Calendar', function () {
 
     it('POST /calendarevents.json (Repeat)', function () {
         nock(host)
-            .post('/calendarevents.json', calendarReoccuringEventRequest)
-            .reply(201, calendarNewEventResponse)
+            .post('/calendarevents.json', RepeatingEventCreate)
+            .reply(201, teamwork_id_status)
 
-        let promise = tw.calendar.createEvent(calendarReoccuringEventRequest)
+        let promise = tw.calendar.createEvent(RepeatingEventCreate)
 
         return Promise.all([
             promise.should.eventually.be.an('object'),
@@ -85,10 +87,10 @@ describe('#Calendar', function () {
 
     it('PUT /calendarevents/{event_id}.json', function () {
         nock(host)
-            .put('/calendarevents/12345.json', calendarEventUpdateRequest)
-            .reply(201, plainStatusOk)
+            .put('/calendarevents/12345.json', EventUpdate)
+            .reply(201, teamwork_default)
 
-        let promise = tw.calendar.updateEvent(12345, calendarEventUpdateRequest)
+        let promise = tw.calendar.updateEvent(12345, EventUpdate)
 
         return Promise.all([
             promise.should.eventually.be.an('object'),
@@ -99,7 +101,7 @@ describe('#Calendar', function () {
     it('DELETE /calendarevents/{event_id}.json', function () {
         nock(host)
             .delete('/calendarevents/12345.json')
-            .reply(200, plainStatusOk)
+            .reply(200, teamwork_default)
 
         let promise = tw.calendar.deleteEvent(12345)
 
@@ -112,7 +114,7 @@ describe('#Calendar', function () {
     it('GET /calendareventtypes.json', function () {
         nock(host)
             .get('/calendareventtypes.json')
-            .reply(200, calendarEventType)
+            .reply(200, EventTypes)
 
         let promise = tw.calendar.getEventTypes()
 
@@ -120,16 +122,16 @@ describe('#Calendar', function () {
             promise.should.eventually.be.an('object'),
             promise.should.eventually.have.property('STATUS', 'OK').that.is.a('string'),
             promise.should.eventually.have.property('eventtypes').that.is.an('array'),
-            promise.should.eventually.have.deep.property('eventtypes', calendarEventType.eventtypes)
+            promise.should.eventually.have.deep.property('eventtypes', EventTypes.eventtypes)
         ])
     })
 
     it('POST /eventtypes.json', function () {
         nock(host)
-            .post('/eventtypes.json', calendarEventTypeRequest)
-            .reply(200, calendarNewEventResponse)
+            .post('/eventtypes.json', EventTypeCreate)
+            .reply(200, teamwork_id_status)
 
-        let promise = tw.calendar.createEventType(calendarEventTypeRequest)
+        let promise = tw.calendar.createEventType(EventTypeCreate)
 
         return Promise.all([
             promise.should.eventually.be.an('object'),
@@ -141,7 +143,7 @@ describe('#Calendar', function () {
     it('DELETE /eventtypes/{event_type_id}.json', function () {
         nock(host)
             .delete('/eventtypes/12345.json')
-            .reply(200, plainStatusOk)
+            .reply(200, teamwork_default)
 
         let promise = tw.calendar.deleteEventType(12345)
 
@@ -153,10 +155,10 @@ describe('#Calendar', function () {
 
     it('PUT /eventtypes/{event_type_id}.json', function () {
         nock(host)
-            .put('/eventtypes/12345.json', calendarEventTypeUpdatedRequest)
-            .reply(200, plainStatusOk)
+            .put('/eventtypes/12345.json', EventTypeUpdate)
+            .reply(200, teamwork_default)
 
-        let promise = tw.calendar.updateEventType(12345, calendarEventTypeUpdatedRequest)
+        let promise = tw.calendar.updateEventType(12345, EventTypeUpdate)
 
         return Promise.all([
             promise.should.eventually.be.an('object'),

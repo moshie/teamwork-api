@@ -8,18 +8,19 @@ chai.use(chaiAsPromised)
 chai.should()
 
 // Mocked Data
-const getColumnsJson = require('./mocked-responses/getColumns')
-const postColumnsJson = require('./mocked-responses/postColumns')
-const plainStatusOk = require('./mocked-responses/plainStatusOk')
-const taskToColumnJson = require('./mocked-responses/taskToColumn')
-const getCardsJson = require('./mocked-responses/getCards')
+const Columns = require('./mocked-responses/board_columns')
+const addTaskToColumn = require('./mocked-responses/board_addTaskToColumn')
+const getCardsJson = require('./mocked-responses/board_getCards')
+
+const teamwork_default = require('./mocked-responses/status-ok')
+const teamwork_id_status = require('./mocked-responses/status-ok-and-id')
 
 describe('#Boards', function () {
 
     it('GET /projects/{project_id}/boards/columns.json', function () {
         nock(host)
             .get('/projects/12345/boards/columns.json')
-            .reply(200, getColumnsJson)
+            .reply(200, Columns)
 
         let promise = tw.boards.getColumns(12345)
 
@@ -27,9 +28,9 @@ describe('#Boards', function () {
             promise.should.eventually.be.an('object'),
             promise.should.eventually.have.property('STATUS', 'OK').that.is.a('string'),
             promise.should.eventually.have.property('columns').that.is.an('array'),
-            promise.should.eventually.have.deep.property('columns', getColumnsJson.columns),
+            promise.should.eventually.have.deep.property('columns', Columns.columns),
             promise.should.eventually.have.property('people').that.is.an('object'),
-            promise.should.eventually.have.deep.property('people', getColumnsJson.people)
+            promise.should.eventually.have.deep.property('people', Columns.people)
         ])
     })
 
@@ -43,7 +44,7 @@ describe('#Boards', function () {
 
         nock(host)
             .post('/projects/12345/boards/columns.json', request)
-            .reply(200, postColumnsJson)
+            .reply(200, teamwork_id_status)
 
 
         let promise = tw.boards.createColumn(12345, request)
@@ -51,15 +52,14 @@ describe('#Boards', function () {
         return Promise.all([
             promise.should.eventually.be.an('object'),
             promise.should.eventually.have.property('STATUS', 'OK').that.is.a('string'),
-            promise.should.eventually.have.property('id').that.is.a('string'),
-            promise.should.eventually.have.property('id').that.is.equal('10001')
+            promise.should.eventually.have.property('id').that.is.a('string')
         ])
     })
 
     it('DELETE /boards/columns/{column_id}.json', function () {
         nock(host)
             .delete('/boards/columns/12345.json')
-            .reply(200, plainStatusOk)
+            .reply(200, teamwork_default)
 
         let promise = tw.boards.deleteColumn(12345)
 
@@ -79,7 +79,7 @@ describe('#Boards', function () {
 
         nock(host)
             .post('/boards/columns/12345/cards.json', request)
-            .reply(200, taskToColumnJson)
+            .reply(200, addTaskToColumn)
 
 
         let promise = tw.boards.addTaskToColumn(12345, request)
@@ -122,7 +122,7 @@ describe('#Boards', function () {
 
         nock(host)
             .put('/boards/columns/cards/12345/move.json', request)
-            .reply(200, plainStatusOk)
+            .reply(200, teamwork_default)
 
         let promise = tw.boards.moveCard(12345, request)
 
@@ -149,7 +149,7 @@ describe('#Boards', function () {
 
         nock(host)
             .put('/boards/columns/cards/12345.json', request)
-            .reply(200, plainStatusOk)
+            .reply(200, teamwork_default)
 
         let promise = tw.boards.updateCard(12345, request)
 
@@ -162,7 +162,7 @@ describe('#Boards', function () {
     it('DELETE /boards/columns/cards/{card_id}.json', function () {
         nock(host)
             .delete('/boards/columns/cards/12345.json')
-            .reply(200, plainStatusOk)
+            .reply(200, teamwork_default)
 
         let promise = tw.boards.deleteCard(12345)
 
