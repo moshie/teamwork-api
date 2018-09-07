@@ -6,7 +6,7 @@ class Teamwork {
 
     /**
      * Teamwork Constructor
-     * 
+     *
      * @param  {String}
      * @param  {String}
      * @return {Object}
@@ -16,10 +16,10 @@ class Teamwork {
         this.domain = domain
         this.europe = domain.indexOf('.eu') === -1
     }
-    
+
     /**
      * Get account information
-     * 
+     *
      * @return {Promise}
      */
     account() {
@@ -28,9 +28,9 @@ class Teamwork {
         })
     }
 
-    /** 
+    /**
      * Authenticate a user
-     * 
+     *
      * @return {Promise}
      */
     authenticate() {
@@ -40,7 +40,7 @@ class Teamwork {
         })
     }
 
-    /** 
+    /**
      * Search
      *
      * @param {Object}
@@ -55,7 +55,7 @@ class Teamwork {
 
     /**
      * handle Errors
-     * 
+     *
      * @param  {String}
      * @return {Promise}
      */
@@ -65,7 +65,7 @@ class Teamwork {
 
     /**
      * Execute api query
-     * 
+     *
      * @param  {Object}
      * @param  {Object}
      * @return {Promise}
@@ -74,7 +74,7 @@ class Teamwork {
 
         options = Object.assign({
             method: 'GET',
-            baseUrl: `https://${this.domain}.teamwork.com`,
+            baseUrl: ${this.domain},
             uri: '/',
             json: true,
             auth: {
