@@ -77,6 +77,8 @@ const tw = require('teamwork-api')('1234567890', 'subdomain')
 
 [Project Roles](/docs/project-roles.md)
 
+[Project Owner](/docs/owner.md)
+
 [Project Email Addresses](/docs/project-email-address.md)
 
 [Links](/docs/links.md)
