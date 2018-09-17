@@ -17,7 +17,12 @@ tw.owner.get(project_id)
 [**GET /projects/{projId}.json**](https://developer.teamwork.com/projects/project-owner/setting-a-project-owner)
 
 ```js
-tw.people.get({}, projId)
+tw.owners.set(project_id, {
+  'project': {
+    'projectOwnerId': people_id
+  }
+})
+
 ```
 
 ### Delete project owner
@@ -25,5 +30,5 @@ tw.people.get({}, projId)
 [**PUT /projects/{projId}.json**](https://developer.teamwork.com/projects/project-owner/removing-a-project-owner)
 
 ```js
-tw.people.delete(person_id)
+tw.owner.delete(project_id)
 ```
