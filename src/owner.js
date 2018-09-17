@@ -31,6 +31,12 @@ class Owner extends Teamwork {
      * @return {Promise}
      */
   set (project_id, body = {}) {
+    if (!project_id) {
+      return this.handleError('No Project id')
+    }
+    if (!body.project) {
+      return this.handleError(`"project" field is required`)
+    }
     return this.query({
       method: 'PUT',
       uri: `/projects/${project_id}.json`,
