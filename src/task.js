@@ -329,6 +329,22 @@ class Task extends Teamwork {
     }
 
     /**
+     * Get Time Entries for a Task
+     *
+     * @param  {Number}
+     * @return {Promise}
+     */
+    getTimeEntries(task_id) {
+        if (!task_id) {
+            return this.handleError('No Task id')
+        }
+
+        return this.query({
+            uri: `/tasks/${task_id}/time_entries.json`
+        })
+    }
+
+    /**
      * Get Comments for a Task
      * 
      * @param  {Number}
