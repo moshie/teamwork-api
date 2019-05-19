@@ -118,6 +118,14 @@ tw.projects.getTime(project_id, {
 })
 ```
 
+### Retrieve all Task times
+
+[**GET /tasks/{task_id}/time_entries.json**](https://developer.teamwork.com/projects/time-tracking/retrieve-all-task-times)
+
+```js
+tw.tasks.getTimeEntries(task_id)
+```
+
 ### Retrieve all To-do Item Times
 
 [**GET /todo_items/{todo_item_id}/time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_to-d)
