@@ -28,6 +28,7 @@ function teamwork (api_key = '', domain = '') {
         messages: require('./message'),
         milestones: require('./milestone'),
         notebooks: require('./notebook'),
+        owners: require('./owner'),
         people: require('./people'),
         status: require('./status'),
         roles: require('./role'),
