@@ -191,6 +191,24 @@ class People extends Teamwork {
         })
     }
 
+    /**
+     * Get all clock ins
+     * 
+     * @param  {Number}
+     * @param  {Object}
+     * @return {Promise}
+     */
+    clockIns(person_id, qs = {}) {
+        if (!person_id) {
+            return this.handleError('No person id')
+        }
+
+        return this.query({
+            uri: `/people/${person_id}/clockins.json`,
+            qs
+        })
+    }
+
 }
 
 module.exports = People

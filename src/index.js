@@ -39,7 +39,9 @@ function teamwork (api_key = '', domain = '') {
         taskReminders: require('./task-reminder'),
         tags: require('./tag'),
         webhooks: require('./webhook'),
-        workload: require('./workload')
+        workload: require('./workload'),
+        trashcan: require('./trashcan'),
+        clocking: require('./clocking')
     }
 
     const base = new api['teamwork'](api_key, domain)

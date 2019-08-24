@@ -49,6 +49,8 @@ const tw = require('teamwork-api')('1234567890', 'subdomain')
 
 [Link Categories](/docs/link-categories.md)
 
+[Clock In / Clock Out](/docs/clocking.md)
+
 [Project Categories](/docs/project-categories.md)
 
 [Comments](/docs/comments.md)
@@ -98,3 +100,5 @@ const tw = require('teamwork-api')('1234567890', 'subdomain')
 [Webhooks](/docs/webhooks.md)
 
 [Workload](/docs/workload.md)
+
+[Trashcan](/docs/trashcan.md)
