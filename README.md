@@ -29,6 +29,18 @@ Alternativly pass them in as function arguments
 const tw = require('teamwork-api')('1234567890', 'subdomain')
 ```
 
+## Contributing
+
+I am happy for people to contribute to this project, fix or add new features.
+
+Be sure when adding / modifying methods that the doc blocks are correct.
+
+The documentation is built based on these comments using `npm run docs`.
+
+Further to this ensure when you commit you are using `npm run commit` as this will help when semantic versioning the code.
+
+Happy coding 💻...
+
 ## API Reference
 
 [Account](/docs/teamwork.md)
