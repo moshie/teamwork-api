@@ -1,49 +1,25 @@
-## Clock Ins
+## Clocking
 
-### Get all clock Ins
+### Update a clock in entry
 
-[**GET /people/{person_id}/clockins.json**](https://developer.teamwork.com/projects/clock-in-clock-out/get-all-clock-ins)
-
-```js
-tw.people.clockIns(person_id, options)
-```
-
-### Edit a clock in/out entry
-
-[**PUT /clockin/{clockin_id}.json**](https://developer.teamwork.com/projects/clock-in-clock-out/edit-a-clock-in)
+[**PUT /clockin/{clock_id}.json**](https://developer.teamwork.com/projects/clock-in-clock-out/edit-a-clock-in)
 
 ```js
-tw.clocking.update(clock_id, {
-    "clockIn": {
-        // --
-    }
-})
+tw.clocking.update(clock_id, body)
 ```
 
-### Quick log for another user
+### Create clock in for another user
 
 [**POST /clockin.json**](https://developer.teamwork.com/projects/clock-in-clock-out/clock-a-person-in)
 
 ```js
-tw.clocking.create({
-    "clockIn": {
-        // --
-    }
-})
+tw.clocking.create(body)
 ```
 
-### Clock me in
+### clock yourself in or out
 
-[**POST /me/clockin.json**](https://developer.teamwork.com/projects/clock-in-clock-out/clock-me-out)
-
-```js
-tw.clocking.me('in')
-```
-
-### Clock me out
-
-[**POST /me/clockout.json**](https://developer.teamwork.com/projects/clock-in-clock-out/clock-a-user-in)
+[**POST /me/clock{in | out}.json**](https://developer.teamwork.com/projects/clock-in-clock-out/clock-me-out)
 
 ```js
-tw.clocking.me('out')
+tw.clocking.me('in' || 'out')
 ```

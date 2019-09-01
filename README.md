@@ -31,73 +31,63 @@ const tw = require('teamwork-api')('1234567890', 'subdomain')
 
 ## API Reference
 
-[Account](/docs/base.md)
+[Account](/docs/teamwork.md)
 
 [Activity](/docs/activity.md)
 
-[Invoices](/docs/invoices.md)
+[Invoices](/docs/invoice.md)
 
-[Expenses](/docs/expenses.md)
+[Expenses](/docs/expense.md)
 
-[Boards](/docs/boards.md)
+[Boards](/docs/board.md)
 
-[Message Categories](/docs/message-categories.md)
+[Message Categories](/docs/categories/message.md)
 
-[File Categories](/docs/file-categories.md)
+[File Categories](/docs/categories/file.md)
 
-[Notebook Categories](/docs/notebook-categories.md)
+[Notebook Categories](/docs/categories/notebook.md)
 
-[Link Categories](/docs/link-categories.md)
+[Link Categories](/docs/categories/link.md)
 
 [Clock In / Clock Out](/docs/clocking.md)
 
-[Project Categories](/docs/project-categories.md)
+[Project Categories](/docs/categories/project.md)
 
-[Comments](/docs/comments.md)
+[Comments](/docs/comment.md)
 
 [Calendar Events](/docs/calendar.md)
 
-[Companies](/docs/companies.md)
+[Companies](/docs/company.md)
 
-[Files](/docs/files.md)
+[Files](/docs/file.md)
 
-[Messages](/docs/messages.md)
+[Messages](/docs/message.md)
 
-[Message Replies](/docs/message-replies.md)
+[Milestones](/docs/milestone.md)
 
-[Milestones](/docs/milestones.md)
-
-[Notebooks](/docs/notebooks.md)
+[Notebooks](/docs/notebook.md)
 
 [People](/docs/people.md)
 
 [Status](/docs/status.md)
 
-[Permissions](/docs/permissions.md)
+[Projects](/docs/project.md)
 
-[Projects](/docs/projects.md)
+[Links](/docs/link.md)
 
-[Project Roles](/docs/project-roles.md)
-
-[Project Email Addresses](/docs/project-email-address.md)
-
-[Links](/docs/links.md)
-
-[Risks](/docs/risks.md)
-
-[Search](/docs/search.md)
+[Risks](/docs/risk.md)
 
 [Time](/docs/time.md)
 
-[Task Lists](/docs/task-lists.md)
+[Task Lists](/docs/task-list.md)
 
-[Tasks](/docs/tasks.md)
+[Tasks](/docs/task.md)
 
-[Task Reminders](/docs/task-reminders.md)
+[Task Reminders](/docs/task-reminder.md)
 
-[Tags](/docs/tags.md)
+[Tags](/docs/tag.md)
 
-[Webhooks](/docs/webhooks.md)
+[Webhooks](/docs/webhook.md)
 
 [Workload](/docs/workload.md)
 

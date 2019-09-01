@@ -7,6 +7,11 @@ class Notebook extends Teamwork {
     /**
      * Get a Notebook Category
      * 
+     * @method GET
+     * @uri /notebookCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/notebook-categories/retrieve-a-single-notebook-category
+     * @example tw.notebookCategories.get(category_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -22,6 +27,11 @@ class Notebook extends Teamwork {
 
     /**
      * Update a Notebook Category
+     * 
+     * @method PUT
+     * @uri /notebookCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/notebook-categories/updating-a-notebook-category
+     * @example tw.notebookCategories.update(category_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -42,6 +52,11 @@ class Notebook extends Teamwork {
     /**
      * Delete a Notebook Category
      * 
+     * @method DELETE
+     * @uri /notebookCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/notebook-categories/updating-a-notebook-category
+     * @example tw.notebookCategories.delete(category_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -58,6 +73,11 @@ class Notebook extends Teamwork {
 
     /**
      * Get a Notebooks from a Notebook Category
+     * 
+     * @method GET
+     * @uri /notebookCategories/{category_id}/notebooks.json
+     * @url https://developer.teamwork.com/projects/notebooks/list-notebooks-in-a-specific-category
+     * @example tw.notebookCategories.getNotebooks(category_id, query_string)
      * 
      * @param  {Number}
      * @return {Promise}

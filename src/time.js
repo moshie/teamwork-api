@@ -7,6 +7,11 @@ class Time extends Teamwork {
     /**
      * Get times or time
      * 
+     * @method GET
+     * @uri /time_entries.json | /time_entries/${time_id}.json
+     * @url https://developer.teamwork.com/projects/time-tracking/retrieve-all-time-entries-across-all-projects
+     * @example tw.time.get(query_string, time_id)
+     * 
      * @param  {Object}
      * @param  {String}
      * @return {Promise}
@@ -22,6 +27,11 @@ class Time extends Teamwork {
 
     /**
      * Update time
+     * 
+     * @method PUT
+     * @uri /time_entries/${time_id}.json
+     * @url https://developer.teamwork.com/projects/time-tracking/update-a-time-entry
+     * @example tw.time.update(time_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -42,6 +52,11 @@ class Time extends Teamwork {
     /**
      * Delete a time entry
      * 
+     * @method DELETE
+     * @uri /time_entries/${time_id}.json
+     * @url https://developer.teamwork.com/projects/time-tracking/delete-a-time-entry
+     * @example tw.time.delete(time_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -57,23 +72,12 @@ class Time extends Teamwork {
     }
 
     /**
-     * Retrieve all To-do Item Times
-     * 
-     * @param  {Number}
-     * @return {Promise}
-     */
-    todos(todo_id) {
-        if (!todo_id) {
-            return this.handleError('No Time id')
-        }
-
-        return this.query({
-            uri: `/todo_items/${todo_id}/time_entries.json`
-        })
-    }
-
-    /**
      * Retrieve total time
+     * 
+     * @method GET
+     * @uri /time/total.json
+     * @url https://developer.teamwork.com/projects/time-tracking/time-totals-across-projects
+     * @example tw.time.total(query_string)
      * 
      * @return {Promise}
      */
@@ -86,6 +90,11 @@ class Time extends Teamwork {
 
     /**
      * Get Tags from a Time log
+     * 
+     * @method GET
+     * @uri /timelogs/${time_id}/tags.json
+     * @url https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource
+     * @example tw.time.getTags(time_id, query_string)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -104,6 +113,11 @@ class Time extends Teamwork {
 
     /**
      * Update a Tag on a Time Log
+     * 
+     * @method PUT
+     * @uri /timelogs/${time_id}/tags.json
+     * @url https://developer.teamwork.com/projects/tags/update-a-single-tag
+     * @example tw.tasks.updateTag(time_id, body)
      * 
      * @param  {Number}
      * @param  {Object}

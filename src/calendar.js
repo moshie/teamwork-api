@@ -7,6 +7,11 @@ class Calendar extends Teamwork {
     /**
      * Get Events
      * 
+     * @method GET
+     * @uri /calendarevents.json
+     * @url https://developer.teamwork.com/projects/calendar-event/get-events
+     * @example tw.calendar.getEvents(query_string)
+     * 
      * @param  {Object}
      * @return {Promise}
      */
@@ -19,6 +24,11 @@ class Calendar extends Teamwork {
 
     /**
      * Get an Event
+     * 
+     * @method GET
+     * @uri /calendarevents/{event_id}.json
+     * @url https://developer.teamwork.com/projects/calendar-event/get-an-event
+     * @example tw.calendar.getEvent(event_id)
      * 
      * @param  {Number}
      * @return {Promise}
@@ -36,6 +46,11 @@ class Calendar extends Teamwork {
     /**
      * Create Event / Recurring Event
      * 
+     * @method POST
+     * @uri /calendarevents.json
+     * @url https://developer.teamwork.com/projects/calendar-event/create-an-event
+     * @example tw.calendar.createEvent(body)
+     * 
      * @param  {Object}
      * @return {Promise}
      */
@@ -49,6 +64,11 @@ class Calendar extends Teamwork {
 
     /**
      * Edit an event
+     * 
+     * @method PUT
+     * @uri /calendarevents/{event_id}.json
+     * @url https://developer.teamwork.com/projects/calendar-event/edit-an-event
+     * @example tw.calendar.updateEvent(event_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -69,6 +89,11 @@ class Calendar extends Teamwork {
     /**
      * Delete an Event
      * 
+     * @method DELETE
+     * @uri /calendarevents/{event_id}.json
+     * @url https://developer.teamwork.com/projects/calendar-event/delete-event
+     * @example tw.calendar.deleteEvent(event_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -86,6 +111,11 @@ class Calendar extends Teamwork {
     /**
      * Get Event Types
      * 
+     * @method GET
+     * @uri /calendareventtypes.json
+     * @url https://developer.teamwork.com/projects/calendar-event/get-event-types
+     * @example tw.calendar.getEventTypes()
+     * 
      * @return {Promise}
      */
     getEventTypes() {
@@ -96,6 +126,11 @@ class Calendar extends Teamwork {
 
     /**
      * Create an Event Type
+     * 
+     * @method POST
+     * @uri /eventtypes.json
+     * @url https://developer.teamwork.com/projects/calendar-event/create-an-event-type
+     * @example tw.calendar.createEventType(body)
      * 
      * @param  {Object}
      * @return {Promise}
@@ -110,6 +145,11 @@ class Calendar extends Teamwork {
 
     /**
      * Delete Event Type
+     * 
+     * @method DELETE
+     * @uri /eventtypes/{event_type_id}.json
+     * @url https://developer.teamwork.com/projects/calendar-event/delete-event-type
+     * @example tw.calendar.deleteEventType(event_type_id)
      * 
      * @param  {Number}
      * @return {Promise}
@@ -127,6 +167,11 @@ class Calendar extends Teamwork {
 
     /**
      * Update Event type
+     * 
+     * @method PUT
+     * @uri /eventtypes/{event_type_id}.json
+     * @url https://developer.teamwork.com/projects/calendar-event/edit-an-event-type
+     * @example tw.calendar.updateEventType(event_type_id, body)
      * 
      * @param  {Number}
      * @param  {Object}

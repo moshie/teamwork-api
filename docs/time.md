@@ -1,207 +1,49 @@
-## Time Tracking
+## Time
 
-### Create a Time-Entry (for a task/todo item)
+### Get times or time
 
-[**POST /tasks/{taskid}/time_entries.json**](https://developer.teamwork.com/timetracking#create_a_time-ent)
-
-```js
-tw.tasks.createTime(task_id, {
-	"time-entry": {
-		// --
-	}
-})
-```
-
-### Time Totals on a tasklist
-
-[**GET /tasklists/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
+[**GET /time_entries.json | /time_entries/${time_id}.json**](https://developer.teamwork.com/projects/time-tracking/retrieve-all-time-entries-across-all-projects)
 
 ```js
-tw.tasklists.totalTime(tasklist_id, {
-	userId: 0,
-	fromDate: '',
-	toDate: '',
-	fromTime: '',
-	toTime: '',
-	projectType: 'active'
-})
+tw.time.get(query_string, time_id)
 ```
 
-### Time Totals on a task
+### Update time
 
-[**GET /tasks/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
+[**PUT /time_entries/${time_id}.json**](https://developer.teamwork.com/projects/time-tracking/update-a-time-entry)
 
 ```js
-tw.tasks.totalTime(task_id, {
-	userId: 0,
-	fromDate: '',
-	toDate: '',
-	fromTime: '',
-	toTime: '',
-	projectType: 'active'
-})
+tw.time.update(time_id, body)
 ```
 
-### Add a Time estimate to a Task
+### Delete a time entry
 
-[**PUT tasks/{task_id}/estimatedtime.json**](https://developer.teamwork.com/timetracking#add_a_time_estima)
-
-```js
-tw.tasks.estimatedTime(task_id, {
-	// --
-})
-```
-
-### Retrieve All Time Entries across all projects
-
-[**GET /time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_time)
-
-```js
-tw.time.get({
-	page: 1,
-	pageSize: 500,
-	fromDate: '',
-	fromTime: '',
-	toDate: '',
-	toTime: '',
-	sortBy: 'task',
-	sortOrder: 'ASC',
-	userId: 0,
-	billableType: 'billable',
-	invoicedType: 'invoiced',
-	projectStatus: 'active',
-	showDeleted: 'true',
-	tagIds: "1,2,3"
-})
-```
-
-### Retrieve Single Time-Entry
-
-[**GET /time_entries/{id}.json**](https://developer.teamwork.com/timetracking#retrieve_single_t)
-
-```js
-tw.time.get({}, time_id)
-```
-
-### Update a Time Entry
-
-[**PUT /time_entries/{id}.json**]()
-
-```js
-tw.time.update(time_id, {
-	"time-entry": {
-		// --
-	}
-})
-```
-
-### Delete a Time-Entry
-
-[**DELETE /time_entries/{id}.json**](https://developer.teamwork.com/timetracking#delete_a_time-ent)
+[**DELETE /time_entries/${time_id}.json**](https://developer.teamwork.com/projects/time-tracking/delete-a-time-entry)
 
 ```js
 tw.time.delete(time_id)
 ```
 
-### Retrieve All Time Entries for a Project
+### Retrieve total time
 
-[**GET /projects/{project_id}/time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_time)
+[**GET /time/total.json**](https://developer.teamwork.com/projects/time-tracking/time-totals-across-projects)
 
 ```js
-tw.projects.getTime(project_id, {
-	userId: 0,
-	fromDate: '',
-	toDate: '',
-	fromTime: '',
-	toTime: '',
-	projectType: 'active'
-})
+tw.time.total(query_string)
 ```
 
-### Retrieve all Task times
+### Get Tags from a Time log
 
-[**GET /tasks/{task_id}/time_entries.json**](https://developer.teamwork.com/projects/time-tracking/retrieve-all-task-times)
+[**GET /timelogs/${time_id}/tags.json**](https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource)
 
 ```js
-tw.tasks.getTimeEntries(task_id)
+tw.time.getTags(time_id, query_string)
 ```
 
-### Retrieve all To-do Item Times
+### Update a Tag on a Time Log
 
-[**GET /todo_items/{todo_item_id}/time_entries.json**](https://developer.teamwork.com/timetracking#retrieve_all_to-d)
-
-```js
-tw.time.todos(todo_id)
-```
-
-### Create a Time-Entry
-
-[**POST /projects/{project_id}/time_entries.json**](https://developer.teamwork.com/timetracking#create_a_time-ent)
+[**PUT /timelogs/${time_id}/tags.json**](https://developer.teamwork.com/projects/tags/update-a-single-tag)
 
 ```js
-tw.projects.createTime(project_id, {
-	"time-entry": {
-		// --
-	}
-})
-```
-
-### Time Totals across account
-
-[**GET /time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
-
-```js
-tw.time.total({
-	userId: 0,
-	fromDate: '',
-	toDate: '',
-	fromTime: '',
-	toTime: '',
-	projectType: 'active'
-})
-```
-
-### Time Totals on a project
-
-[**GET /projects/{id}/time/total.json**](https://developer.teamwork.com/timetracking#time_totals)
-
-```js
-tw.projects.totalTime({
-	userId: 0,
-	fromDate: '',
-	toDate: '',
-	fromTime: '',
-	toTime: '',
-	projectType: 'active'
-}, project_id)
-```
-
-### Time Totals per Project
-
-[**GET /projects/time/total.json**](https://developer.teamwork.com/timetracking#time_totals_per_p)
-
-```js
-tw.projects.totalTime({
-	fromDate: '',
-	toDate: '',
-	fromTime: '',
-	toTime: '',
-	projectType: 'active',
-	page: 1,
-	pageSize: 100
-})
-```
-
-### Logged time
-
-[**GET to /people/{person_id}/loggedtime.json**](https://developer.teamwork.com/timetracking#logged_time)
-
-```js
-tw.people.loggedTime(person_id, {
-	m: 1,
-	y: '2001',
-	projectId: 1234,
-	page: 1,
-	pageSize: 50
-})
+tw.tasks.updateTag(time_id, body)
 ```

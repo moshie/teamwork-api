@@ -2,95 +2,72 @@
 
 ### Get Events
 
-[**GET /calendarevents.json**](https://developer.teamwork.com/events#get_events)
+[**GET /calendarevents.json**](https://developer.teamwork.com/projects/calendar-event/get-events)
 
 ```js
-tw.calendar.getEvents({
-	startdate: '',
-	enddate: '',
-	showDeleted: true,
-	updatedAfterDate: '',
-	eventTypeId: 0
-})
+tw.calendar.getEvents(query_string)
 ```
 
 ### Get an Event
 
-[**GET /calendarevents/{id}.json**](https://developer.teamwork.com/events#get_an_event)
+[**GET /calendarevents/{event_id}.json**](https://developer.teamwork.com/projects/calendar-event/get-an-event)
 
 ```js
 tw.calendar.getEvent(event_id)
 ```
 
-### Create an event
+### Create Event / Recurring Event
 
-[**POST /calendarevents.json**](https://developer.teamwork.com/events#create_an_event)
+[**POST /calendarevents.json**](https://developer.teamwork.com/projects/calendar-event/create-an-event)
 
 ```js
-tw.calendar.createEvent({
-	"event": {
-		// --
-		"repeat": {}
-	}
-})
+tw.calendar.createEvent(body)
 ```
 
 ### Edit an event
 
-[**PUT /calendarevents/{id}.json**](https://developer.teamwork.com/events#edit_an_event)
+[**PUT /calendarevents/{event_id}.json**](https://developer.teamwork.com/projects/calendar-event/edit-an-event)
 
-```
-tw.calendar.updateEvent(event_id, {
-	"event": {
-		// --
-	}
-})
+```js
+tw.calendar.updateEvent(event_id, body)
 ```
 
-### Delete event
+### Delete an Event
 
-[**DELETE /calendarevents/{id}.json**](https://developer.teamwork.com/events#delete_event)
+[**DELETE /calendarevents/{event_id}.json**](https://developer.teamwork.com/projects/calendar-event/delete-event)
 
-```
+```js
 tw.calendar.deleteEvent(event_id)
 ```
 
-### Get event types
+### Get Event Types
 
-[**GET /calendareventtypes.json**](https://developer.teamwork.com/events#get_event_types)
+[**GET /calendareventtypes.json**](https://developer.teamwork.com/projects/calendar-event/get-event-types)
 
-```
+```js
 tw.calendar.getEventTypes()
 ```
 
 ### Create an Event Type
 
-[**POST /eventtypes.json**](https://developer.teamwork.com/events#create_an_event_t)
+[**POST /eventtypes.json**](https://developer.teamwork.com/projects/calendar-event/create-an-event-type)
 
-```
-tw.calendar.createEventType({
-	"eventtype": {
-		// --
-	}
-})
+```js
+tw.calendar.createEventType(body)
 ```
 
-### Delete an Event Type
+### Delete Event Type
 
-[**DELETE /eventtypes/{event_type_id}.json**](https://developer.teamwork.com/events#delete_an_event_t)
+[**DELETE /eventtypes/{event_type_id}.json**](https://developer.teamwork.com/projects/calendar-event/delete-event-type)
 
-```
+```js
 tw.calendar.deleteEventType(event_type_id)
 ```
 
-### Edit an Event Type
+### Update Event type
 
-[**PUT /eventtypes/{event_type_id}.json**](https://developer.teamwork.com/events#edit_an_event_typ)
+[**PUT /eventtypes/{event_type_id}.json**](https://developer.teamwork.com/projects/calendar-event/edit-an-event-type)
 
-```
-tw.calendar.updateEventType(event_type_id, {
-	"eventtype": {
-		// --
-	}
-})
+```js
+tw.calendar.updateEventType(event_type_id, body)
 ```

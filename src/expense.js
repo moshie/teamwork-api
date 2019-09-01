@@ -7,6 +7,11 @@ class Expense extends Teamwork {
     /**
      * Get invoices or invoice
      * 
+     * @method GET
+     * @uri /expenses.json | /expenses/{expense_id}.json
+     * @url https://developer.teamwork.com/projects/expenses/get-all-expenses-across-your-projects
+     * @example tw.expenses.get(expense_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -18,6 +23,11 @@ class Expense extends Teamwork {
 
     /**
      * Create an expense
+     * 
+     * @method POST
+     * @uri /expenses.json
+     * @url https://developer.teamwork.com/projects/expenses/create-a-new-expense-in-a-project
+     * @example tw.expenses.create(body)
      * 
      * @param  {Object}
      * @return {Promise}
@@ -32,6 +42,11 @@ class Expense extends Teamwork {
 
     /**
      * Update an expense
+     * 
+     * @method PUT
+     * @uri /expenses/{expense_id}.json
+     * @url https://developer.teamwork.com/projects/expenses/update-a-single-expense
+     * @example tw.expenses.update(expense_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -51,6 +66,11 @@ class Expense extends Teamwork {
 
     /**
      * Delete an expense
+     * 
+     * @method DELETE
+     * @uri /expenses/{expense_id}.json
+     * @url https://developer.teamwork.com/projects/expenses/delete-a-single-expense
+     * @example tw.expenses.delete(expense_id)
      * 
      * @param  {Number}
      * @return {Promise}

@@ -20,6 +20,11 @@ class Teamwork {
     /**
      * Get account information
      * 
+     * @method GET
+     * @uri /account.json
+     * @url https://developer.teamwork.com/projects/account/get-account
+     * @example tw.teamwork.account()
+     * 
      * @return {Promise}
      */
     account() {
@@ -30,6 +35,11 @@ class Teamwork {
 
     /** 
      * Authenticate a user
+     * 
+     * @method GET
+     * @uri /authenticate.json
+     * @url https://developer.teamwork.com/projects/authentication-questions/authentication
+     * @example tw.teamwork.authenticate()
      * 
      * @return {Promise}
      */
@@ -42,6 +52,11 @@ class Teamwork {
 
     /** 
      * Search
+     * 
+     * @method GET
+     * @uri /search.json
+     * @url https://developer.teamwork.com/projects/search/search
+     * @example tw.teamwork.search(query_string)
      *
      * @param {Object}
      * @return {Promise}

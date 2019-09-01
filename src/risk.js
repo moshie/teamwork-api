@@ -7,17 +7,21 @@ class Risk extends Teamwork {
     /**
      * Get risk or risks
      * 
+     * @method GET
+     * @uri /risks/${risk_id}.json
+     * @url https://developer.teamwork.com/projects/risks/get-all-risks
+     * @example tw.risks.get(query_string, risk_id)
+     * 
      * @param  {Object}
      * @param  {String}
      * @return {Promise}
      */
-    get(risk_id) {
-        if (!risk_id) {
-            return this.handleError('No Risk id')
-        }
-
+    get(qs = {}, risk_id) {
         return this.query({
-            uri: `/risks/${risk_id}.json`
+            uri: !risk_id ? 
+                '/risks.json' : 
+                `/risks/${risk_id}.json`,
+            qs
         })
     }
 

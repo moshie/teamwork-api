@@ -7,6 +7,11 @@ class File extends Teamwork {
     /**
      * Get a File Category
      * 
+     * @method GET
+     * @uri /fileCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/file-categories/retrieving-all-of-a-file-categories
+     * @example tw.fileCategories.get(category_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -22,6 +27,11 @@ class File extends Teamwork {
 
     /**
      * Update a File Category
+     * 
+     * @method PUT
+     * @uri /fileCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/file-categories/updating-a-file-category
+     * @example tw.fileCategories.update(category_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -41,6 +51,11 @@ class File extends Teamwork {
 
     /**
      * Delete a File Category
+     * 
+     * @method DELETE
+     * @uri /fileCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/file-categories/deleting-a-file-category
+     * @example tw.fileCategories.delete(category_id)
      * 
      * @param  {Number}
      * @return {Promise}

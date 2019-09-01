@@ -7,6 +7,11 @@ class People extends Teamwork {
     /**
      * Get People or Person
      * 
+     * @method GET
+     * @uri /people.json | /people/{person_id}.json
+     * @url https://developer.teamwork.com/projects/people/get-all-people
+     * @example tw.people.get(query_string, person_id)
+     * 
      * @param  {Object}
      * @param  {Number}
      * @return {Promise}
@@ -23,6 +28,11 @@ class People extends Teamwork {
     /**
      * Create a Person
      * 
+     * @method POST
+     * @uri /people.json
+     * @url https://developer.teamwork.com/projects/people/creates-a-new-user-account
+     * @example tw.people.create(body)
+     * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
@@ -37,6 +47,11 @@ class People extends Teamwork {
 
     /**
      * Update a Person
+     * 
+     * @method PUT
+     * @uri /people/{person_id}.json
+     * @url https://developer.teamwork.com/projects/people/editing-a-user
+     * @example tw.people.update(person_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -57,6 +72,11 @@ class People extends Teamwork {
     /**
      * Delete a Person
      * 
+     * @method DELETE
+     * @uri /people/{person_id}.json
+     * @url https://developer.teamwork.com/projects/people/delete-user
+     * @example tw.people.update(person_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -74,6 +94,11 @@ class People extends Teamwork {
     /**
      * Get Person accociated with api key
      * 
+     * @method GET
+     * @uri /me.json
+     * @url https://developer.teamwork.com/projects/people/get-current-user-details
+     * @example tw.people.me()
+     * 
      * @return {Promise}
      */
     me() {
@@ -84,6 +109,11 @@ class People extends Teamwork {
 
     /**
      * Get Stats
+     * 
+     * @method GET
+     * @uri /stats.json
+     * @url https://developer.teamwork.com/projects/people/current-user-summary-stats
+     * @example tw.people.stats(query_string)
      * 
      * @param  {Object}
      * @return {Promise}
@@ -98,6 +128,11 @@ class People extends Teamwork {
     /**
      * Get Api Keys
      * 
+     * @method GET
+     * @uri /people/APIKeys.json
+     * @url https://developer.teamwork.com/projects/people/retrieve-all-api-keys-for-all-people-on-account
+     * @example tw.people.apiKeys()
+     * 
      * @return {Promise}
      */
     apiKeys() {
@@ -108,6 +143,11 @@ class People extends Teamwork {
 
     /**
      * Unassign people from all tasks
+     * 
+     * @method PUT
+     * @uri /people/{person_id}.json
+     * @url https://developer.teamwork.com/projects/people/unassign-a-user-from-all-tasks
+     * @example tw.people.unassignAll(person_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -128,6 +168,11 @@ class People extends Teamwork {
     /**
      * Get the status of all people
      * 
+     * @method GET
+     * @uri /people/status.json
+     * @url https://developer.teamwork.com/projects/people-status/retrieve-everybody-status
+     * @example tw.people.status()
+     * 
      * @return {Promise}
      */
     status() {
@@ -138,6 +183,11 @@ class People extends Teamwork {
 
     /**
      * Get Logged time from a person
+     * 
+     * @method GET
+     * @uri /people/{person_id}/loggedtime.json
+     * @url https://developer.teamwork.com/projects/time-tracking/get-a-persons-total-logged-time
+     * @example tw.people.loggedTime(person_id, query_string)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -157,6 +207,11 @@ class People extends Teamwork {
     /**
      * Get Tags from a Person
      * 
+     * @method GET
+     * @uri /users/{person_id}/tags.json
+     * @url https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource
+     * @example tw.people.getTags(person_id, query_string)
+     * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
@@ -174,6 +229,11 @@ class People extends Teamwork {
 
     /**
      * Update a Tag on a Person
+     * 
+     * @method PUT
+     * @uri /users/{person_id}/tags.json
+     * @url https://developer.teamwork.com/projects/tags/update-tags-on-a-resource
+     * @example tw.people.updateTag(person_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -193,6 +253,11 @@ class People extends Teamwork {
 
     /**
      * Get all clock ins
+     * 
+     * @method GET
+     * @uri /people/${person_id}/clockins.json
+     * @url https://developer.teamwork.com/projects/clock-in-clock-out/get-all-clock-ins
+     * @example tw.people.clockIns(person_id, query_string)
      * 
      * @param  {Number}
      * @param  {Object}

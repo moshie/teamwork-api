@@ -7,6 +7,11 @@ class Comment extends Teamwork {
     /**
      * Retrieving a Specific Comment
      * 
+     * @method GET
+     * @uri /comments/{comment_id}.json
+     * @url https://developer.teamwork.com/projects/comments/retrieving-a-specific-comment
+     * @example tw.comments.get(comment_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -22,6 +27,11 @@ class Comment extends Teamwork {
 
     /**
      * Update a Comment
+     * 
+     * @method PUT
+     * @uri /comments/{comment_id}.json
+     * @url https://developer.teamwork.com/projects/comments/updating-a-comment
+     * @example tw.comments.update(comment_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -42,6 +52,11 @@ class Comment extends Teamwork {
     /**
      * Delete Comment
      * 
+     * @method DELETE
+     * @uri /comments/{comment_id}.json
+     * @url https://developer.teamwork.com/projects/comments/deleting-a-comment
+     * @example tw.comments.delete(comment_id)
+     * 
      * @param  {String}
      * @return {Promise}
      */
@@ -58,6 +73,11 @@ class Comment extends Teamwork {
 
     /**
      * Mark Comment as read
+     * 
+     * @method PUT
+     * @uri /comments/{comment_id}/markread.json
+     * @url https://developer.teamwork.com/projects/comments/mark-a-comment-as-read
+     * @example tw.comments.read(comment_id)
      * 
      * @param  {Number}
      * @return {Promise}

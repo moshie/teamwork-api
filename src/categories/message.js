@@ -7,6 +7,11 @@ class Message extends Teamwork {
     /**
      * Get a Message Category
      * 
+     * @method GET
+     * @uri /messageCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/message-categories/retrieving-all-of-a-message-categories
+     * @example tw.messageCategories.get(category_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -22,6 +27,11 @@ class Message extends Teamwork {
 
     /**
      * Update a Message Category
+     * 
+     * @method PUT
+     * @uri /messageCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/message-categories/retrieving-all-of-a-message-categories
+     * @example tw.messageCategories.update(category_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -41,6 +51,11 @@ class Message extends Teamwork {
 
     /**
      * Delete a Message Category
+     * 
+     * @method DELETE
+     * @uri /messageCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/message-categories/deleting-a-message-category
+     * @example tw.messageCategories.delete(category_id)
      * 
      * @param  {Number}
      * @return {Promise}

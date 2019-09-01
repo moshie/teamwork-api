@@ -7,6 +7,11 @@ class Tag extends Teamwork {
     /**
      * Get tags or tag
      * 
+     * @method GET
+     * @uri /tags.json | /tags/{tag_id}.json
+     * @url https://developer.teamwork.com/projects/people-status/delete-user-status
+     * @example tw.tags.get(query_string, tag_id)
+     * 
      * @param  {Object}
      * @param  {Number}
      * @return {Promise}
@@ -23,6 +28,11 @@ class Tag extends Teamwork {
     /**
      * Create a tag
      * 
+     * @method POST
+     * @uri /tags.json
+     * @url https://developer.teamwork.com/projects/tags/create-a-single-tag
+     * @example tw.tags.create(body)
+     * 
      * @param  {Object}
      * @return {Promise}
      */
@@ -36,6 +46,11 @@ class Tag extends Teamwork {
 
     /**
      * Update a tag
+     * 
+     * @method PUT
+     * @uri /tags/${tag_id}.json
+     * @url https://developer.teamwork.com/projects/tags/update-a-single-tag
+     * @example tw.tags.update(tag_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -56,6 +71,11 @@ class Tag extends Teamwork {
 
     /**
      * Delete a tag
+     * 
+     * @method DELETE
+     * @uri /tags/${tag_id}.json
+     * @url https://developer.teamwork.com/projects/tags/delete-a-single-tag
+     * @example tw.tags.delete(tag_id)
      * 
      * @param  {Number}
      * @return {Promise}

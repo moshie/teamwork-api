@@ -7,6 +7,11 @@ class Invoice extends Teamwork {
     /**
      * Get invoices or invoice
      * 
+     * @method GET
+     * @uri /invoices.json | /invoices/{invoice_id}.json
+     * @url https://developer.teamwork.com/projects/invoices/get-all-invoices-across-your-projects
+     * @example tw.invoices.get(query_string, invoice_id)
+     * 
      * @param  {Object}
      * @param  {Number}
      * @return {Promise}
@@ -21,6 +26,11 @@ class Invoice extends Teamwork {
     /**
      * Create an invoice
      * 
+     * @method POST
+     * @uri /invoices.json
+     * @url https://developer.teamwork.com/projects/invoices/create-a-new-invoice-in-a-project
+     * @example tw.invoices.create(body)
+     * 
      * @param  {Object}
      * @return {Promise}
      */
@@ -34,6 +44,11 @@ class Invoice extends Teamwork {
 
     /**
      * Update an invoice
+     * 
+     * @method PUT
+     * @uri /invoices/{invoice_id}.json
+     * @url https://developer.teamwork.com/projects/invoices/update-a-specific-invoice
+     * @example tw.invoices.update(invoice_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -54,6 +69,11 @@ class Invoice extends Teamwork {
     /**
      * Delete an invoice
      * 
+     * @method DELETE
+     * @uri /invoices/{invoice_id}.json
+     * @url https://developer.teamwork.com/projects/invoices/delete-a-specific-invoice
+     * @example tw.invoices.delete(invoice_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -70,6 +90,11 @@ class Invoice extends Teamwork {
 
     /**
      * Mark invoice as complete
+     * 
+     * @method PUT
+     * @uri /invoices/{invoice_id}/complete.json
+     * @url https://developer.teamwork.com/projects/invoices/mark-a-specific-invoice-as-complete
+     * @example tw.invoices.complete(invoice_id)
      * 
      * @param  {Number}
      * @return {Promise}
@@ -88,6 +113,11 @@ class Invoice extends Teamwork {
     /**
      * Mark invoice as incomplete
      * 
+     * @method PUT
+     * @uri /invoices/{invoice_id}/uncomplete.json
+     * @url https://developer.teamwork.com/projects/invoices/mark-a-specific-invoice-as-not-complete
+     * @example tw.invoices.incomplete(invoice_id)
+     * 
      * @param  {String}
      * @return {Promise}
      */
@@ -105,6 +135,11 @@ class Invoice extends Teamwork {
     /**
      * Get the Currency Codes
      * 
+     * @method GET
+     * @uri /currencycodes.json
+     * @url https://developer.teamwork.com/projects/invoices/get-a-list-of-valid-currency-codes
+     * @example tw.invoices.currencyCodes()
+     * 
      * @return {Promise}
      */
     currencyCodes() {
@@ -114,7 +149,12 @@ class Invoice extends Teamwork {
     }
 
     /**
-     * Create expense on an Invoice
+     * Create Expense Entry on an Invoice
+     * 
+     * @method PUT
+     * @uri /invoices/{invoice_id}/lineitems.json
+     * @url https://developer.teamwork.com/projects/expenses/add-an-unbilled-expense-to-an-invoice
+     * @example tw.invoices.createExpense(invoice_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -134,6 +174,11 @@ class Invoice extends Teamwork {
 
     /**
      * Create time on an Invoice
+     * 
+     * @method PUT
+     * @uri /invoices/{invoice_id}/lineitems.json
+     * @url https://developer.teamwork.com/projects/invoices/add-a-time-entry-to-an-invoice
+     * @example tw.invoices.createExpense(invoice_id, body)
      * 
      * @param  {Number}
      * @param  {Object}

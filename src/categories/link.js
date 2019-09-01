@@ -7,6 +7,11 @@ class Link extends Teamwork {
     /**
      * Get a Link Category
      * 
+     * @method GET
+     * @uri /linkCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/link-categories/retrieving-all-of-a-link-categories
+     * @example tw.linkCategories.get(category_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -22,6 +27,11 @@ class Link extends Teamwork {
 
     /**
      * Update a Link Category
+     * 
+     * @method PUT
+     * @uri /linkCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/link-categories/updating-a-link-category
+     * @example tw.linkCategories.update(category_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -41,6 +51,11 @@ class Link extends Teamwork {
 
     /**
      * Delete a Link Category
+     * 
+     * @method DELETE
+     * @uri /linkCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/link-categories/deleting-a-link-category
+     * @example tw.linkCategories.delete(category_id)
      * 
      * @param  {Number}
      * @return {Promise}

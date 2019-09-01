@@ -1,109 +1,105 @@
 ## People
 
-### Get people
+### Get People or Person
 
-[**GET /people.json**](https://developer.teamwork.com/people#get_people)
-
-```js
-tw.people.get({
-	page: 2,
-	pageSize: 50
-})
-```
-
-### Retrieve a Specific Person
-
-[**GET /people/{person_id}.json**](https://developer.teamwork.com/people#retrieve_a_specif)
+[**GET /people.json | /people/{person_id}.json**](https://developer.teamwork.com/projects/people/get-all-people)
 
 ```js
-tw.people.get({}, person_id)
+tw.people.get(query_string, person_id)
 ```
 
-### Edit user
+### Create a Person
 
-[**PUT /people/{id}.json**](https://developer.teamwork.com/people#edit_user)
+[**POST /people.json**](https://developer.teamwork.com/projects/people/creates-a-new-user-account)
 
 ```js
-tw.people.update(person_id, {
-	"person": {
-		// --
-	}
-})
+tw.people.create(body)
 ```
 
-### Add a new user
+### Update a Person
 
-[**POST /people.json**](https://developer.teamwork.com/people#add_a_new_user)
+[**PUT /people/{person_id}.json**](https://developer.teamwork.com/projects/people/editing-a-user)
 
 ```js
-tw.people.create({
-	"person": {
-		// --
-	}
-})
+tw.people.update(person_id, body)
 ```
 
-### Delete user
+### Delete a Person
 
-[**DELETE /people/{id}.json**](https://developer.teamwork.com/people#delete_user)
+[**DELETE /people/{person_id}.json**](https://developer.teamwork.com/projects/people/delete-user)
 
 ```js
-tw.people.delete(person_id)
+tw.people.update(person_id)
 ```
 
-### Get Current User Details
+### Get Person accociated with api key
 
-[**GET /me.json**](https://developer.teamwork.com/people#get_current_user_)
+[**GET /me.json**](https://developer.teamwork.com/projects/people/get-current-user-details)
 
 ```js
 tw.people.me()
 ```
 
-### Current User Summary Stats
+### Get Stats
 
-[**GET /stats.json**](https://developer.teamwork.com/people#current_user_summ)
-
-```js
-tw.people.stats({
-	getPermissions: true,
-	onlymyprojects: 1,
-	onlyMyEvents: true,
-	eventsInNext: 1
-})
-```
-
-### Get all People (within a Project)
-
-[**GET /projects/{project_id}/people.json**](https://developer.teamwork.com/people#get_all_people_(w)
+[**GET /stats.json**](https://developer.teamwork.com/projects/people/current-user-summary-stats)
 
 ```js
-tw.projects.getPeople()
+tw.people.stats(query_string)
 ```
 
-### Get People (within a Company)
+### Get Api Keys
 
-[**GET /companies/{company_id}/people.json**](https://developer.teamwork.com/people#get_people_(withi)
-
-```js
-tw.companies.getPeople()
-```
-
-### Retrieve a API Keys for all people on account
-
-[**GET /people/APIKeys.json**](https://developer.teamwork.com/people#retrieve_a_api_ke)
+[**GET /people/APIKeys.json**](https://developer.teamwork.com/projects/people/retrieve-all-api-keys-for-all-people-on-account)
 
 ```js
 tw.people.apiKeys()
 ```
 
-### Unassign a user from all Tasks
+### Unassign people from all tasks
 
-[**PUT /people/{person_id}.json**](https://developer.teamwork.com/people#unassign_a_user_f)
+[**PUT /people/{person_id}.json**](https://developer.teamwork.com/projects/people/unassign-a-user-from-all-tasks)
 
 ```js
-tw.people.unassignAll(person_id, {
-	"person": {
-		// --
-	}
-})
+tw.people.unassignAll(person_id, body)
+```
+
+### Get the status of all people
+
+[**GET /people/status.json**](https://developer.teamwork.com/projects/people-status/retrieve-everybody-status)
+
+```js
+tw.people.status()
+```
+
+### Get Logged time from a person
+
+[**GET /people/{person_id}/loggedtime.json**](https://developer.teamwork.com/projects/time-tracking/get-a-persons-total-logged-time)
+
+```js
+tw.people.loggedTime(person_id, query_string)
+```
+
+### Get Tags from a Person
+
+[**GET /users/{person_id}/tags.json**](https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource)
+
+```js
+tw.people.getTags(person_id, query_string)
+```
+
+### Update a Tag on a Person
+
+[**PUT /users/{person_id}/tags.json**](https://developer.teamwork.com/projects/tags/update-tags-on-a-resource)
+
+```js
+tw.people.updateTag(person_id, body)
+```
+
+### Get all clock ins
+
+[**GET /people/${person_id}/clockins.json**](https://developer.teamwork.com/projects/clock-in-clock-out/get-all-clock-ins)
+
+```js
+tw.people.clockIns(person_id, query_string)
 ```

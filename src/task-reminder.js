@@ -7,6 +7,11 @@ class TaskReminder extends Teamwork {
     /**
      * Get all reminders on a task
      * 
+     * @method GET
+     * @uri /tasks/{task_id}/reminders.json
+     * @url https://developer.teamwork.com/projects/task-reminders/get-all-reminders-on-a-task
+     * @example tw.taskReminders.get(task_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -22,6 +27,11 @@ class TaskReminder extends Teamwork {
 
     /**
      * Create Reminder for a task
+     * 
+     * @method POST
+     * @uri /tasks/{task_id}/reminders.json
+     * @url https://developer.teamwork.com/projects/task-reminders/create-a-reminder-on-a-task
+     * @example tw.taskReminders.create(task_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -42,17 +52,20 @@ class TaskReminder extends Teamwork {
     /**
      * Update a Reminder for a task
      * 
+     * @method PUT
+     * @uri /taskreminders/{reminder_id}.json
+     * @url https://developer.teamwork.com/projects/task-reminders/update-an-existing-reminder-on-a-task
+     * @example tw.taskReminders.update(body, reminder_id, task_id)
+     * 
      * @param  {Number}
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
      */
-    update(body = {}, reminder_id, task_id) {
+    update(reminder_id, body = {}) {
         return this.query({
             method: 'PUT',
-            uri: !task_id ? 
-                `/taskreminders/${reminder_id}.json` :
-                `/tasks/${task_id}/reminders/${reminder_id}.json`,
+            uri: `/taskreminders/${reminder_id}.json`,
             body
         })
     }
@@ -60,16 +73,19 @@ class TaskReminder extends Teamwork {
     /**
      * Delete a Reminder on a task
      * 
+     * @method DELETE
+     * @uri /taskreminders/{reminder_id}.json
+     * @url https://developer.teamwork.com/projects/task-reminders/delete-an-existing-reminder-on-a-task
+     * @example tw.taskReminders.delete(reminder_id)
+     * 
      * @param  {Number}
      * @param  {Number}
      * @return {Promise}
      */
-    delete(reminder_id, task_id) {
+    delete(reminder_id) {
         return this.query({
             method: 'DELETE',
-            uri: !task_id ? 
-                `/taskreminders/${reminder_id}.json` :
-                `/tasks/${task_id}/reminders/${reminder_id}.json`
+            uri: `/taskreminders/${reminder_id}.json`
         })
     }
 

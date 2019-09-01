@@ -7,6 +7,11 @@ class Board extends Teamwork {
     /**
      * List Columns
      * 
+     * @method GET
+     * @uri /projects/{project_id}/boards/columns.json
+     * @url https://developer.teamwork.com/projects/boards/list-columns
+     * @example tw.boards.getColumns(project_id, query_string)
+     * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
@@ -24,6 +29,11 @@ class Board extends Teamwork {
 
     /**
      * Create a new Column
+     * 
+     * @method POST
+     * @uri /projects/{project_id}/boards/columns.json
+     * @url https://developer.teamwork.com/projects/boards/create-a-new-column
+     * @example tw.boards.createColumn(project_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -44,6 +54,11 @@ class Board extends Teamwork {
     /**
      * Delete a Column
      * 
+     * @method DELETE
+     * @uri /boards/columns/{column_id}.json
+     * @url https://developer.teamwork.com/projects/boards/delete-a-column
+     * @example tw.boards.deleteColumn(column_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -60,6 +75,11 @@ class Board extends Teamwork {
 
     /**
      * Add a Task from the Backlog to a Column
+     * 
+     * @method POST
+     * @uri /boards/columns/{column_id}/cards.json
+     * @url https://developer.teamwork.com/projects/boards/add-a-task-from-the-backlog-to-a-column
+     * @example tw.boards.addTaskToColumn(column_id, body)
      * 
      * @param {Number}
      * @param {Object}
@@ -80,6 +100,11 @@ class Board extends Teamwork {
     /**
      * List Cards in a Column
      * 
+     * @method GET
+     * @uri /boards/columns/{column_id}/cards.json
+     * @url https://developer.teamwork.com/projects/boards/list-cards-in-a-column
+     * @example tw.boards.getCards(column_id, query_string)
+     * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
@@ -97,6 +122,11 @@ class Board extends Teamwork {
 
     /**
      * Move a Card
+     * 
+     * @method PUT
+     * @uri /boards/columns/cards/{card_id}/move.json
+     * @url https://developer.teamwork.com/projects/boards/move-a-card
+     * @example tw.boards.moveCard(card_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -117,6 +147,11 @@ class Board extends Teamwork {
     /**
      * Edit a Card
      * 
+     * @method PUT
+     * @uri /boards/columns/cards/{card_id}.json
+     * @url https://developer.teamwork.com/projects/boards/edit-a-card
+     * @example tw.boards.updateCard(card_id, body)
+     * 
      * @param  {Number}
      * @param  {Object}
      * @return {Promise}
@@ -135,6 +170,11 @@ class Board extends Teamwork {
 
     /**
      * Remove a Card
+     * 
+     * @method DELETE
+     * @uri /boards/columns/cards/{card_id}.json
+     * @url https://developer.teamwork.com/projects/boards/remove-a-card
+     * @example tw.boards.deleteCard(card_id)
      * 
      * @param  {Number}
      * @return {Promise}

@@ -7,6 +7,11 @@ class Project extends Teamwork {
     /**
      * Get Project Categories or a Project Category
      * 
+     * @method GET
+     * @uri /projectCategories.json | /projectCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/project-categories/retrieving-all-of-a-project-categories
+     * @example tw.projectCategories.get(category_id)
+     * 
      * @param  {Number}
      * @return {Promise}
      */
@@ -20,6 +25,11 @@ class Project extends Teamwork {
 
     /**
      * Create a Project Category
+     * 
+     * @method POST
+     * @uri /projectcategories.json
+     * @url https://developer.teamwork.com/projects/project-categories/creating-project-categories
+     * @example tw.projectCategories.create(body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -35,6 +45,11 @@ class Project extends Teamwork {
 
     /**
      * Update a Project Category
+     * 
+     * @method PUT
+     * @uri /projectCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/project-categories/updating-a-project-category
+     * @example tw.projectCategories.update(category_id, body)
      * 
      * @param  {Number}
      * @param  {Object}
@@ -54,6 +69,11 @@ class Project extends Teamwork {
 
     /**
      * Delete a Project Category
+     * 
+     * @method DELETE
+     * @uri /projectCategories/{category_id}.json
+     * @url https://developer.teamwork.com/projects/project-categories/deleting-a-project-category
+     * @example tw.projectCategories.delete(category_id)
      * 
      * @param  {Number}
      * @return {Promise}

@@ -24,8 +24,9 @@
     "url": "https://github.com/moshie/teamwork-api.git"
   },
   "scripts": {
-    "commit": "git-cz",
+    "commit": "npm run docs && git-cz",
     "lint": "eslint src",
+    "docs": "node ./docs.js",
     "test": "istanbul cover _mocha -- -R spec",
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release"
@@ -37,6 +38,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
+    "comment-parser": "^0.6.2",
     "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.1.0",
     "dotenv": "^4.0.0",
@@ -45,6 +47,8 @@
     "istanbul": "^0.4.5",
     "mocha": "^4.1.0",
     "nock": "^9.1.6",
+    "recursive-readdir": "^2.2.2",
+    "rimraf": "^3.0.0",
     "semantic-release": "^12.2.2",
     "travis-deploy-once": "^4.3.2"
   },
