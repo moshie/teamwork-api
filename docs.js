@@ -33,7 +33,7 @@ function removeDirectory(directory) {
 }
 
 function createDirectory(directory) {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         fs.mkdir(directory, (error) => {
             if (error) {
                 return reject(error)

@@ -53,7 +53,7 @@ const tw = require('teamwork-api')('1234567890', 'subdomain')
 
 [Project Categories](/docs/categories/project.md)
 
-[Comments](/docs/comment.md)
+[Comments](/docs/comment.md) 
 
 [Calendar Events](/docs/calendar.md)
 
