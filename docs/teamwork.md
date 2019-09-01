@@ -1,13 +1,5 @@
 ## Teamwork
 
-### Teamwork Constructor
-
-[** **]()
-
-```js
-
-```
-
 ### Get account information
 
 [**GET /account.json**](https://developer.teamwork.com/projects/account/get-account)
@@ -32,18 +24,10 @@ tw.teamwork.authenticate()
 tw.teamwork.search(query_string)
 ```
 
-### handle Errors
-
-[** **]()
-
-```js
-
-```
-
 ### Execute api query
 
 [** **]()
 
 ```js
-
+tw.teamwork.query(options)
 ```

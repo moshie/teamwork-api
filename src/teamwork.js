@@ -4,13 +4,6 @@ var request = require('request-promise-native')
 
 class Teamwork {
 
-    /**
-     * Teamwork Constructor
-     * 
-     * @param  {String}
-     * @param  {String}
-     * @return {Object}
-     */
     constructor(api_key, domain) {
         this.api_key = api_key
         this.domain = domain
@@ -68,18 +61,14 @@ class Teamwork {
         })
     }
 
-    /**
-     * handle Errors
-     * 
-     * @param  {String}
-     * @return {Promise}
-     */
     handleError(message = 'Fatal error occured') {
         return Promise.reject(message)
     }
 
     /**
      * Execute api query
+     * 
+     * @example tw.teamwork.query(options)
      * 
      * @param  {Object}
      * @param  {Object}
