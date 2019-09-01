@@ -269,7 +269,7 @@ tw.projects.delete(project_id)
 [**GET /projects/{project_id}.json**](https://developer.teamwork.com/projects/projects/retrieve-a-single-project)
 
 ```js
-tw.projects.delete(query_string, project_id)
+tw.projects.get(query_string, project_id)
 ```
 
 ### Get Starred projects

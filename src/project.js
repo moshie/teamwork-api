@@ -765,7 +765,7 @@ class Project extends Teamwork {
      * @method GET
      * @uri /projects/{project_id}.json
      * @url https://developer.teamwork.com/projects/projects/retrieve-a-single-project
-     * @example tw.projects.delete(query_string, project_id)
+     * @example tw.projects.get(query_string, project_id)
      * 
      * @param  {Object}
      * @param  {Number}
