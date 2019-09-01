@@ -42,7 +42,7 @@ tw.notebooks.delete(notebook_id)
 
 ### Copy Notebook
 
-[**PUT /notebooks/${notebook_id}/copy.json**](https://developer.teamwork.com/projects/notebooks/copy-a-notebook-to-another-project)
+[**PUT /notebooks/{notebook_id}/copy.json**](https://developer.teamwork.com/projects/notebooks/copy-a-notebook-to-another-project)
 
 ```js
 tw.notebooks.copy(notebook_id, body)
@@ -50,7 +50,7 @@ tw.notebooks.copy(notebook_id, body)
 
 ### Move Notebook
 
-[**PUT /notebooks/${notebook_id}/move.json**](https://developer.teamwork.com/projects/notebooks/move-a-notebook-to-another-project)
+[**PUT /notebooks/{notebook_id}/move.json**](https://developer.teamwork.com/projects/notebooks/move-a-notebook-to-another-project)
 
 ```js
 tw.notebooks.move(notebook_id, body)
@@ -58,7 +58,7 @@ tw.notebooks.move(notebook_id, body)
 
 ### Get Comments for a Notebook
 
-[**GET /notebooks/${notebook_id}/comments.json**](https://developer.teamwork.com/projects/comments/retrieving-comments-across-all-types)
+[**GET /notebooks/{notebook_id}/comments.json**](https://developer.teamwork.com/projects/comments/retrieving-comments-across-all-types)
 
 ```js
 tw.notbooks.getComments(notebook_id, query_string)
@@ -66,7 +66,7 @@ tw.notbooks.getComments(notebook_id, query_string)
 
 ### Create a Comment for a Notebook
 
-[**POST /notebooks/${notebook_id}/comments.json**](https://developer.teamwork.com/projects/comments/creating-a-comment)
+[**POST /notebooks/{notebook_id}/comments.json**](https://developer.teamwork.com/projects/comments/creating-a-comment)
 
 ```js
 tw.notbooks.createComment(notebook_id, body)

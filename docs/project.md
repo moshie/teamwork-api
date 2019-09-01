@@ -106,7 +106,7 @@ tw.projects.createLinkCategory(project_id, body)
 
 ### Get Companies on a Project
 
-[**GET /projects/${project_id}/companies.json**](https://developer.teamwork.com/projects/companies/retrieving-companies-within-a-project)
+[**GET /projects/{project_id}/companies.json**](https://developer.teamwork.com/projects/companies/retrieving-companies-within-a-project)
 
 ```js
 tw.projects.getCompanies(project_id)
@@ -146,7 +146,7 @@ tw.projects.createMessage(project_id, body)
 
 ### Get Archived / Unarchived Messages from a project
 
-[**GET /projects/${project_id}/posts/archive.json**](https://developer.teamwork.com/projects/messages/get-archived-messages)
+[**GET /projects/{project_id}/posts/archive.json**](https://developer.teamwork.com/projects/messages/get-archived-messages)
 
 ```js
 tw.projects.getMessages(project_id, archived)
@@ -202,7 +202,7 @@ tw.projects.getPeople(project_id)
 
 ### Add a Person to a project
 
-[**POST /projects/${project_id}/people/${person_id}.json**](https://developer.teamwork.com/projects/people/add-people-to-existing-project)
+[**POST /projects/${project_id}/people/{person_id}.json**](https://developer.teamwork.com/projects/people/add-people-to-existing-project)
 
 ```js
 tw.projects.addPeople(project_id, person_id)
@@ -210,7 +210,7 @@ tw.projects.addPeople(project_id, person_id)
 
 ### Add / Remove multiple people from a project
 
-[**PUT /projects/${project_id}/people.json**](https://developer.teamwork.com/projects/permissions/add-remove-multiple-people-to-from-a-project)
+[**PUT /projects/{project_id}/people.json**](https://developer.teamwork.com/projects/permissions/add-remove-multiple-people-to-from-a-project)
 
 ```js
 tw.projects.people(project_id, body)
@@ -218,7 +218,7 @@ tw.projects.people(project_id, body)
 
 ### Remove a Person from a project
 
-[**POST /projects/${project_id}/people.json**](https://developer.teamwork.com/projects/people/remove-people-from-a-project)
+[**POST /projects/{project_id}/people.json**](https://developer.teamwork.com/projects/people/remove-people-from-a-project)
 
 ```js
 tw.projects.removePeople(project_id, body)
@@ -226,7 +226,7 @@ tw.projects.removePeople(project_id, body)
 
 ### Get a Persons project permissions
 
-[**GET /projects/${project_id}/people/${person_id}.json**](https://developer.teamwork.com/projects/permissions/get-a-users-permissions-on-a-project)
+[**GET /projects/${project_id}/people/{person_id}.json**](https://developer.teamwork.com/projects/permissions/get-a-users-permissions-on-a-project)
 
 ```js
 tw.projects.getPermissions(project_id, person_id)
@@ -234,7 +234,7 @@ tw.projects.getPermissions(project_id, person_id)
 
 ### Update a Persons project permissions
 
-[**PUT /projects/${project_id}/people/${person_id}.json**](https://developer.teamwork.com/projects/permissions/update-a-users-permissions-on-a-project)
+[**PUT /projects/${project_id}/people/{person_id}.json**](https://developer.teamwork.com/projects/permissions/update-a-users-permissions-on-a-project)
 
 ```js
 tw.projects.updatePermissions(project_id, person_id, body)
@@ -282,7 +282,7 @@ tw.projects.getStarred()
 
 ### Star a project
 
-[**PUT /projects/${project_id}/star.json**](https://developer.teamwork.com/projects/projects/star-a-project)
+[**PUT /projects/{project_id}/star.json**](https://developer.teamwork.com/projects/projects/star-a-project)
 
 ```js
 tw.projects.star(project_id)
@@ -314,7 +314,7 @@ tw.projects.setRates(project_id, body)
 
 ### Enable disable features
 
-[**PUT /projects/${project_id}.json**](https://developer.teamwork.com/projects/projects/enable-and-disable-projects-features)
+[**PUT /projects/{project_id}.json**](https://developer.teamwork.com/projects/projects/enable-and-disable-projects-features)
 
 ```js
 tw.projects.features(project_id, body)
@@ -322,7 +322,7 @@ tw.projects.features(project_id, body)
 
 ### Get Roles on a project
 
-[**GET /projects/${project_id}/roles.json**](https://developer.teamwork.com/projects/project-roles/list-roles-on-a-project)
+[**GET /projects/{project_id}/roles.json**](https://developer.teamwork.com/projects/project-roles/list-roles-on-a-project)
 
 ```js
 tw.projects.getRoles(project_id)
@@ -330,7 +330,7 @@ tw.projects.getRoles(project_id)
 
 ### Get Email Addresses from a project
 
-[**GET /projects/${project_id}/emailaddress.json**](https://developer.teamwork.com/projects/project-email-addresses/get-project-email-address)
+[**GET /projects/{project_id}/emailaddress.json**](https://developer.teamwork.com/projects/project-email-addresses/get-project-email-address)
 
 ```js
 tw.projects.getEmailAddress(project_id)
@@ -338,7 +338,7 @@ tw.projects.getEmailAddress(project_id)
 
 ### Set Email Address for a project
 
-[**PUT /projects/${project_id}/emailaddress.json**](https://developer.teamwork.com/projects/project-email-addresses/update-project-email-address)
+[**PUT /projects/{project_id}/emailaddress.json**](https://developer.teamwork.com/projects/project-email-addresses/update-project-email-address)
 
 ```js
 tw.projects.setEmailAddress(project_id, body)
@@ -346,7 +346,7 @@ tw.projects.setEmailAddress(project_id, body)
 
 ### Get Links from a project
 
-[**GET /projects/${project_id}/links.json**](https://developer.teamwork.com/projects/links/list-links-on-a-project)
+[**GET /projects/{project_id}/links.json**](https://developer.teamwork.com/projects/links/list-links-on-a-project)
 
 ```js
 tw.projects.getLinks(project_id)
@@ -354,7 +354,7 @@ tw.projects.getLinks(project_id)
 
 ### Get Risks from a project
 
-[**GET /projects/${project_id}/risks.json**](https://developer.teamwork.com/projects/risks/retrieve-all-risks-in-a-project)
+[**GET /projects/{project_id}/risks.json**](https://developer.teamwork.com/projects/risks/retrieve-all-risks-in-a-project)
 
 ```js
 tw.projects.getRisks(project_id)
@@ -362,7 +362,7 @@ tw.projects.getRisks(project_id)
 
 ### Get Time from a project
 
-[**GET /projects/${project_id}/time_entries.json**](https://developer.teamwork.com/projects/time-tracking/retrieve-all-time-entries-for-a-project)
+[**GET /projects/{project_id}/time_entries.json**](https://developer.teamwork.com/projects/time-tracking/retrieve-all-time-entries-for-a-project)
 
 ```js
 tw.projects.getTime(project_id, query_string)
@@ -370,7 +370,7 @@ tw.projects.getTime(project_id, query_string)
 
 ### Create a time entry on a project
 
-[**POST /projects/${project_id}/time_entries.json**](https://developer.teamwork.com/projects/time-tracking/create-a-time-entry)
+[**POST /projects/{project_id}/time_entries.json**](https://developer.teamwork.com/projects/time-tracking/create-a-time-entry)
 
 ```js
 tw.projects.createTime(project_id, body)
@@ -394,7 +394,7 @@ tw.projects.getTasklists(project_id, query_string)
 
 ### Get Tasks from a project
 
-[**GET /projects/${project_id}/tasks.json**](https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-project)
+[**GET /projects/{project_id}/tasks.json**](https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-project)
 
 ```js
 tw.projects.getTasks(project_id, query_string)
@@ -402,7 +402,7 @@ tw.projects.getTasks(project_id, query_string)
 
 ### Get Tags from a project
 
-[**GET /projects/${project_id}/tags.json**](https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource)
+[**GET /projects/{project_id}/tags.json**](https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource)
 
 ```js
 tw.projects.getTags(project_id, query_string)
@@ -410,7 +410,7 @@ tw.projects.getTags(project_id, query_string)
 
 ### Update a Tag on a project
 
-[**PUT /projects/${project_id}/tags.json**](https://developer.teamwork.com/projects/tags/update-tags-on-a-resource)
+[**PUT /projects/{project_id}/tags.json**](https://developer.teamwork.com/projects/tags/update-tags-on-a-resource)
 
 ```js
 tw.projects.updateTag(project_id, body)

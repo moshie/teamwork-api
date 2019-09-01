@@ -18,7 +18,7 @@ tw.tags.create(body)
 
 ### Update a tag
 
-[**PUT /tags/${tag_id}.json**](https://developer.teamwork.com/projects/tags/update-a-single-tag)
+[**PUT /tags/{tag_id}.json**](https://developer.teamwork.com/projects/tags/update-a-single-tag)
 
 ```js
 tw.tags.update(tag_id, body)
@@ -26,7 +26,7 @@ tw.tags.update(tag_id, body)
 
 ### Delete a tag
 
-[**DELETE /tags/${tag_id}.json**](https://developer.teamwork.com/projects/tags/delete-a-single-tag)
+[**DELETE /tags/{tag_id}.json**](https://developer.teamwork.com/projects/tags/delete-a-single-tag)
 
 ```js
 tw.tags.delete(tag_id)

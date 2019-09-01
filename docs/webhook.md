@@ -10,7 +10,7 @@ tw.webhooks.getEvents()
 
 ### Get webhooks or webhook
 
-[**GET /webhooks.json | /webhooks/${webhook_id}.json**](https://developer.teamwork.com/projects/webhooks/get-all-webhooks-set-on-your-account)
+[**GET /webhooks.json | /webhooks/{webhook_id}.json**](https://developer.teamwork.com/projects/webhooks/get-all-webhooks-set-on-your-account)
 
 ```js
 tw.webhooks.get(webhook_id)
@@ -26,7 +26,7 @@ tw.webhooks.create(body)
 
 ### Update a Webhook
 
-[**PUT /webhooks/${webhook_id}.json**](https://developer.teamwork.com/projects/webhooks/update-a-specific-webhook-set-on-your-account)
+[**PUT /webhooks/{webhook_id}.json**](https://developer.teamwork.com/projects/webhooks/update-a-specific-webhook-set-on-your-account)
 
 ```js
 tw.webhooks.update(webhook_id, body)
@@ -34,7 +34,7 @@ tw.webhooks.update(webhook_id, body)
 
 ### Resume a Webhook
 
-[**PUT /webhooks/${webhook_id}/resume.json**](https://developer.teamwork.com/projects/webhooks/resume-a-specific-webhook-set-on-your-account)
+[**PUT /webhooks/{webhook_id}/resume.json**](https://developer.teamwork.com/projects/webhooks/resume-a-specific-webhook-set-on-your-account)
 
 ```js
 tw.webhooks.resume(webhook_id)
@@ -42,7 +42,7 @@ tw.webhooks.resume(webhook_id)
 
 ### Pause a Webhook
 
-[**PUT /webhooks/${webhook_id}/pause.json**](https://developer.teamwork.com/projects/webhooks/pause-a-specific-webhook-set-on-your-account)
+[**PUT /webhooks/{webhook_id}/pause.json**](https://developer.teamwork.com/projects/webhooks/pause-a-specific-webhook-set-on-your-account)
 
 ```js
 tw.webhooks.pause(webhook_id)
@@ -50,7 +50,7 @@ tw.webhooks.pause(webhook_id)
 
 ### Delete a webhook
 
-[**DELETE /webhooks/${webhook_id}.json**](https://developer.teamwork.com/projects/webhooks/delete-a-specific-webhook-on-your-account)
+[**DELETE /webhooks/{webhook_id}.json**](https://developer.teamwork.com/projects/webhooks/delete-a-specific-webhook-on-your-account)
 
 ```js
 tw.webhooks.delete(webhook_id)

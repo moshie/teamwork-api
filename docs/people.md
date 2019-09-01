@@ -98,7 +98,7 @@ tw.people.updateTag(person_id, body)
 
 ### Get all clock ins
 
-[**GET /people/${person_id}/clockins.json**](https://developer.teamwork.com/projects/clock-in-clock-out/get-all-clock-ins)
+[**GET /people/{person_id}/clockins.json**](https://developer.teamwork.com/projects/clock-in-clock-out/get-all-clock-ins)
 
 ```js
 tw.people.clockIns(person_id, query_string)

@@ -26,7 +26,7 @@ tw.links.update(link_id, body)
 
 ### Delete a Link
 
-[**DELETE /links/${link_id}.json**](https://developer.teamwork.com/projects/links/delete-a-single-link)
+[**DELETE /links/{link_id}.json**](https://developer.teamwork.com/projects/links/delete-a-single-link)
 
 ```js
 tw.links.delete(link_id)
@@ -50,7 +50,7 @@ tw.links.createComment(link_id, body)
 
 ### Get Tags from a Link
 
-[**GET /links/${link_id}/tags.json**](https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource)
+[**GET /links/{link_id}/tags.json**](https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource)
 
 ```js
 tw.links.getTags(link_id, query_string)
@@ -58,7 +58,7 @@ tw.links.getTags(link_id, query_string)
 
 ### Update a Tag on a Link
 
-[**PUT /links/${link_id}/tags.json**](https://developer.teamwork.com/projects/tags/update-tags-on-a-resource)
+[**PUT /links/{link_id}/tags.json**](https://developer.teamwork.com/projects/tags/update-tags-on-a-resource)
 
 ```js
 tw.links.updateTag(link_id, body)

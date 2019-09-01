@@ -2,7 +2,7 @@
 
 ### Get a Task list
 
-[**GET /tasklists.json | /tasklists/${tasklist_id}.json**](https://developer.teamwork.com/projects/task-lists/get-all-task-lists)
+[**GET /tasklists.json | /tasklists/{tasklist_id}.json**](https://developer.teamwork.com/projects/task-lists/get-all-task-lists)
 
 ```js
 tw.tasklists.get(query_string, tasklist_id)
@@ -66,7 +66,7 @@ tw.tasklists.templates()
 
 ### Get Tasks from a task list
 
-[**GET /tasklists/${tasklist_id}/tasks.json**](https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-task-list)
+[**GET /tasklists/{tasklist_id}/tasks.json**](https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-task-list)
 
 ```js
 tw.tasklists.getTasks(tasklist_id, query_string)
@@ -74,7 +74,7 @@ tw.tasklists.getTasks(tasklist_id, query_string)
 
 ### Get Time Totals from a task list
 
-[**GET /tasklists/${tasklist_id}/time/total.json**](https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-task-list)
+[**GET /tasklists/{tasklist_id}/time/total.json**](https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-task-list)
 
 ```js
 tw.tasklists.totalTime(tasklist_id, query_string)

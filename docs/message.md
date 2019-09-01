@@ -58,7 +58,7 @@ tw.messages.createReply(message_id, body)
 
 ### Get a Message Reply
 
-[**GET /messageReplies/${message_id}.json**](https://developer.teamwork.com/projects/message-replies/retrieve-a-single-message-reply)
+[**GET /messageReplies/{message_id}.json**](https://developer.teamwork.com/projects/message-replies/retrieve-a-single-message-reply)
 
 ```js
 tw.messages.getReply(message_id)
