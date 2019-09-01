@@ -1,6 +1,6 @@
 {
   "name": "teamwork-api",
-  "version": "1.2.0",
+  "version": "0.0.0-development",
   "description": "A wrapper around teamwork api making it easier to perform requests.",
   "keywords": [
     "api",
