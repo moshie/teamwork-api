@@ -8,7 +8,7 @@ class TaskList extends Teamwork {
      * Get a Task list
      * 
      * @method GET
-     * @uri /tasklists.json | /tasklists/${tasklist_id}.json
+     * @uri /tasklists.json | /tasklists/{tasklist_id}.json
      * @url https://developer.teamwork.com/projects/task-lists/get-all-task-lists
      * @example tw.tasklists.get(query_string, tasklist_id)
      * 
@@ -186,7 +186,7 @@ class TaskList extends Teamwork {
      * Get Tasks from a task list
      * 
      * @method GET
-     * @uri /tasklists/${tasklist_id}/tasks.json
+     * @uri /tasklists/{tasklist_id}/tasks.json
      * @url https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-task-list
      * @example tw.tasklists.getTasks(tasklist_id, query_string)
      * 
@@ -209,7 +209,7 @@ class TaskList extends Teamwork {
      * Get Time Totals from a task list
      * 
      * @method GET
-     * @uri /tasklists/${tasklist_id}/time/total.json
+     * @uri /tasklists/{tasklist_id}/time/total.json
      * @url https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-task-list
      * @example tw.tasklists.totalTime(tasklist_id, query_string)
      * 

@@ -29,7 +29,7 @@ class Role extends Teamwork {
      * Create a role
      * 
      * @method POST
-     * @uri /projects/${project_id}/roles.json
+     * @uri /projects/{project_id}/roles.json
      * @url https://developer.teamwork.com/projects/project-roles/add-a-role-to-a-project
      * @example tw.roles.create(project_id, body)
      * 
@@ -53,7 +53,7 @@ class Role extends Teamwork {
      * Update a Role
      * 
      * @method PUT
-     * @uri /roles/${role_id}.json
+     * @uri /roles/{role_id}.json
      * @url https://developer.teamwork.com/projects/project-roles/update-a-role-on-a-project
      * @example tw.roles.update(role_id, body)
      * 
@@ -77,7 +77,7 @@ class Role extends Teamwork {
      * Delete a Role
      * 
      * @method DELETE
-     * @uri /roles/${role_id}.json
+     * @uri /roles/{role_id}.json
      * @url https://developer.teamwork.com/projects/project-roles/delete-a-role
      * @example tw.roles.delete(role_id)
      * 

@@ -48,7 +48,7 @@ class Tag extends Teamwork {
      * Update a tag
      * 
      * @method PUT
-     * @uri /tags/${tag_id}.json
+     * @uri /tags/{tag_id}.json
      * @url https://developer.teamwork.com/projects/tags/update-a-single-tag
      * @example tw.tags.update(tag_id, body)
      * 
@@ -73,7 +73,7 @@ class Tag extends Teamwork {
      * Delete a tag
      * 
      * @method DELETE
-     * @uri /tags/${tag_id}.json
+     * @uri /tags/{tag_id}.json
      * @url https://developer.teamwork.com/projects/tags/delete-a-single-tag
      * @example tw.tags.delete(tag_id)
      * 

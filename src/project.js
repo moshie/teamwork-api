@@ -303,7 +303,7 @@ class Project extends Teamwork {
      * Get Companies on a Project
      * 
      * @method GET
-     * @uri /projects/${project_id}/companies.json
+     * @uri /projects/{project_id}/companies.json
      * @url https://developer.teamwork.com/projects/companies/retrieving-companies-within-a-project
      * @example tw.projects.getCompanies(project_id)
      * 
@@ -417,7 +417,7 @@ class Project extends Teamwork {
      * Get Archived / Unarchived Messages from a project
      * 
      * @method GET
-     * @uri /projects/${project_id}/posts/archive.json
+     * @uri /projects/{project_id}/posts/archive.json
      * @url https://developer.teamwork.com/projects/messages/get-archived-messages
      * @example tw.projects.getMessages(project_id, archived)
      * 
@@ -582,7 +582,7 @@ class Project extends Teamwork {
      * Add a Person to a project
      * 
      * @method POST
-     * @uri /projects/${project_id}/people/${person_id}.json
+     * @uri /projects/${project_id}/people/{person_id}.json
      * @url https://developer.teamwork.com/projects/people/add-people-to-existing-project
      * @example tw.projects.addPeople(project_id, person_id)
      * 
@@ -605,7 +605,7 @@ class Project extends Teamwork {
      * Add / Remove multiple people from a project
      * 
      * @method PUT
-     * @uri /projects/${project_id}/people.json
+     * @uri /projects/{project_id}/people.json
      * @url https://developer.teamwork.com/projects/permissions/add-remove-multiple-people-to-from-a-project
      * @example tw.projects.people(project_id, body)
      * 
@@ -629,7 +629,7 @@ class Project extends Teamwork {
      * Remove a Person from a project
      * 
      * @method POST
-     * @uri /projects/${project_id}/people.json
+     * @uri /projects/{project_id}/people.json
      * @url https://developer.teamwork.com/projects/people/remove-people-from-a-project
      * @example tw.projects.removePeople(project_id, body)
      * 
@@ -653,7 +653,7 @@ class Project extends Teamwork {
      * Get a Persons project permissions
      * 
      * @method GET
-     * @uri /projects/${project_id}/people/${person_id}.json
+     * @uri /projects/${project_id}/people/{person_id}.json
      * @url https://developer.teamwork.com/projects/permissions/get-a-users-permissions-on-a-project
      * @example tw.projects.getPermissions(project_id, person_id)
      * 
@@ -675,7 +675,7 @@ class Project extends Teamwork {
      * Update a Persons project permissions
      * 
      * @method PUT
-     * @uri /projects/${project_id}/people/${person_id}.json
+     * @uri /projects/${project_id}/people/{person_id}.json
      * @url https://developer.teamwork.com/projects/permissions/update-a-users-permissions-on-a-project
      * @example tw.projects.updatePermissions(project_id, person_id, body)
      * 
@@ -800,7 +800,7 @@ class Project extends Teamwork {
      * Star a project
      * 
      * @method PUT
-     * @uri /projects/${project_id}/star.json
+     * @uri /projects/{project_id}/star.json
      * @url https://developer.teamwork.com/projects/projects/star-a-project
      * @example tw.projects.star(project_id)
      * 
@@ -891,7 +891,7 @@ class Project extends Teamwork {
      * Enable disable features
      * 
      * @method PUT
-     * @uri /projects/${project_id}.json
+     * @uri /projects/{project_id}.json
      * @url https://developer.teamwork.com/projects/projects/enable-and-disable-projects-features
      * @example tw.projects.features(project_id, body)
      * 
@@ -915,7 +915,7 @@ class Project extends Teamwork {
      * Get Roles on a project
      * 
      * @method GET
-     * @uri /projects/${project_id}/roles.json
+     * @uri /projects/{project_id}/roles.json
      * @url https://developer.teamwork.com/projects/project-roles/list-roles-on-a-project
      * @example tw.projects.getRoles(project_id)
      * 
@@ -936,7 +936,7 @@ class Project extends Teamwork {
      * Get Email Addresses from a project
      * 
      * @method GET
-     * @uri /projects/${project_id}/emailaddress.json
+     * @uri /projects/{project_id}/emailaddress.json
      * @url https://developer.teamwork.com/projects/project-email-addresses/get-project-email-address
      * @example tw.projects.getEmailAddress(project_id)
      * 
@@ -957,7 +957,7 @@ class Project extends Teamwork {
      * Set Email Address for a project
      * 
      * @method PUT
-     * @uri /projects/${project_id}/emailaddress.json
+     * @uri /projects/{project_id}/emailaddress.json
      * @url https://developer.teamwork.com/projects/project-email-addresses/update-project-email-address
      * @example tw.projects.setEmailAddress(project_id, body)
      * 
@@ -981,7 +981,7 @@ class Project extends Teamwork {
      * Get Links from a project
      * 
      * @method GET
-     * @uri /projects/${project_id}/links.json
+     * @uri /projects/{project_id}/links.json
      * @url https://developer.teamwork.com/projects/links/list-links-on-a-project
      * @example tw.projects.getLinks(project_id)
      * 
@@ -1002,7 +1002,7 @@ class Project extends Teamwork {
      * Get Risks from a project
      * 
      * @method GET
-     * @uri /projects/${project_id}/risks.json
+     * @uri /projects/{project_id}/risks.json
      * @url https://developer.teamwork.com/projects/risks/retrieve-all-risks-in-a-project
      * @example tw.projects.getRisks(project_id)
      * 
@@ -1023,7 +1023,7 @@ class Project extends Teamwork {
      * Get Time from a project
      * 
      * @method GET
-     * @uri /projects/${project_id}/time_entries.json
+     * @uri /projects/{project_id}/time_entries.json
      * @url https://developer.teamwork.com/projects/time-tracking/retrieve-all-time-entries-for-a-project
      * @example tw.projects.getTime(project_id, query_string)
      * 
@@ -1046,7 +1046,7 @@ class Project extends Teamwork {
      * Create a time entry on a project
      * 
      * @method POST
-     * @uri /projects/${project_id}/time_entries.json
+     * @uri /projects/{project_id}/time_entries.json
      * @url https://developer.teamwork.com/projects/time-tracking/create-a-time-entry
      * @example tw.projects.createTime(project_id, body)
      * 
@@ -1114,7 +1114,7 @@ class Project extends Teamwork {
      * Get Tasks from a project
      * 
      * @method GET
-     * @uri /projects/${project_id}/tasks.json
+     * @uri /projects/{project_id}/tasks.json
      * @url https://developer.teamwork.com/projects/tasks/get-all-tasks-on-a-given-project
      * @example tw.projects.getTasks(project_id, query_string)
      * 
@@ -1137,7 +1137,7 @@ class Project extends Teamwork {
      * Get Tags from a project
      * 
      * @method GET
-     * @uri /projects/${project_id}/tags.json
+     * @uri /projects/{project_id}/tags.json
      * @url https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource
      * @example tw.projects.getTags(project_id, query_string)
      * 
@@ -1160,7 +1160,7 @@ class Project extends Teamwork {
      * Update a Tag on a project
      * 
      * @method PUT
-     * @uri /projects/${project_id}/tags.json
+     * @uri /projects/{project_id}/tags.json
      * @url https://developer.teamwork.com/projects/tags/update-tags-on-a-resource
      * @example tw.projects.updateTag(project_id, body)
      * 

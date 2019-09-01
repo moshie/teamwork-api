@@ -8,7 +8,7 @@ class Time extends Teamwork {
      * Get times or time
      * 
      * @method GET
-     * @uri /time_entries.json | /time_entries/${time_id}.json
+     * @uri /time_entries.json | /time_entries/{time_id}.json
      * @url https://developer.teamwork.com/projects/time-tracking/retrieve-all-time-entries-across-all-projects
      * @example tw.time.get(query_string, time_id)
      * 
@@ -29,7 +29,7 @@ class Time extends Teamwork {
      * Update time
      * 
      * @method PUT
-     * @uri /time_entries/${time_id}.json
+     * @uri /time_entries/{time_id}.json
      * @url https://developer.teamwork.com/projects/time-tracking/update-a-time-entry
      * @example tw.time.update(time_id, body)
      * 
@@ -53,7 +53,7 @@ class Time extends Teamwork {
      * Delete a time entry
      * 
      * @method DELETE
-     * @uri /time_entries/${time_id}.json
+     * @uri /time_entries/{time_id}.json
      * @url https://developer.teamwork.com/projects/time-tracking/delete-a-time-entry
      * @example tw.time.delete(time_id)
      * 
@@ -92,7 +92,7 @@ class Time extends Teamwork {
      * Get Tags from a Time log
      * 
      * @method GET
-     * @uri /timelogs/${time_id}/tags.json
+     * @uri /timelogs/{time_id}/tags.json
      * @url https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource
      * @example tw.time.getTags(time_id, query_string)
      * 
@@ -115,7 +115,7 @@ class Time extends Teamwork {
      * Update a Tag on a Time Log
      * 
      * @method PUT
-     * @uri /timelogs/${time_id}/tags.json
+     * @uri /timelogs/{time_id}/tags.json
      * @url https://developer.teamwork.com/projects/tags/update-a-single-tag
      * @example tw.tasks.updateTag(time_id, body)
      * 

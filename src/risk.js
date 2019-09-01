@@ -8,7 +8,7 @@ class Risk extends Teamwork {
      * Get risk or risks
      * 
      * @method GET
-     * @uri /risks/${risk_id}.json
+     * @uri /risks/{risk_id}.json
      * @url https://developer.teamwork.com/projects/risks/get-all-risks
      * @example tw.risks.get(query_string, risk_id)
      * 

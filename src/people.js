@@ -255,7 +255,7 @@ class People extends Teamwork {
      * Get all clock ins
      * 
      * @method GET
-     * @uri /people/${person_id}/clockins.json
+     * @uri /people/{person_id}/clockins.json
      * @url https://developer.teamwork.com/projects/clock-in-clock-out/get-all-clock-ins
      * @example tw.people.clockIns(person_id, query_string)
      * 

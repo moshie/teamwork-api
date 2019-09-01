@@ -24,7 +24,7 @@ class Webhook extends Teamwork {
      * Get webhooks or webhook
      * 
      * @method GET
-     * @uri /webhooks.json | /webhooks/${webhook_id}.json
+     * @uri /webhooks.json | /webhooks/{webhook_id}.json
      * @url https://developer.teamwork.com/projects/webhooks/get-all-webhooks-set-on-your-account
      * @example tw.webhooks.get(webhook_id)
      * 
@@ -62,7 +62,7 @@ class Webhook extends Teamwork {
      * Update a Webhook
      * 
      * @method PUT
-     * @uri /webhooks/${webhook_id}.json
+     * @uri /webhooks/{webhook_id}.json
      * @url https://developer.teamwork.com/projects/webhooks/update-a-specific-webhook-set-on-your-account
      * @example tw.webhooks.update(webhook_id, body)
      * 
@@ -87,7 +87,7 @@ class Webhook extends Teamwork {
      * Resume a Webhook
      * 
      * @method PUT
-     * @uri /webhooks/${webhook_id}/resume.json
+     * @uri /webhooks/{webhook_id}/resume.json
      * @url https://developer.teamwork.com/projects/webhooks/resume-a-specific-webhook-set-on-your-account
      * @example tw.webhooks.resume(webhook_id)
      * 
@@ -109,7 +109,7 @@ class Webhook extends Teamwork {
      * Pause a Webhook
      * 
      * @method PUT
-     * @uri /webhooks/${webhook_id}/pause.json
+     * @uri /webhooks/{webhook_id}/pause.json
      * @url https://developer.teamwork.com/projects/webhooks/pause-a-specific-webhook-set-on-your-account
      * @example tw.webhooks.pause(webhook_id)
      * 
@@ -131,7 +131,7 @@ class Webhook extends Teamwork {
      * Delete a webhook
      * 
      * @method DELETE
-     * @uri /webhooks/${webhook_id}.json
+     * @uri /webhooks/{webhook_id}.json
      * @url https://developer.teamwork.com/projects/webhooks/delete-a-specific-webhook-on-your-account
      * @example tw.webhooks.delete(webhook_id)
      * 

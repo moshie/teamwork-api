@@ -119,7 +119,7 @@ class Notebook extends Teamwork {
      * Copy Notebook
      * 
      * @method PUT
-     * @uri /notebooks/${notebook_id}/copy.json
+     * @uri /notebooks/{notebook_id}/copy.json
      * @url https://developer.teamwork.com/projects/notebooks/copy-a-notebook-to-another-project
      * @example tw.notebooks.copy(notebook_id, body)
      * 
@@ -143,7 +143,7 @@ class Notebook extends Teamwork {
      * Move Notebook
      * 
      * @method PUT
-     * @uri /notebooks/${notebook_id}/move.json
+     * @uri /notebooks/{notebook_id}/move.json
      * @url https://developer.teamwork.com/projects/notebooks/move-a-notebook-to-another-project
      * @example tw.notebooks.move(notebook_id, body)
      * 
@@ -167,7 +167,7 @@ class Notebook extends Teamwork {
      * Get Comments for a Notebook
      * 
      * @method GET
-     * @uri /notebooks/${notebook_id}/comments.json
+     * @uri /notebooks/{notebook_id}/comments.json
      * @url https://developer.teamwork.com/projects/comments/retrieving-comments-across-all-types
      * @example tw.notbooks.getComments(notebook_id, query_string)
      * 
@@ -190,7 +190,7 @@ class Notebook extends Teamwork {
      * Create a Comment for a Notebook
      * 
      * @method POST
-     * @uri /notebooks/${notebook_id}/comments.json
+     * @uri /notebooks/{notebook_id}/comments.json
      * @url https://developer.teamwork.com/projects/comments/creating-a-comment
      * @example tw.notbooks.createComment(notebook_id, body)
      * 

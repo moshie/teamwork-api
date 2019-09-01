@@ -73,7 +73,7 @@ class Link extends Teamwork {
      * Delete a Link
      * 
      * @method DELETE
-     * @uri /links/${link_id}.json
+     * @uri /links/{link_id}.json
      * @url https://developer.teamwork.com/projects/links/delete-a-single-link
      * @example tw.links.delete(link_id)
      * 
@@ -142,7 +142,7 @@ class Link extends Teamwork {
      * Get Tags from a Link
      * 
      * @method GET
-     * @uri /links/${link_id}/tags.json
+     * @uri /links/{link_id}/tags.json
      * @url https://developer.teamwork.com/projects/tags/list-all-tags-for-a-resource
      * @example tw.links.getTags(link_id, query_string)
      * 
@@ -165,7 +165,7 @@ class Link extends Teamwork {
      * Update a Tag on a Link
      * 
      * @method PUT
-     * @uri /links/${link_id}/tags.json
+     * @uri /links/{link_id}/tags.json
      * @url https://developer.teamwork.com/projects/tags/update-tags-on-a-resource
      * @example tw.links.updateTag(link_id, body)
      * 

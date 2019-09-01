@@ -8,7 +8,7 @@ class Status extends Teamwork {
      * Get a status or your status
      * 
      * @method GET
-     * @uri /statuses.json | /people/${user_id}/status.json
+     * @uri /statuses.json | /people/{user_id}/status.json
      * @url https://developer.teamwork.com/projects/people-status/retrieve-everybody-status
      * @example tw.status.get(user_id)
      * 
@@ -65,7 +65,7 @@ class Status extends Teamwork {
      * Update your status
      * 
      * @method PUT
-     * @uri /me/status/${status_id}.json
+     * @uri /me/status/{status_id}.json
      * @url https://developer.teamwork.com/projects/people-status/update-my-status
      * @example tw.status.updateMe(status_id, body)
      * 
@@ -89,7 +89,7 @@ class Status extends Teamwork {
      * Update a status
      * 
      * @method PUT
-     * @uri /people/status/${status_id}.json | /people/${person_id}/status/${status_id}.json
+     * @uri /people/status/${status_id}.json | /people/${person_id}/status/{status_id}.json
      * @url https://developer.teamwork.com/projects/people-status/update-user-status
      * @example tw.status.update(status_id, person_id, body)
      * 
@@ -120,7 +120,7 @@ class Status extends Teamwork {
      * delete your Profile status
      * 
      * @method DELETE
-     * @uri /me/status/${status_id}.json
+     * @uri /me/status/{status_id}.json
      * @url https://developer.teamwork.com/projects/people-status/delete-my-status
      * @example tw.status.deleteMe(status_id)
      * 
@@ -143,7 +143,7 @@ class Status extends Teamwork {
      * Delete a status
      * 
      * @method DELETE
-     * @uri /people/status/${status_id}.json | /people/${person_id}/status/${status_id}.json
+     * @uri /people/status/${status_id}.json | /people/${person_id}/status/{status_id}.json
      * @url https://developer.teamwork.com/projects/people-status/delete-user-status
      * @example tw.status.delete(status_id, person_id)
      * 

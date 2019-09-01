@@ -165,7 +165,7 @@ class Message extends Teamwork {
      * Get a Message Reply
      * 
      * @method GET
-     * @uri /messageReplies/${message_id}.json
+     * @uri /messageReplies/{message_id}.json
      * @url https://developer.teamwork.com/projects/message-replies/retrieve-a-single-message-reply
      * @example tw.messages.getReply(message_id)
      * 
