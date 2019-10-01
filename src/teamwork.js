@@ -4,10 +4,11 @@ var request = require('request-promise-native')
 
 class Teamwork {
 
-    constructor(api_key, domain) {
+    constructor(api_key, domain, custom_domain) {
         this.api_key = api_key
         this.domain = domain
         this.europe = domain.indexOf('.eu') === -1
+        this.customDomain = custom_domain
     }
     
     /**
@@ -39,7 +40,7 @@ class Teamwork {
     authenticate() {
         return this.query({
             uri: '/authenticate.json',
-            baseUrl: 'https://' + (this.europe ? 'authenticate.teamwork.com' : 'authenticate.eu.teamwork.com')
+            baseUrl: this.customDomain ? this.domain : 'https://' + (this.europe ? 'authenticate.teamwork.com' : 'authenticate.eu.teamwork.com')
         })
     }
 
@@ -78,7 +79,7 @@ class Teamwork {
 
         options = Object.assign({
             method: 'GET',
-            baseUrl: `https://${this.domain}.teamwork.com`,
+            baseUrl: this.customDomain ? this.domain :`https://${this.domain}.teamwork.com`,
             uri: '/',
             json: true,
             auth: {
