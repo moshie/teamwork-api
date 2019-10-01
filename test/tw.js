@@ -63,6 +63,14 @@ describe('#teamwork', function () {
         delete process.env.TW_API
     })
 
+    it('throws an error when an invalid custom domain is passed', function () {
+        expect(() => tw(api, 'mycompany.com', true)).to.throw(Error, 'custom domains must be fully qualified and include protocol without a trailing slash')
+    })
+
+    it('throws an error when a custom domain with no protocol', function () {
+        expect(() => tw(api, 'tw.mycompany.com', true)).to.throw(Error, 'custom domains must be fully qualified and include protocol without a trailing slash')
+    })
+
     // Success
     //
     it('returns the default teamwork class', function () {
@@ -77,6 +85,11 @@ describe('#teamwork', function () {
         expect(instance).to.be.an.instanceof(teamwork)
         delete process.env.TW_API
         delete process.env.TW_SUB
+    })
+
+    it('returns the default teamwork class when a custom domain is used', function () {
+        const instance = tw(api, 'https://projects.mydomain.net', true)
+        expect(instance).to.be.an.instanceof(teamwork)
     })
 
     it('returns correct Class instance when called', function () {
