@@ -51,13 +51,13 @@ describe('#teamwork', function () {
         expect(() => tw(api)).to.throw(Error, 'api_key or domain not provided')
     })
 
-    it('throws an error when no api key is provided on the environment', function () {
+    it('throws an error when no subdomain is provided on the environment', function () {
         process.env.TW_SUB = domain
         expect(tw).to.throw(Error, 'api_key or domain not provided')
         delete process.env.TW_SUB
     })
 
-    it('throws an error when no subdomain is provided on the environment', function () {
+    it('throws an error when no api key is provided on the environment', function () {
         process.env.TW_API = api
         expect(tw).to.throw(Error, 'api_key or domain not provided')
         delete process.env.TW_API
@@ -65,10 +65,6 @@ describe('#teamwork', function () {
 
     it('throws an error when an invalid custom domain is passed', function () {
         expect(() => tw(api, 'mycompany.com', true)).to.throw(Error, 'custom domains must be fully qualified and include protocol without a trailing slash')
-    })
-
-    it('throws an error when a custom domain with no protocol', function () {
-        expect(() => tw(api, 'tw.mycompany.com', true)).to.throw(Error, 'custom domains must be fully qualified and include protocol without a trailing slash')
     })
 
     // Success
