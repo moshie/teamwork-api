@@ -1,12 +1,15 @@
 'use strict'
 
-function teamwork (api_key = '', domain = '') {
+function teamwork (api_key = '', domain = '', custom_domain = false) {
 
     api_key = !api_key ? process.env.TW_API : api_key
     domain = !domain ? process.env.TW_SUB : domain
 
     if (!api_key || !domain) {
         throw new Error('api_key or domain not provided')
+    } if (custom_domain &&
+      !/^((\b(f|F)(t|T)(p|P)\b|\b(h|H)(t|T)(t|T)(p|P)\b|\b(h|H)(t|T)(t|T)(p|P)(s|S)\b)+(:\/\/[0-9a-zA-Z])|[0-9a-zA-Z])+\.+[0-9a-zA-Z]+(\.([0-9a-zA-z])+)+$/.test(domain)){
+        throw new Error('custom domains must be fully qualified and include protocol without a trailing slash')
     }
 
     const api = {
@@ -44,12 +47,12 @@ function teamwork (api_key = '', domain = '') {
         clocking: require('./clocking')
     }
 
-    const base = new api['teamwork'](api_key, domain)
+    const base = new api['teamwork'](api_key, domain, custom_domain)
 
     return new Proxy(base, {
         get: (target, name) => {
-            return api[name] ? 
-                new api[name](api_key, domain) : 
+            return api[name] ?
+                new api[name](api_key, domain, custom_domain) :
                 base[name]
         }
     })

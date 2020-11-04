@@ -51,16 +51,20 @@ describe('#teamwork', function () {
         expect(() => tw(api)).to.throw(Error, 'api_key or domain not provided')
     })
 
-    it('throws an error when no api key is provided on the environment', function () {
+    it('throws an error when no subdomain is provided on the environment', function () {
         process.env.TW_SUB = domain
         expect(tw).to.throw(Error, 'api_key or domain not provided')
         delete process.env.TW_SUB
     })
 
-    it('throws an error when no subdomain is provided on the environment', function () {
+    it('throws an error when no api key is provided on the environment', function () {
         process.env.TW_API = api
         expect(tw).to.throw(Error, 'api_key or domain not provided')
         delete process.env.TW_API
+    })
+
+    it('throws an error when an invalid custom domain is passed', function () {
+        expect(() => tw(api, 'mycompany.com', true)).to.throw(Error, 'custom domains must be fully qualified and include protocol without a trailing slash')
     })
 
     // Success
@@ -77,6 +81,11 @@ describe('#teamwork', function () {
         expect(instance).to.be.an.instanceof(teamwork)
         delete process.env.TW_API
         delete process.env.TW_SUB
+    })
+
+    it('returns the default teamwork class when a custom domain is used', function () {
+        const instance = tw(api, 'https://projects.mydomain.net', true)
+        expect(instance).to.be.an.instanceof(teamwork)
     })
 
     it('returns correct Class instance when called', function () {

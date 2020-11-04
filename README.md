@@ -23,10 +23,15 @@ process.env.TW_SUB = 'subdomain'
 const tw = require('teamwork-api')()
 ```
 
-Alternativly pass them in as function arguments 
+Alternatively pass them in as function arguments 
 
 ```js
 const tw = require('teamwork-api')('1234567890', 'subdomain')
+```
+
+If your teamwork installation uses a custom domain (ie. https://tw.mycompany.com) pass the `custom_domain=true` flag.
+```js
+const tw = require('teamwork-api')('1234567890', 'https://tw.mycompany.com', custom_domain=true)
 ```
 
 ## Contributing
