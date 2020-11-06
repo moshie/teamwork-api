@@ -11,6 +11,7 @@ yarn-error.log*
 
 # Environment
 .env
+test.js
 
 # Task Runners & Compilers
 /.sass-cache
