@@ -32,8 +32,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
+    "axios": "^0.21.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -48,8 +47,8 @@
     "mocha": "^4.1.0",
     "nock": "^9.1.6",
     "recursive-readdir": "^2.2.2",
-    "rimraf": "^3.0.0",
-    "semantic-release": "^15.13.24",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^15.14.0",
     "travis-deploy-once": "^4.3.2"
   },
   "config": {
@@ -59,5 +58,8 @@
     "ghooks": {
       "pre-commit": "npm run lint && npm run test"
     }
+  },
+  "prettier": {
+    "trailingComma": "none"
   }
 }
